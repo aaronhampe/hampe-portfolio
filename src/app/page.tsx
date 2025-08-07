@@ -29,15 +29,15 @@ export default function Home() {
             </div>
 
             {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-slate-600 font-light max-w-3xl mx-auto leading-relaxed">
-              Aaron Hampe – Ihr Partner für erstklassige Websites, innovative Webshops 
+            <p className="md:text-2xl text-slate-600 font-light max-w-3xl mx-auto leading-relaxed">
+              Aaron Hampe – Ihr Partner für erstklassige Websites, innovative Webshops
               und maßgeschneiderte Software-Lösungen
             </p>
 
             {/* Services Tags */}
             <div className="flex flex-wrap justify-center gap-3 text-sm">
               <span className="px-4 py-2 bg-white/70 backdrop-blur-sm rounded-full text-slate-700 border border-slate-200/50">
-                Next.js Development
+                Next.js | Nuxt 4 Development
               </span>
               <span className="px-4 py-2 bg-white/70 backdrop-blur-sm rounded-full text-slate-700 border border-slate-200/50">
                 E-Commerce Lösungen
@@ -48,7 +48,7 @@ export default function Home() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8 mt-[-14] lg:mt-0">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:pt-8 mt-[-14] lg:mt-0">
               <Link
                 href="/contact"
                 className="group relative px-8 py-4 bg-slate-900 text-white rounded-2xl font-medium text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-slate-900/25 hover:-translate-y-1"
@@ -66,7 +66,7 @@ export default function Home() {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="absolute bottom-[-4em] left-1/2 transform -translate-x-1/2 animate-bounce">
             <div className="w-6 h-10 border-2 border-slate-300 rounded-full flex justify-center">
               <div className="w-1 h-3 bg-slate-400 rounded-full mt-2 animate-pulse"></div>
             </div>

@@ -283,7 +283,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-medium text-slate-900">E-Mail</h4>
-                      <p className="text-slate-600">kontakt@hampe.dev</p>
+                      <p className="text-slate-600">info@aaronhampe.de</p>
                       <p className="text-sm text-slate-500">Antwort innerhalb von 24h</p>
                     </div>
                   </div>
@@ -296,8 +296,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-medium text-slate-900">Telefon</h4>
-                      <p className="text-slate-600">+49 123 456 789</p>
-                      <p className="text-sm text-slate-500">Mo-Fr 9:00-18:00 Uhr</p>
+                      <p className="text-slate-600">+49 151 29574884</p>
+                      <p className="text-sm text-slate-500">Jederzeit erreichbar</p>
                     </div>
                   </div>
 
@@ -310,7 +310,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-medium text-slate-900">Standort</h4>
-                      <p className="text-slate-600">Hildesheim, Deutschland</p>
+                      <p className="text-slate-600">Hannover, Deutschland</p>
                       <p className="text-sm text-slate-500">Remote & vor Ort</p>
                     </div>
                   </div>
