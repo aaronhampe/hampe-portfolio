@@ -1,6 +1,22 @@
+/* eslint-disable @typescript-eslint/no-namespace */
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import Script from "next/script";
+
+// Add JSX typing for the custom element <iconify-icon>
+import "react";
+
+declare module "react" {
+  namespace JSX {
+    interface IntrinsicElements {
+      "iconify-icon": React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+        icon: string;
+      };
+    }
+  }
+}
+
 
 // Filter und Kategorien für Projekte
 const categories = [
@@ -10,9 +26,140 @@ const categories = [
   { id: "software", name: "Software", count: projects.filter(p => p.category === "software").length },
 ];
 
+// Map tech labels to icon + brand RGB
+const TECH_MAP: Record<string, { icon: string; rgb: [number, number, number]; label?: string }> = {
+  react:       { icon: "simple-icons:react",       rgb: [97, 218, 251] },
+  "reactjs":   { icon: "simple-icons:react",       rgb: [97, 218, 251] },
+  "reactnative": { icon: "skill-icons:react-dark",     rgb: [97, 218, 251] },
+
+  nextjs:      { icon: "simple-icons:nextdotjs",   rgb: [0, 0, 0] },
+  "next.js":   { icon: "simple-icons:nextdotjs",   rgb: [0, 0, 0] },  
+  "nextauthjs": { icon: "simple-icons:nextdotjs", rgb: [0, 0, 0] },
+
+  nuxt:       { icon: "simple-icons:nuxtdotjs", rgb: [0, 220, 130] },
+
+  vue:        { icon: "logos:vue",       rgb: [0, 185, 230] },
+  "vue3":    { icon: "logos:vue",        rgb: [0, 185, 230] },
+
+  prisma:    { icon: "material-icon-theme:prisma", rgb: [0, 0, 0] },
+
+  stripe:    { icon: "simple-icons:stripe",        rgb: [129, 171, 250] },
+
+  shopify:   { icon: "simple-icons:shopify",       rgb: [96, 189, 99] },
+  "shopifyliquid": { icon: "simple-icons:shopify", rgb: [96, 189, 99] },
+  "shopifycli": { icon: "simple-icons:shopify", rgb: [96, 189, 99] },
+
+  postgresql: { icon: "simple-icons:postgresql",   rgb: [0, 0, 0] },
+
+  mapbox: { icon: "simple-icons:mapbox", rgb: [0, 0, 0] },
+
+  mongodb: { icon: "simple-icons:mongodb", rgb: [0, 0, 0] },
+
+  socketio: { icon: "simple-icons:socketdotio", rgb: [0, 0, 0] },
+
+  supabase: { icon: "simple-icons:supabase", rgb: [0, 0, 0] },
+
+  d3: { icon: "simple-icons:d3dotjs", rgb: [0, 0, 0] },
+
+  redis: { icon: "simple-icons:redis", rgb: [0, 0, 0] },
+
+  twilio: { icon: "devicon:twilio", rgb: [241, 46, 69] },
+
+  express: { icon: "devicon:express", rgb: [0, 0, 0] },
+
+  planetscale: { icon: "logos:planetscale", rgb: [0, 0, 0] },
+
+  mux: { icon: "devicon:mux", rgb: [0, 0, 0] },
+  "muxvideo": { icon: "devicon:mux", rgb: [0, 0, 0] },
+
+  figma: { icon: "devicon:figma" , rgb: [10, 207, 131] },
+
+  woocommerce: { icon: "devicon:woocommerce", rgb: [150, 88, 138] },
+  wordpress:   { icon: "simple-icons:wordpress",   rgb: [0, 115, 170] },
+
+  typescript:  { icon: "simple-icons:typescript",  rgb: [49, 120, 198] },
+  javascript:  { icon: "simple-icons:javascript",  rgb: [247, 223, 30] },
+  node:        { icon: "simple-icons:nodedotjs",   rgb: [51, 153, 51] },
+  "nodejs":    { icon: "simple-icons:nodedotjs",   rgb: [51, 153, 51] },
+  "node.js":   { icon: "simple-icons:nodedotjs",   rgb: [51, 153, 51] },
+
+  tailwind:    { icon: "simple-icons:tailwindcss", rgb: [56, 189, 248] },
+  "tailwindcss": { icon: "simple-icons:tailwindcss", rgb: [56, 189, 248] },
+
+  sass:        { icon: "simple-icons:sass",        rgb: [204, 102, 153] },
+  css:         { icon: "simple-icons:css3",        rgb: [38, 77, 228] },
+  css3:        { icon: "simple-icons:css3",        rgb: [38, 77, 228] },
+  html:        { icon: "simple-icons:html5",       rgb: [227, 79, 38] },
+  html5:       { icon: "simple-icons:html5",       rgb: [227, 79, 38] },
+
+  php:         { icon: "simple-icons:php",         rgb: [119, 123, 179] },
+  mysql:       { icon: "simple-icons:mysql",       rgb: [68, 121, 161] },
+
+  firebase:    { icon: "simple-icons:firebase",    rgb: [255, 202, 40] },
+  vite:        { icon: "simple-icons:vite",        rgb: [100, 108, 255] },
+  astro:       { icon: "simple-icons:astro",       rgb: [255, 93, 1] },
+  threejs:     { icon: "simple-icons:threedotjs",  rgb: [0, 0, 0] },
+  "three.js":  { icon: "simple-icons:threedotjs",  rgb: [0, 0, 0] },
+  graphql:     { icon: "simple-icons:graphql",     rgb: [225, 0, 152] },
+  docker:      { icon: "simple-icons:docker",      rgb: [36, 150, 237] },
+  python:      { icon: "simple-icons:python",      rgb: [55, 118, 171] },
+};
+
+
+
+const norm = (s: string) =>
+  (s || "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/[\._-]/g, "");
+
+type TechBadgeProps = { tech: string };
+
+function TechBadge({ tech }: TechBadgeProps) {
+  const key = norm(tech);
+  const conf =
+    TECH_MAP[key] ||
+    TECH_MAP[key.replace(/(js|dotjs)$/g, "")] || {
+      icon: "ph:code-bold",
+      rgb: [180, 180, 180] as [number, number, number],
+    };
+  const [r, g, b] = conf.rgb;
+  const glass: React.CSSProperties = {
+    background: `linear-gradient(135deg, rgba(${r},${g},${b},0.14) 0%, rgba(${r},${g},${b},0.06) 100%)`,
+    border: `1px solid rgba(${r},${g},${b},0.35)`,
+    boxShadow: `inset 0 1px 0 rgba(255,255,255,0.15), 0 8px 18px rgba(${r},${g},${b},0.25)`,
+    WebkitBackdropFilter: "blur(8px) saturate(1.2)",
+    backdropFilter: "blur(8px) saturate(1.2)",
+  };
+  const iconStyle: React.CSSProperties = { color: `rgb(${r},${g},${b})`, filter: "drop-shadow(0 1px 1px rgba(0,0,0,0.25))" };
+
+  return (
+    <span
+      className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-slate-800 transition-all duration-150 hover:-translate-y-0.5"
+      style={glass}
+    >
+      {/* gloss highlight */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -top-[120%] -left-[60%] w-[220%] h-[220%] z-0"
+        style={{
+          background: "radial-gradient(ellipse at top left, rgba(255,255,255,0.38), transparent 55%)",
+          transform: "rotate(-18deg)",
+        }}
+      />
+      <iconify-icon icon={conf.icon} className="relative z-[1] w-[1.05em] h-[1.05em]" style={iconStyle} />
+      <span className="relative z-[1]">{tech}</span>
+    </span>
+  );
+}
+
 export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+      {/* Iconify loader for web component <iconify-icon> */}
+      <Script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" strategy="afterInteractive" />
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
         {/* Background Elements */}
@@ -134,13 +281,8 @@ export default function ProjectsPage() {
                           Technologien
                         </h3>
                         <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                          {project.technologies.map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm font-medium"
-                            >
-                              {tech}
-                            </span>
+                          {project.technologies.map((tech: string) => (
+                            <TechBadge key={tech} tech={tech} />
                           ))}
                         </div>
                       </div>
