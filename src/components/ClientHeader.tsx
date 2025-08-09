@@ -17,6 +17,7 @@ const ThemeSwitcher = dynamic(() => import("./ThemeSwitcher"), {
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Projekte", href: "/projects" },
+ { name: "Blog", href: "/blog" },
   { name: "Über mich", href: "/about" },
   { name: "Kontakt", href: "/contact" },
 ];
@@ -46,8 +47,8 @@ export default function Header() {
         <nav className="container mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="group flex items-center transition-all duration-300"
             >
               <div className="relative">
@@ -173,7 +174,7 @@ export default function Header() {
                 </Link>
               );
             })}
-            
+
             {/* Mobile CTA */}
             <div className="pt-4 border-t border-slate-200/50">
               <Link
