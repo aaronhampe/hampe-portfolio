@@ -15,7 +15,7 @@ export default function AboutPage() {
           Unternehmen dabei, ihre digitale Präsenz zu stärken und maßgeschneiderte Software‑Lösungen zu realisieren.
         </p>
         <p className="mb-4 text-gray-700 dark:text-gray-300">
-          Durch mein Studium der Informatik und zahlreiche Projekte habe ich ein tiefes Verständnis für performante
+          Neben meinem Studium der Informatik habe ich durch zahlreiche Projekte ein tiefes Verständnis für performante
           Frontend‑Architekturen, skalierbare Backends und benutzerfreundliche Oberflächen entwickelt. Neben meiner
           technischen Arbeit engagiere ich mich für Open Source und halte mich stets über die neuesten Trends in der
           Webentwicklung auf dem Laufenden.
