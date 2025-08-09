@@ -1,23 +1,38 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import ClientHeader from "@/components/ClientHeader";
-import Footer from "@/components/Footer";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import ClientHeader from '@/components/ClientHeader';
+import Footer from '@/components/Footer';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import './globals.css';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "HAMPE - Webentwicklung & Software Lösungen",
-  description: "Professionelle Websites, E-Commerce Lösungen und maßgeschneiderte Software von Aaron Weber. Next.js, React und moderne Webtechnologien.",
-  keywords: ["Webentwicklung", "Next.js", "React", "E-Commerce", "Software", "Hildesheim"],
-  authors: [{ name: "Aaron Weber" }],
+  title: {
+    default: 'HAMPE – AI‑gestützte Webentwicklung',
+    template: '%s – HAMPE',
+  },
+  description:
+    'Websites, Webshops und Software für KMU: KI‑gestützt, DSGVO‑konform, in einer Woche live. Maßgeschneiderte Lösungen aus Hildesheim.',
+  keywords: [
+    'Webentwicklung',
+    'Next.js',
+    'Nuxt',
+    'React',
+    'Tailwind CSS',
+    'KI',
+    'Hildesheim',
+    'DSGVO',
+    'Core Web Vitals',
+  ],
+  authors: [{ name: 'Aaron Hampe' }],
   openGraph: {
-    title: "HAMPE - Webentwicklung & Software Lösungen",
-    description: "Professionelle Websites, E-Commerce Lösungen und maßgeschneiderte Software",
-    type: "website",
-    locale: "de_DE",
-    siteName: "HAMPE Webentwicklung",
+    title: 'HAMPE – AI‑gestützte Webentwicklung',
+    description:
+      'AI‑gestützte Websites, Webshops und Software für kleine und mittelständische Unternehmen – in einer Woche live, DSGVO‑konform, messbar mehr Leads.',
+    type: 'website',
+    locale: 'de_DE',
+    siteName: 'HAMPE Webentwicklung',
   },
   robots: {
     index: true,
@@ -25,44 +40,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+/**
+ * RootLayout umschließt alle Seiten. Er stellt Header, Footer und ThemeContext bereit.
+ */
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                function getThemePreference() {
-                  if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-                    return localStorage.getItem('theme');
-                  }
-                  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                }
-                const themePreference = getThemePreference();
-                const theme = themePreference === 'system' 
-                  ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
-                  : themePreference;
-                document.documentElement.classList.add(theme);
-                document.documentElement.style.colorScheme = theme;
-              })()
-            `,
-          }}
-        />
-      </head>
-      <body className={`${inter.className} antialiased transition-colors duration-300`}>
-        <ThemeProvider defaultTheme="system">
-          <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-800 transition-colors duration-500">
-            <ClientHeader />
-            <main className="relative">
-              {children}
-            </main>
-            <Footer />
-          </div>
+    <html lang="de" className={inter.className}>
+      <body className="antialiased">
+        <ThemeProvider defaultTheme="light">
+          <ClientHeader />
+          {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

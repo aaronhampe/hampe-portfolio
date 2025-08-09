@@ -14,6 +14,7 @@ const navigation = {
     { name: "E-Commerce Lösungen", href: "/services#webshops" },
     { name: "Custom Software", href: "/services#software" },
     { name: "Wartung & Support", href: "/services#support" },
+    { name: "AI-gestützte Entwicklung", href: "/ai" },
   ],
   legal: [
     { name: "Impressum", href: "/impressum" },
