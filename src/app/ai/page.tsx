@@ -161,7 +161,7 @@ export default function AiPage() {
               Toolchain
             </h3>
             <p className="mt-2 leading-relaxed">
-              ChatGPT für Ideation, GitHub Copilot für Code-Vervollständigungen, Midjourney/DALL-E
+              ChatGPT und Claude für Ideation, GitHub Copilot für Code-Vervollständigungen, Midjourney/DALL-E
               für Bildkonzepte sowie Skripte für Tests & Deployments – schnell und verlässlich.
             </p>
           </div>

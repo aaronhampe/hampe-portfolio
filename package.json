@@ -9,14 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "highlight.js": "^11.11.1",
     "next": "15.4.5",
     "nodemailer": "^7.0.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "remark-gfm": "^4.0.1",
     "simple-icons": "^15.9.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
