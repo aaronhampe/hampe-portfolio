@@ -17,6 +17,7 @@ const ThemeSwitcher = dynamic(() => import("./ThemeSwitcher"), {
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Projekte", href: "/projects" },
+  { name: "Blog", href: "/blog" },
   { name: "Kontakt", href: "/contact" },
 ];
 
