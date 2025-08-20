@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Icon } from '@iconify/react';
 import { projects } from "@/data/projects";
 
 export default function Home() {
@@ -90,15 +91,11 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Websites */}
-            <div className="group text-center p-8 rounded-3xl bg-gradient-to-br from-blue-50 to-white dark:from-slate-800 dark:to-slate-900 border border-blue-100/50 dark:border-slate-700/60 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-              <div className="relative w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-lg flex items-center justify-center">
-                {/* Glow / Ring */}
-                <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/20 dark:ring-white/10" />
-                <span className="pointer-events-none absolute -inset-1 rounded-3xl bg-blue-500/20 blur-lg opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                {/* Icon */}
-                <iconify-icon
-                  icon="ph:globe-hemisphere-west"
-                  className="w-4 h-4"
+            <div className="group text-center p-8 rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500">
+              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Icon
+                  icon="ph:browser-duotone"
+                  className="w-10 h-10 text-blue-600 dark:text-blue-400"
                   aria-hidden="true"
                 />
               </div>
@@ -112,13 +109,11 @@ export default function Home() {
             </div>
 
             {/* Webshops */}
-            <div className="group text-center p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-white dark:from-slate-800 dark:to-slate-900 border border-purple-100/50 dark:border-slate-700/60 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-              <div className="relative w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 text-white shadow-lg flex items-center justify-center">
-                <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/20 dark:ring-white/10" />
-                <span className="pointer-events-none absolute -inset-1 rounded-3xl bg-purple-500/20 blur-lg opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <iconify-icon
-                  icon="ph:shopping-cart-simple"
-                  className="w-4 h-4"
+            <div className="group text-center p-8 rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-500">
+              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Icon
+                  icon="ph:storefront-duotone"
+                  className="w-10 h-10 text-purple-600 dark:text-purple-400"
                   aria-hidden="true"
                 />
               </div>
@@ -132,13 +127,11 @@ export default function Home() {
             </div>
 
             {/* Software */}
-            <div className="group text-center p-8 rounded-3xl bg-gradient-to-br from-emerald-50 to-white dark:from-slate-800 dark:to-slate-900 border border-emerald-100/50 dark:border-slate-700/60 hover:shadow-xl hover:-translate-y-2 transition-all duration-500">
-              <div className="relative w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-lg flex items-center justify-center">
-                <span className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/20 dark:ring-white/10" />
-                <span className="pointer-events-none absolute -inset-1 rounded-3xl bg-emerald-500/20 blur-lg opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                <iconify-icon
-                  icon="ph:brackets-curly"
-                  className="w-4 h-4"
+            <div className="group text-center p-8 rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 transition-all duration-500">
+              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Icon
+                  icon="ph:code-duotone"
+                  className="w-10 h-10 text-emerald-600 dark:text-emerald-400"
                   aria-hidden="true"
                 />
               </div>

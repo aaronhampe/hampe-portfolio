@@ -131,14 +131,7 @@ function TechBadge({ tech }: TechBadgeProps) {
       className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-slate-800 dark:text-slate-100 transition-all duration-150 hover:-translate-y-0.5"
       style={glass}
     >
-      <span
-        aria-hidden
-        className="pointer-events-none absolute -top-[120%] -left-[60%] w-[220%] h-[220%] z-0"
-        style={{
-          background: "radial-gradient(ellipse at top left, rgba(255,255,255,0.38), transparent 55%)",
-          transform: "rotate(-18deg)",
-        }}
-      />
+  
       <iconify-icon icon={conf.icon} className="relative z-[1] w-[1.05em] h-[1.05em]" style={iconStyle} />
       <span className="relative z-[1]">{conf.label ?? tech}</span>
     </span>
@@ -149,13 +142,12 @@ function TechBadge({ tech }: TechBadgeProps) {
    Filter-Kachel
 ------------------------------------------- */
 type FilterButtonProps = {
-  id: CategoryId;
   name: string;
   count: number;
   active: boolean;
   onClick: () => void;
 };
-function FilterButton({ id, name, count, active, onClick }: FilterButtonProps) {
+function FilterButton({ name, count, active, onClick }: FilterButtonProps) {
   return (
     <button
       type="button"
@@ -226,7 +218,11 @@ export default function ProjectsPage() {
               <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
             </div>
 
-            <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+            <p className="text-xl md:text-2xl text-red-600 dark:text-red-500 font-light leading-relaxed">
+              Diese Seite befindet sich noch in Arbeit
+            </p>
+
+            <p className="text-md md:text-lg text-slate-600 dark:text-slate-300 font-light leading-relaxed">
               Eine Auswahl meiner bisherigen Arbeiten – von eleganten Websites bis hin zu komplexen Anwendungen
             </p>
 
@@ -237,11 +233,11 @@ export default function ProjectsPage() {
                 <div className="text-sm text-slate-600 dark:text-slate-300">Projekte</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-slate-900 dark:text-white">50+</div>
+                <div className="text-3xl font-bold text-slate-900 dark:text-white">20+</div>
                 <div className="text-sm text-slate-600 dark:text-slate-300">Zufriedene Kunden</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-slate-900 dark:text-white">3+</div>
+                <div className="text-3xl font-bold text-slate-900 dark:text-white">6+</div>
                 <div className="text-sm text-slate-600 dark:text-slate-300">Jahre Erfahrung</div>
               </div>
             </div>
@@ -256,7 +252,6 @@ export default function ProjectsPage() {
             {categories.map((c) => (
               <FilterButton
                 key={c.id}
-                id={c.id}
                 name={c.name}
                 count={counts[c.id]}
                 active={active === c.id}

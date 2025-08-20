@@ -198,24 +198,7 @@ export default function Contact() {
                   </select>
                 </div>
 
-                {/* Budget Range */}
-                <div className="space-y-2">
-                  <label htmlFor="budget" className="block text-sm font-medium text-slate-700 dark:text-slate-300">
-                    Budget (optional)
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    disabled={formState === "loading"}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-300 disabled:bg-slate-50 dark:disabled:bg-slate-800 disabled:opacity-50"
-                  >
-                    <option value="">Budget auswählen...</option>
-                    <option value="5000-10000">5.000 - 10.000 €</option>
-                    <option value="10000-25000">10.000 - 25.000 €</option>
-                    <option value="25000-50000">25.000 - 50.000 €</option>
-                    <option value="50000+">50.000+ €</option>
-                  </select>
-                </div>
+             
 
                 {/* Message */}
                 <div className="space-y-2">

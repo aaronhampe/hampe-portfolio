@@ -4,18 +4,19 @@ import Image from "next/image";
 const navigation = {
   main: [
     { name: "Home", href: "/" },
-    { name: "Projekte", href: "/projects" },
-    { name: "Services", href: "/services" },
+    //{ name: "Projekte", href: "/projects" },
+    //{ name: "Services", href: "/services" },
      { name: "Blog", href: "/blog" },
     { name: "Über mich", href: "/about" },
     { name: "Kontakt", href: "/contact" },
   ],
   services: [
     { name: "Website Entwicklung", href: "/services#websites" },
-    { name: "E-Commerce Lösungen", href: "/services#webshops" },
-    { name: "Custom Software", href: "/services#software" },
+    //{ name: "E-Commerce Lösungen", href: "/services#webshops" },
+    //{ name: "Custom Software", href: "/services#software" },
     { name: "Wartung & Support", href: "/services#support" },
-    { name: "AI-gestützte Entwicklung", href: "/ai" },
+    { name: "KI-gestützte Entwicklung", href: "/ai" },
+    { name: "KI-Ethik", href: "/ai/ethics" },
   ],
   legal: [
     { name: "Impressum", href: "/impressum" },
@@ -25,7 +26,7 @@ const navigation = {
   social: [
     {
       name: "GitHub",
-      href: "https://github.com/aaronthommy",
+      href: "https://github.com/aaronhampe",
       icon: (
         <svg
           className="w-6 h-6"
@@ -41,7 +42,7 @@ const navigation = {
         </svg>
       ),
     },
-    {
+    /*{
       name: "LinkedIn",
       href: "https://linkedin.com/in/aaronhampe",
       icon: (
@@ -68,7 +69,7 @@ const navigation = {
           <path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.284.542 4.919 8.695 4.919 8.695.186.335.36.688.927.688h3.454c.543 0 .758-.336.609-.585 0 0-4.896-8.582-4.896-8.582s7.565-13.384 7.565-13.384c.151-.249-.061-.549-.609-.549h-3.44zm-8.212 7.921c-.543 0-.758.336-.609.585 0 0 2.146 3.764 2.146 3.764s-3.314 5.874-3.314 5.874c-.151.249.061.549.609.549h3.454c.517 0 .741-.325.927-.66 0 0 3.253-5.983 3.253-5.983-.284-.542-2.146-3.764-2.146-3.764-.186-.335-.36-.365-.927-.365h-3.393z" />
         </svg>
       ),
-    },
+    },*/
   ],
 };
 

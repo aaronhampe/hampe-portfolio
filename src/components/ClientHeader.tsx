@@ -16,7 +16,7 @@ const ThemeSwitcher = dynamic(() => import("./ThemeSwitcher"), {
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Projekte", href: "/projects" },
+ //{ name: "Projekte", href: "/projects" },
   { name: "Blog", href: "/blog" },
   { name: "Kontakt", href: "/contact" },
 ];
@@ -131,12 +131,12 @@ export default function Header() {
                 />
                 <span
                   className={`w-full h-0.5 rounded-full transition-all duration-300 bg-slate-700 dark:bg-slate-200 ${
-                    isMobileMenuOpen ? "opacity-0" : ""
+                    isMobileMenuOpen ? "-rotate-45 -translate-y-1.4" : ""
                   }`}
                 />
                 <span
                   className={`w-full h-0.5 rounded-full transition-all duration-300 bg-slate-700 dark:bg-slate-200 ${
-                    isMobileMenuOpen ? "-rotate-45 -translate-y-1.5" : ""
+                    isMobileMenuOpen ? "opacity-0" : "" 
                   }`}
                 />
               </div>

@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import ClientHeader from '@/components/ClientHeader';
 import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import PlausibleProvider from 'next-plausible';
+import CookieConsent from '@/components/CookieConsent';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -19,11 +21,11 @@ export const metadata: Metadata = {
     'Next.js',
     'Nuxt',
     'React',
-    'Tailwind CSS',
+    'Tailwind CSS',
     'KI',
-    'Hildesheim',
+    'Hannover',
     'DSGVO',
-    'Core Web Vitals',
+    'Core Web Vitals',
   ],
   authors: [{ name: 'Aaron Hampe' }],
   openGraph: {
@@ -47,11 +49,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" className={inter.className}>
       <body className="antialiased">
-        <ThemeProvider defaultTheme="light">
-          <ClientHeader />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <PlausibleProvider
+          domain="TODO-DOMAIN" // <-- TODO: Deine Produktions-Domain eintragen (z.B. hampe.dev)
+          trackLocalhost={false}
+          selfHosted={false} // auf true stellen falls selbst gehostete Instanz
+          enabled={false} // wird dynamisch via CookieConsent gesetzt (siehe Hinweis unten)
+        >
+          <ThemeProvider defaultTheme="light">
+            <ClientHeader />
+            <CookieConsent />
+            {children}
+            <Footer />
+          </ThemeProvider>
+        </PlausibleProvider>
       </body>
     </html>
   );
