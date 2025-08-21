@@ -20,10 +20,19 @@ export default function CookieConsent() {
       onConsent?: (ctx: CookieConsentCtx) => void;
       onChange?: (ctx: CookieConsentCtx & { changedCategories?: string[] }) => void;
     }
+    
     import("vanilla-cookieconsent").then((mod: unknown) => {
-      const m = mod as { run: (config: CookieConsentConfig) => Promise<void> | void };
-      const run = m.run;
-      run({
+      const cookieConsent = mod as { 
+        run: (config: CookieConsentConfig) => void;
+        showSettings: () => void;
+      };
+      
+      // Global verfügbar machen für den Settings-Button  
+      (window as unknown as { cc?: { showSettings?: () => void } }).cc = {
+        showSettings: cookieConsent.showSettings,
+      };
+      
+      cookieConsent.run({
         guiOptions: {
           consentModal: { layout: "box inline", position: "bottom right", equalWeightButtons: true, flipButtons: false },
           preferencesModal: { layout: "box", position: "right", equalWeightButtons: true, flipButtons: false },

@@ -20,7 +20,7 @@ export default function AiPage() {
       >
         <h1
           id="hero-title"
-          className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 md:text-6xl"
+          className="text-3xl  font-bold tracking-tight text-gray-900 dark:text-gray-100 md:text-6xl"
         >
           AI-gestützte Webentwicklung für KMU
         </h1>
@@ -122,7 +122,7 @@ export default function AiPage() {
         <h2 id="final-cta-title" className="text-3xl font-semibold md:text-4xl">
           Bereit für den nächsten Schritt?
         </h2>
-        <p className="mx-auto mt-4 max-w-3xl text-lg">
+        <p className="mx-auto mt-4 max-w-3xl text-md md:text-xl">
           Buchen Sie Ihren kostenlosen Website-Check und erfahren Sie, wie KI und modernes
           Webdesign Ihr Geschäft voranbringen.
         </p>

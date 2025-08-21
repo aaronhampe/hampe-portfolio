@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import PlausibleProvider from 'next-plausible';
 import CookieConsent from '@/components/CookieConsent';
+import { CookieSettingsButton } from '@/components/CookieSettingsButton';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ThemeProvider defaultTheme="light">
             <ClientHeader />
             <CookieConsent />
+            <CookieSettingsButton />
             {children}
             <Footer />
           </ThemeProvider>
