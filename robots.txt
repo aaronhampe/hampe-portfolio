@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Falls du Bereiche ausschließen willst, ergänze z. B.:
+# Disallow: /admin
+
+Sitemap: https://www.aaronhampe.de/sitemap.xml
