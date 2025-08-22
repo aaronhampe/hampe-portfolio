@@ -17,13 +17,15 @@ export default function DatenschutzPage() {
       <section className="space-y-3" aria-labelledby="verantwortlicher">
         <h2 id="verantwortlicher" className="text-2xl font-semibold">1. Verantwortlicher</h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          Aaron Hampe<br />
-          c/o MDC (Postdienstleistung) <br />
+          Aaron Hampe<br /> 
+          c/o MDC <br />
           Management #2005<br />
-            Welserstraße 3<br />
+          Welserstraße 3<br />
           87463 Dietmannsried<br />
-          Deutschland<br />
-          E-Mail: <a href="mailto:info@aaronhampe.de" className="underline decoration-dotted">info@aaronhampe.de</a>
+          Deutschland<br /> <br />
+          <h3  className="text-xl font-semibold">Kontakt</h3>
+          E-Mail: <a href="mailto:info@aaronhampe.de" className="underline decoration-dotted">info@aaronhampe.de</a> <br />
+          Telefon: <a href="tel:+4915129574884" className="underline decoration-dotted">+49 151 29574884</a>
         </p>
       </section>
 
@@ -54,7 +56,7 @@ export default function DatenschutzPage() {
       <section className="space-y-3" aria-labelledby="hosting">
         <h2 id="hosting" className="text-2xl font-semibold">5. Hosting / Infrastruktur</h2>
         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          Diese Website wird über {/* TODO: z.B. Vercel Inc., Hetzner Online GmbH */} gehostet. Mit dem Hostinganbieter besteht ggf. ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO. Serverstandorte: {/* TODO */}. Übermittlungen in Drittländer nur unter geeigneten Garantien (Art. 46 DSGVO) oder auf Basis Angemessenheitsbeschluss.
+          Diese Website wird über Vercel gehostet. Mit dem Hostinganbieter besteht ggf. ein Auftragsverarbeitungsvertrag gemäß Art. 28 DSGVO. Serverstandorte: {/* TODO */}. Übermittlungen in Drittländer nur unter geeigneten Garantien (Art. 46 DSGVO) oder auf Basis Angemessenheitsbeschluss.
         </p>
       </section>
 
@@ -75,21 +77,21 @@ export default function DatenschutzPage() {
       <section className="space-y-3" aria-labelledby="cookies">
         <h2 id="cookies" className="text-2xl font-semibold">8. Cookies / lokale Speicherung</h2>
         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          Derzeit werden {/* TODO: 'nur technisch notwendige Cookies' oder konkrete Liste */} gesetzt. Analyse-/Tracking-Cookies werden nur mit Einwilligung verwendet. Cookie-Einwilligungen können jederzeit im Browser gelöscht oder über ein Consent-Tool widerrufen werden. Laufzeiten / Zwecke sind im Consent-Tool ausgewiesen (falls vorhanden).
+          Derzeit werden technisch notwendige Cookies gesetzt. Analyse-/Tracking-Cookies werden nur mit Einwilligung verwendet. Cookie-Einwilligungen können jederzeit im Browser gelöscht oder über ein Consent-Tool widerrufen werden. Laufzeiten / Zwecke sind im Consent-Tool ausgewiesen (falls vorhanden).
         </p>
       </section>
 
       <section className="space-y-3" aria-labelledby="analyse">
         <h2 id="analyse" className="text-2xl font-semibold">9. Analyse / Tracking</h2>
         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          {/* Falls eingesetzt: */} Analyse-Dienst {/* TODO: z.B. Plausible / Google Analytics 4 */} zur Reichweitenmessung. IP-Adressen werden {/* TODO: anonymisiert / pseudonymisiert */}. Rechtsgrundlage: Einwilligung (Art. 6 Abs. 1 lit. a). Widerruf jederzeit mit Wirkung für die Zukunft möglich. Ohne Einwilligung findet keine Speicherung statt.
+          Analyse-Dienst: Plausible zur Reichweitenmessung. IP-Adressen werden pseudonymisiert. Rechtsgrundlage: Einwilligung (Art. 6 Abs. 1 lit. a). Widerruf jederzeit mit Wirkung für die Zukunft möglich. Ohne Einwilligung findet keine Speicherung statt.
         </p>
       </section>
 
       <section className="space-y-3" aria-labelledby="fonts">
         <h2 id="fonts" className="text-2xl font-semibold">10. Schriftarten / CDN</h2>
         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          Verwendete Schriftarten werden {/* TODO: 'lokal gehostet' oder 'über XYZ CDN' */}. Bei externem Abruf können serverseitig Verbindungsdaten (IP, Browser) an den Anbieter übermittelt werden. Rechtsgrundlage: berechtigtes Interesse an konsistentem Erscheinungsbild (Art. 6 Abs. 1 lit. f). Empfehlung: lokale Einbindung zur Reduktion externer Requests.
+          Verwendete Schriftarten werden geladen. Bei externem Abruf können serverseitig Verbindungsdaten (IP, Browser) an den Anbieter übermittelt werden. Rechtsgrundlage: berechtigtes Interesse an konsistentem Erscheinungsbild (Art. 6 Abs. 1 lit. f). Empfehlung: lokale Einbindung zur Reduktion externer Requests.
         </p>
       </section>
 
@@ -158,7 +160,7 @@ export default function DatenschutzPage() {
 
       <footer className="pt-4 border-t border-gray-200 dark:border-gray-800">
         <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">
-          Stand: {/* TODO Datum */} – Diese Erklärung enthält Platzhalter und muss auf tatsächliche Dienste (Analytics, Fonts, CDN, Hosting) abgestimmt werden.
+          Stand: 22.08.2025 – Diese Erklärung enthält Platzhalter und muss auf tatsächliche Dienste (Analytics, Fonts, CDN, Hosting) abgestimmt werden.
         </p>
       </footer>
     </main>
