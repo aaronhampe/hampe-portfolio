@@ -2,30 +2,23 @@
 import Link from 'next/link';
 import { blogPosts, CATEGORY_LABELS, type Category } from '@/data/blog-posts';
 
-type Props = { searchParams?: { k?: string } };
+export default async function BlogIndex({
+  searchParams,
+}: {
+  searchParams?: Promise<{ k?: string }>;
+}) {
+  const { k } = (await searchParams) ?? {};   // ⬅ Promise auflösen
+  const selectedRaw = (k ?? '') as Category | '';
 
-export default function BlogIndex({ searchParams }: Props) {
-  const selectedRaw = (searchParams?.k ?? '') as Category | '';
   const categoriesAll = Object.keys(CATEGORY_LABELS) as Category[];
-
-  const isValidCat = (c: string): c is Category =>
-    categoriesAll.includes(c as Category);
-
+  const isValidCat = (c: string): c is Category => categoriesAll.includes(c as Category);
   const selected = isValidCat(selectedRaw) ? selectedRaw : undefined;
 
-  // Sortierung
-  const sortedPosts = [...blogPosts].sort((a, b) =>
-    a.date < b.date ? 1 : a.date > b.date ? -1 : 0
-  );
+  const sortedPosts = [...blogPosts].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+  const visiblePosts = selected ? sortedPosts.filter(p => p.categories?.includes(selected)) : sortedPosts;
 
-  // Filter
-  const visiblePosts = selected
-    ? sortedPosts.filter((p) => p.categories?.includes(selected))
-    : sortedPosts;
-
-  // Counts für Badges
   const counts: Record<Category, number> = categoriesAll.reduce((acc, c) => {
-    acc[c] = blogPosts.filter((p) => p.categories?.includes(c)).length;
+    acc[c] = blogPosts.filter(p => p.categories?.includes(c)).length;
     return acc;
   }, {} as Record<Category, number>);
 

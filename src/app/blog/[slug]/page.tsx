@@ -7,8 +7,13 @@ import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css";
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params; 
+  const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return notFound();
 
   return (
@@ -76,4 +81,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       ) : null}
     </article>
   );
+}
+
+export async function generateStaticParams() {
+  return blogPosts.map(p => ({ slug: p.slug }));
 }
