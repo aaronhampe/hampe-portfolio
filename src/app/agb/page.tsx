@@ -123,7 +123,7 @@ export default function AgbPage() {
 
       <footer className="pt-4 border-t border-gray-200 dark:border-gray-800">
         <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">
-          Stand: {/* TODO Datum */} – Diese AGB sind eine unverbindliche Arbeitsgrundlage und müssen vor Produktiveinsatz rechtlich geprüft und angepasst werden.
+          Stand: 22.08.2025
         </p>
       </footer>
     </main>
