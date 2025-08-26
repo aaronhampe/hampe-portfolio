@@ -16,6 +16,31 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "stt-shop",
+    title: "STT-Shop",
+    teaser: "Deutschlands Nummer 1 Shop für Sicherheitstechnik - Schließanlagen und Gleichschließungen online zusammenstellen",
+    cover: "/images/stt-shop-project.png",
+    category: "webshop", 
+    technologies: ["Wordpress", "WooCommerce","PHP", "Elementor", "Nuxt 4", "Vue", "JavaScript", "CSS"],
+    year: "2023 - heute",
+    client: "secutimetec GmbH",
+    description: "Ein moderner Online-Shop für Sicherheitstechnik mit umfangreichen Funktionen. Konfigurieren Sie Gleichschließungen einfacher denn je. Erstellen Sie komplexe Schließanlagen.",
+    features: [
+      "Konfigurator für Schließanlagen",
+      "Konfigurator für Gleichschließungen direkt im Einzelprodukt",
+      "Breit aufgesetztes Shop-CMS in Wordpress",
+      "Intuitive Benutzeroberfläche",
+      "Mobile-responsive Design"
+    ],
+    results: [
+      "Online-Shop für Sicherheitstechnik gemeinsam veröffentlicht (2023)",
+      "SEO-Optimierung, UX-Optimierung, Produkt-Pflege, Funktionalitäten erweitert (2023- heute)",
+      "Automatisierte Workflows"
+    ],
+    liveUrl: "https://stt-shop.de",
+    status: "live"
+  },
+  {
     slug: "nuxt-musician-site",
     title: "Musician Portfolio",
     teaser: "Eine schlanke Portfolio-Site für mein Musikprojekt – gebaut mit Nuxt 4 und Tailwind.",
@@ -36,31 +61,7 @@ export const projects: Project[] = [
       "Erhöhte Streaming-Zahlen",
       "Professionelle Online-Präsenz"
     ],
-    status: "live"
-  },
-  {
-    slug: "react-crm",
-    title: "Mini-CRM System",
-    teaser: "Kleine SaaS-App für Kontakt- und Deal-Management – Next.js 15 + Prisma + PlanetScale.",
-    cover: "/images/stt-shop-project.png",
-    category: "software",
-    technologies: ["Next.js", "React", "Prisma", "PlanetScale", "NextAuth.js", "Tailwind CSS", "WooCommerce"],
-    year: "2024",
-    client: "Startup Kunde",
-    description: "Eine vollständige CRM-Lösung für kleine bis mittlere Unternehmen mit modernem Tech-Stack und intuitiver Benutzeroberfläche.",
-    features: [
-      "Kontakt- und Lead-Management",
-      "Deal-Pipeline Verwaltung",
-      "Benutzer-Authentifizierung",
-      "Real-time Updates",
-      "Export-Funktionen",
-      "Mobile-responsive Design"
-    ],
-    results: [
-      "40% Effizienzsteigerung im Vertrieb",
-      "Zentrale Kundendatenverwaltung",
-      "Automatisierte Workflows"
-    ],
+    liveUrl: "https://aaronthommy.de",
     status: "live"
   },
 
