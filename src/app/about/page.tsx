@@ -24,6 +24,11 @@ export default function AboutPage() {
           Wenn Sie Unterstützung bei Ihrem nächsten Projekt benötigen oder einfach über Technologien fachsimpeln möchten,
           zögern Sie nicht, <Link href="/contact" className="text-blue-600 dark:text-blue-400 hover:underline">mich zu kontaktieren</Link>.
         </p>
+
+        <h2 className="text-3xl font-bold mb-4">Etwas Gutes tun</h2>
+        <p className="mb-4 text-gray-700 dark:text-gray-300">
+          Neben der Arbeit arbeite ich mit engen Freunden an einer gemeinnützigen Organisation. Ein Schulbau in Ghana, Hobor - Mit vollem Erfolg. Die Schule steht und wir sind steit <Link href="https://www.zusammenfuerghana.de" className="text-blue-600 dark:text-blue-400 hover:underline">mich zu kontaktieren</Link>.
+        </p>
       </div>
     </section>
   );

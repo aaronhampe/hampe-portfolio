@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
+import GooeyNav from "@/blocks/Components/GooeyNav/GooeyNav";
 
 // Dynamic import um SSR issues zu vermeiden
 const ThemeSwitcher = dynamic(() => import("./ThemeSwitcher"), {
@@ -14,17 +15,23 @@ const ThemeSwitcher = dynamic(() => import("./ThemeSwitcher"), {
   ),
 });
 
-const navigation = [
-  { name: "Home", href: "/" },
- //{ name: "Projekte", href: "/projects" },
-  { name: "Blog", href: "/blog" },
-  { name: "Kontakt", href: "/contact" },
+// Update: GooeyNav expects { label, href }
+const items = [
+  { label: "Home", href: "/" },
+  { label: "Blog", href: "/blog" },
+  { label: "Kontakt", href: "/contact" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Compute the active index for GooeyNav
+  const initialActiveIndex = Math.max(
+    0,
+    items.findIndex((i) => i.href === pathname)
+  );
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -79,28 +86,27 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-1">
-              {navigation.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`relative px-4 py-2 rounded-xl font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
-                      isActive
-                        ? "text-blue-700 bg-blue-50 dark:text-blue-300 dark:bg-blue-400/10"
-                        : "text-slate-700 hover:text-slate-900 hover:bg-slate-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-white/5"
-                    }`}
-                    aria-current={isActive ? "page" : undefined}
-                  >
-                    <span className="relative z-10">{item.name}</span>
-                    {isActive && (
-                      <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-r from-blue-100 to-purple-100 opacity-50 dark:from-blue-500/10 dark:to-purple-500/10"></div>
-                    )}
-                  </Link>
-                );
-              })}
+            {/* Desktop Navigation -> GooeyNav */}
+            <div className="hidden lg:flex items-center">
+              <div className="relative h-12 ">
+                <GooeyNav
+                  items={items}
+                  particleCount={15}
+                  particleDistances={[90, 10]}
+                  particleR={100}
+                  initialActiveIndex={initialActiveIndex}
+                  animationTime={600}
+                  timeVariance={300}
+                  colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+                  // new: style overrides
+                  className="text-slate-800 dark:text-white flex gap-3 "
+                  filterBaseColor="transparent"     // removes the black overlay
+                  pillColor="white"                  // active pill bg
+                  activeTextColor="#0f172a"         // slate-900 for active text
+                  textShadow="0 1px 1px hsl(205deg 30% 10% / 0.15)"
+
+                />
+              </div>
             </div>
 
             {/* CTA Button & Theme Switcher */}
@@ -136,7 +142,7 @@ export default function Header() {
                 />
                 <span
                   className={`w-full h-0.5 rounded-full transition-all duration-300 bg-slate-700 dark:bg-slate-200 ${
-                    isMobileMenuOpen ? "opacity-0" : "" 
+                    isMobileMenuOpen ? "opacity-0" : ""
                   }`}
                 />
               </div>
@@ -169,11 +175,11 @@ export default function Header() {
           }`}
         >
           <div className="p-6 space-y-1">
-            {navigation.map((item, index) => {
+            {items.map((item, index) => {
               const isActive = pathname === item.href;
               return (
                 <Link
-                  key={item.name}
+                  key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={`block px-4 py-4 rounded-2xl font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
@@ -189,7 +195,7 @@ export default function Header() {
                   }}
                   aria-current={isActive ? "page" : undefined}
                 >
-                  {item.name}
+                  {item.label}
                 </Link>
               );
             })}
@@ -201,7 +207,7 @@ export default function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="block w-full px-6 py-4 rounded-2xl font-medium text-white text-center shadow-lg transition-all duration-300 bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-xl"
                 style={{
-                  animationDelay: `${navigation.length * 50}ms`,
+                  animationDelay: `${items.length * 50}ms`,
                   animation: isMobileMenuOpen
                     ? "slideInUp 0.4s ease-out forwards"
                     : "none",
@@ -232,3 +238,4 @@ export default function Header() {
     </>
   );
 }
+
