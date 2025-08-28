@@ -17,7 +17,7 @@ const ThemeSwitcher = dynamic(() => import("./ThemeSwitcher"), {
 const navigation = [
   { name: "Home", href: "/" },
  //{ name: "Projekte", href: "/projects" },
-  { name: "Blog", href: "/blog" },
+  { name: "Portfolio", href: "/projects" },
   { name: "Kontakt", href: "/contact" },
 ];
 
@@ -50,7 +50,7 @@ export default function Header() {
         }`}
       >
         <nav className="container mx-auto px-6" aria-label="Hauptnavigation">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-around h-20">
             {/* Logo */}
             <Link
               href="/"

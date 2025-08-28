@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { projects } from "@/data/projects";
 import SplitText from "src/blocks/TextAnimations/SplitText/SplitText";
-import TextType from "src/blocks/TextAnimations/TextType/TextType";
 const handleAnimationComplete = () => {
   console.log("All letters have animated!");
 };
@@ -309,3 +308,4 @@ export default function Home() {
     </main>
   );
 }
+
