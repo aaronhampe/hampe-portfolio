@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@iconify/react": "^6.0.0",
+    "gsap": "^3.13.0",
     "highlight.js": "^11.11.1",
+    "motion": "^12.23.12",
     "next": "15.4.5",
     "next-plausible": "^3.12.4",
     "next-secure-headers": "^2.2.0",

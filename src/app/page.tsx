@@ -1,7 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 import { projects } from "@/data/projects";
+import SplitText from "src/blocks/TextAnimations/SplitText/SplitText";
+import TextType from "src/blocks/TextAnimations/TextType/TextType";
+const handleAnimationComplete = () => {
+  console.log("All letters have animated!");
+};
 
 export default function Home() {
   return (
@@ -28,12 +35,22 @@ export default function Home() {
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
             </div>
-
-            {/* Subtitle */}
-            <p className="md:text-2xl text-slate-600 dark:text-slate-300 font-light max-w-3xl mx-auto leading-relaxed">
-              Aaron Hampe – Ihr Partner für erstklassige Websites, innovative
-              Webshops und maßgeschneiderte Software-Lösungen
-            </p>
+            
+            <SplitText
+              text="Ihr Partner für erstklassige Websites, innovative
+              Webshops und maßgeschneiderte Software-Lösungen"
+              className="md:text-2xl text-slate-600 dark:text-slate-300 font-light max-w-3xl mx-auto leading-relaxed"
+              delay={20}
+              duration={0.2}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              textAlign="center"
+              onLetterAnimationComplete={handleAnimationComplete}
+            />
 
             {/* Services Tags */}
             <div className="flex flex-wrap justify-center gap-3 text-sm">

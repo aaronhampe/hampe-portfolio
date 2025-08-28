@@ -5,6 +5,7 @@ import Link from "next/link";
 import { projects } from "@/data/projects";
 import Script from "next/script";
 import { useMemo, useState } from "react";
+import CountUp from "@/blocks/TextAnimations/CountUp/CountUp";
 
 // Add JSX typing for the custom element <iconify-icon>
 import "react";
@@ -57,33 +58,77 @@ const TECH_MAP: Record<
   nuxt: { icon: "simple-icons:nuxtdotjs", rgb: [0, 220, 130], label: "Nuxt" },
   react: { icon: "simple-icons:react", rgb: [97, 218, 251], label: "React" },
   vue: { icon: "simple-icons:vuedotjs", rgb: [65, 184, 131], label: "Vue" },
-  threejs: { icon: "simple-icons:threedotjs", rgb: [0, 0, 0], label: "Three.js" },
+  threejs: {
+    icon: "simple-icons:threedotjs",
+    rgb: [0, 0, 0],
+    label: "Three.js",
+  },
   astro: { icon: "simple-icons:astro", rgb: [255, 93, 1], label: "Astro" },
   vite: { icon: "simple-icons:vite", rgb: [100, 108, 255], label: "Vite" },
 
   /* Web Core */
-  typescript: { icon: "simple-icons:typescript", rgb: [49, 120, 198], label: "TypeScript" },
-  javascript: { icon: "simple-icons:javascript", rgb: [247, 223, 30], label: "JavaScript" },
+  typescript: {
+    icon: "simple-icons:typescript",
+    rgb: [49, 120, 198],
+    label: "TypeScript",
+  },
+  javascript: {
+    icon: "simple-icons:javascript",
+    rgb: [247, 223, 30],
+    label: "JavaScript",
+  },
   html5: { icon: "simple-icons:html5", rgb: [227, 79, 38], label: "HTML5" },
   css3: { icon: "simple-icons:css3", rgb: [38, 77, 228], label: "CSS3" },
-  tailwind: { icon: "simple-icons:tailwindcss", rgb: [56, 189, 248], label: "Tailwind CSS" },
+  tailwind: {
+    icon: "simple-icons:tailwindcss",
+    rgb: [56, 189, 248],
+    label: "Tailwind CSS",
+  },
   sass: { icon: "simple-icons:sass", rgb: [204, 102, 153], label: "Sass" },
 
   /* Backend / Runtime */
-  node: { icon: "simple-icons:nodedotjs", rgb: [51, 153, 51], label: "Node.js" },
+  node: {
+    icon: "simple-icons:nodedotjs",
+    rgb: [51, 153, 51],
+    label: "Node.js",
+  },
   express: { icon: "simple-icons:express", rgb: [0, 0, 0], label: "Express" },
-  graphql: { icon: "simple-icons:graphql", rgb: [225, 0, 152], label: "GraphQL" },
+  graphql: {
+    icon: "simple-icons:graphql",
+    rgb: [225, 0, 152],
+    label: "GraphQL",
+  },
   d3: { icon: "simple-icons:d3dotjs", rgb: [241, 101, 41], label: "D3.js" },
-  socketio: { icon: "simple-icons:socketdotio", rgb: [0, 0, 0], label: "Socket.io" },
+  socketio: {
+    icon: "simple-icons:socketdotio",
+    rgb: [0, 0, 0],
+    label: "Socket.io",
+  },
 
   /* Databases & Infra */
   prisma: { icon: "simple-icons:prisma", rgb: [0, 0, 0], label: "Prisma" },
-  planetscale: { icon: "simple-icons:planetscale", rgb: [0, 0, 0], label: "PlanetScale" },
+  planetscale: {
+    icon: "simple-icons:planetscale",
+    rgb: [0, 0, 0],
+    label: "PlanetScale",
+  },
   mysql: { icon: "simple-icons:mysql", rgb: [68, 121, 161], label: "MySQL" },
-  postgresql: { icon: "simple-icons:postgresql", rgb: [51, 103, 145], label: "PostgreSQL" },
-  mongodb: { icon: "simple-icons:mongodb", rgb: [88, 171, 96], label: "MongoDB" },
+  postgresql: {
+    icon: "simple-icons:postgresql",
+    rgb: [51, 103, 145],
+    label: "PostgreSQL",
+  },
+  mongodb: {
+    icon: "simple-icons:mongodb",
+    rgb: [88, 171, 96],
+    label: "MongoDB",
+  },
   redis: { icon: "simple-icons:redis", rgb: [228, 45, 36], label: "Redis" },
-  supabase: { icon: "simple-icons:supabase", rgb: [16, 185, 129], label: "Supabase" },
+  supabase: {
+    icon: "simple-icons:supabase",
+    rgb: [16, 185, 129],
+    label: "Supabase",
+  },
   docker: { icon: "simple-icons:docker", rgb: [36, 150, 237], label: "Docker" },
 
   /* Payments / APIs / Services */
@@ -93,9 +138,21 @@ const TECH_MAP: Record<
   mapbox: { icon: "simple-icons:mapbox", rgb: [0, 0, 0], label: "Mapbox" },
 
   /* Commerce & CMS */
-  shopify: { icon: "simple-icons:shopify", rgb: [96, 189, 99], label: "Shopify" },
-  woocommerce: { icon: "simple-icons:woocommerce", rgb: [146, 86, 145], label: "WooCommerce" },
-  wordpress: { icon: "simple-icons:wordpress", rgb: [33, 117, 155], label: "WordPress" },
+  shopify: {
+    icon: "simple-icons:shopify",
+    rgb: [96, 189, 99],
+    label: "Shopify",
+  },
+  woocommerce: {
+    icon: "simple-icons:woocommerce",
+    rgb: [146, 86, 145],
+    label: "WooCommerce",
+  },
+  wordpress: {
+    icon: "simple-icons:wordpress",
+    rgb: [33, 117, 155],
+    label: "WordPress",
+  },
 
   /* Design & Others */
   figma: { icon: "simple-icons:figma", rgb: [10, 207, 131], label: "Figma" },
@@ -103,7 +160,12 @@ const TECH_MAP: Record<
 };
 
 const norm = (s: string) =>
-  (s || "").toString().trim().toLowerCase().replace(/\s+/g, "").replace(/[\._-]/g, "");
+  (s || "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/[\._-]/g, "");
 
 type TechBadgeProps = { tech: string };
 
@@ -111,7 +173,13 @@ function resolveTech(tech: string) {
   const raw = norm(tech);
   const key = ALIASES[raw] || raw;
   const fallback = key.replace(/(js|dotjs)$/g, "");
-  return TECH_MAP[key] || TECH_MAP[fallback] || { icon: "ph:code-bold", rgb: [180, 180, 180] as [number, number, number] };
+  return (
+    TECH_MAP[key] ||
+    TECH_MAP[fallback] || {
+      icon: "ph:code-bold",
+      rgb: [180, 180, 180] as [number, number, number],
+    }
+  );
 }
 
 function TechBadge({ tech }: TechBadgeProps) {
@@ -124,15 +192,21 @@ function TechBadge({ tech }: TechBadgeProps) {
     WebkitBackdropFilter: "blur(8px) saturate(1.2)",
     backdropFilter: "blur(8px) saturate(1.2)",
   };
-  const iconStyle: React.CSSProperties = { color: `rgb(${r},${g},${b})`, filter: "drop-shadow(0 1px 1px rgba(0,0,0,0.25))" };
+  const iconStyle: React.CSSProperties = {
+    color: `rgb(${r},${g},${b})`,
+    filter: "drop-shadow(0 1px 1px rgba(0,0,0,0.25))",
+  };
 
   return (
     <span
       className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-slate-800 dark:text-slate-100 transition-all duration-150 hover:-translate-y-0.5"
       style={glass}
     >
-  
-      <iconify-icon icon={conf.icon} className="relative z-[1] w-[1.05em] h-[1.05em]" style={iconStyle} />
+      <iconify-icon
+        icon={conf.icon}
+        className="relative z-[1] w-[1.05em] h-[1.05em]"
+        style={iconStyle}
+      />
       <span className="relative z-[1]">{conf.label ?? tech}</span>
     </span>
   );
@@ -181,7 +255,12 @@ export default function ProjectsPage() {
 
   // Counts (statisch aus Gesamtliste)
   const counts = useMemo(() => {
-    const base = { all: projects.length, website: 0, webshop: 0, software: 0 } as Record<CategoryId, number>;
+    const base = {
+      all: projects.length,
+      website: 0,
+      webshop: 0,
+      software: 0,
+    } as Record<CategoryId, number>;
     projects.forEach((p) => {
       if (p.category === "website") base.website++;
       if (p.category === "webshop") base.webshop++;
@@ -192,14 +271,20 @@ export default function ProjectsPage() {
 
   // Gefilterte Liste
   const filtered = useMemo(
-    () => (active === "all" ? projects : projects.filter((p) => p.category === active)),
+    () =>
+      active === "all"
+        ? projects
+        : projects.filter((p) => p.category === active),
     [active]
   );
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 text-slate-900 dark:text-slate-100">
       {/* Iconify loader for web component <iconify-icon> */}
-      <Script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" strategy="afterInteractive" />
+      <Script
+        src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"
+        strategy="afterInteractive"
+      />
 
       {/* Hero */}
       <section className="relative py-24 overflow-hidden">
@@ -213,7 +298,10 @@ export default function ProjectsPage() {
             <div className="space-y-4">
               <h1 className="text-5xl md:text-7xl font-thin tracking-tight text-slate-900 dark:text-white">
                 Meine
-                <span className="font-light bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> Projekte</span>
+                <span className="font-light bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  {" "}
+                  Projekte
+                </span>
               </h1>
               <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
             </div>
@@ -223,22 +311,46 @@ export default function ProjectsPage() {
             </p>
 
             <p className="text-md md:text-lg text-slate-600 dark:text-slate-300 font-light leading-relaxed">
-              Eine Auswahl meiner bisherigen Arbeiten – von eleganten Websites bis hin zu komplexen Anwendungen
+              Eine Auswahl meiner bisherigen Arbeiten – von eleganten Websites
+              bis hin zu komplexen Anwendungen
             </p>
 
             {/* Stats */}
             <div className="flex flex-wrap justify-center gap-8 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-slate-900 dark:text-white">{projects.length}+</div>
-                <div className="text-sm text-slate-600 dark:text-slate-300">Projekte</div>
+                <div className="text-3xl font-bold text-slate-900 dark:text-white">
+                  {projects.length}
+                </div>
+                <div className="text-sm text-slate-600 dark:text-slate-300">
+                  Projekte
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-slate-900 dark:text-white">20+</div>
-                <div className="text-sm text-slate-600 dark:text-slate-300">Zufriedene Kunden</div>
+                <CountUp
+                  from={0}
+                  to={20}
+                  separator=","
+                  direction="up"
+                  duration={1}
+                  className="text-3xl font-bold text-slate-900 dark:text-white"
+                />+
+                <div className="text-sm text-slate-600 dark:text-slate-300">
+                  Zufriedene Kunden
+                </div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-slate-900 dark:text-white">6+</div>
-                <div className="text-sm text-slate-600 dark:text-slate-300">Jahre Erfahrung</div>
+                
+                <CountUp
+                  from={0}
+                  to={6}
+                  separator=","
+                  direction="up"
+                  duration={1}
+                  className="text-3xl font-bold text-slate-900 dark:text-white"
+                />+
+                <div className="text-sm text-slate-600 dark:text-slate-300">
+                  Jahre Erfahrung
+                </div>
               </div>
             </div>
           </div>
@@ -248,7 +360,11 @@ export default function ProjectsPage() {
       {/* Filter */}
       <section className="py-16 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border-y border-slate-200/50 dark:border-slate-700/50">
         <div className="container mx-auto px-6">
-          <div className="flex flex-wrap justify-center gap-4" role="toolbar" aria-label="Projektfilter">
+          <div
+            className="flex flex-wrap justify-center gap-4"
+            role="toolbar"
+            aria-label="Projektfilter"
+          >
             {categories.map((c) => (
               <FilterButton
                 key={c.id}
@@ -278,7 +394,9 @@ export default function ProjectsPage() {
               >
                 <Link
                   href={`/projects/${project.slug}`}
-                  className={`flex flex-col ${index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"}
+                  className={`flex flex-col ${
+                    index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
+                  }
                               gap-12 items-center rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2
                               bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-700
                               shadow-lg hover:shadow-2xl`}
@@ -301,10 +419,12 @@ export default function ProjectsPage() {
                     </div>
 
                     {/* Kategorie-Badge */}
-                    <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-medium
+                    <div
+                      className="absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-medium
                                     bg-white/90 dark:bg-slate-900/80 backdrop-blur-sm
                                     text-slate-600 dark:text-slate-300
-                                    border border-slate-200/50 dark:border-slate-700/60">
+                                    border border-slate-200/50 dark:border-slate-700/60"
+                    >
                       {project.category === "website" && "🌐 Website"}
                       {project.category === "webshop" && "🛒 Webshop"}
                       {project.category === "software" && "⚡ Software"}
@@ -349,16 +469,36 @@ export default function ProjectsPage() {
                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start text-sm text-slate-500 dark:text-slate-400">
                       {project.year && (
                         <div className="flex items-center gap-2">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                            />
                           </svg>
                           <span>{project.year}</span>
                         </div>
                       )}
                       {project.client && (
                         <div className="flex items-center gap-2">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2h8z" />
+                          <svg
+                            className="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2h8z"
+                            />
                           </svg>
                           <span>{project.client}</span>
                         </div>
@@ -369,8 +509,18 @@ export default function ProjectsPage() {
                     <div className="pt-4">
                       <div className="inline-flex items-center gap-3 text-blue-600 dark:text-blue-400 font-medium group-hover:gap-5 transition-all duration-300">
                         <span>Projekt ansehen</span>
-                        <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        <svg
+                          className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
                         </svg>
                       </div>
                     </div>
@@ -393,10 +543,14 @@ export default function ProjectsPage() {
           <div className="max-w-4xl mx-auto space-y-8">
             <h2 className="text-4xl md:text-6xl font-thin text-white mb-6">
               Haben Sie ein
-              <span className="font-light bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"> Projekt im Kopf?</span>
+              <span className="font-light bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                {" "}
+                Projekt im Kopf?
+              </span>
             </h2>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Lassen Sie uns gemeinsam Ihre Idee in eine beeindruckende digitale Lösung verwandeln.
+              Lassen Sie uns gemeinsam Ihre Idee in eine beeindruckende digitale
+              Lösung verwandeln.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
               <Link
