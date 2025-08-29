@@ -68,14 +68,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:pt-8 mt-[-14] lg:mt-0">
               <Link
                 href="/contact"
-                className="group relative px-8 py-4 rounded-2xl font-medium text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:shadow-slate-900/25 dark:hover:shadow-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950"
+                className="w-full sm:flex-1 inline-flex justify-center items-center text-center group relative px-8 py-4 rounded-2xl font-medium text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:shadow-slate-900/25 dark:hover:shadow-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950"
               >
                 <span className="relative z-10">Projekt starten</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </Link>
               <Link
                 href="/projects"
-                className="px-8 py-4 border-2 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-2xl font-medium text-lg transition-all duration-300 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-lg hover:-translate-y-1 hover:bg-white dark:hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950"
+                className="w-full sm:flex-1 inline-flex justify-center items-center text-center px-8 py-4 border-2 border-slate-200 dark:border-slate-700 text-slate-900 dark:text-slate-100 rounded-2xl font-medium text-lg transition-all duration-300 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-lg hover:-translate-y-1 hover:bg-white dark:hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-950"
               >
                 Portfolio ansehen
               </Link>

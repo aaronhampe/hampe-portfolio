@@ -55,9 +55,11 @@ const TECH_MAP: Record<
 > = {
   /* Frameworks */
   nextjs: { icon: "simple-icons:nextdotjs", rgb: [0, 0, 0], label: "Next.js" },
-  nuxt: { icon: "simple-icons:nuxtdotjs", rgb: [0, 220, 130], label: "Nuxt" },
+  nuxt: { icon: "/icons/material-icon-theme--nuxt.svg", rgb: [0, 220, 130], label: "Nuxt" },
   react: { icon: "simple-icons:react", rgb: [97, 218, 251], label: "React" },
   vue: { icon: "simple-icons:vuedotjs", rgb: [65, 184, 131], label: "Vue" },
+  php: { icon: "/icons/logos--php.svg", rgb: [0, 43, 123], label: "PHP" },
+  elementor: { icon: "/icons/simple-icons--elementor.svg", rgb: [255, 93, 1], label: "Elementor" },
   threejs: {
     icon: "simple-icons:threedotjs",
     rgb: [0, 0, 0],
@@ -73,12 +75,12 @@ const TECH_MAP: Record<
     label: "TypeScript",
   },
   javascript: {
-    icon: "simple-icons:javascript",
+    icon: "/icons/logos--javascript.svg",
     rgb: [247, 223, 30],
     label: "JavaScript",
   },
   html5: { icon: "simple-icons:html5", rgb: [227, 79, 38], label: "HTML5" },
-  css3: { icon: "simple-icons:css3", rgb: [38, 77, 228], label: "CSS3" },
+  css: { icon: "/icons/skill-icons--css.svg", rgb: [38, 77, 228], label: "CSS" },
   tailwind: {
     icon: "simple-icons:tailwindcss",
     rgb: [56, 189, 248],
@@ -197,16 +199,30 @@ function TechBadge({ tech }: TechBadgeProps) {
     filter: "drop-shadow(0 1px 1px rgba(0,0,0,0.25))",
   };
 
+  const isLocal = typeof conf.icon === "string" && conf.icon.startsWith("/");
+
   return (
     <span
       className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-slate-800 dark:text-slate-100 transition-all duration-150 hover:-translate-y-0.5"
       style={glass}
     >
-      <iconify-icon
-        icon={conf.icon}
-        className="relative z-[1] w-[1.05em] h-[1.05em]"
-        style={iconStyle}
-      />
+      {isLocal ? (
+        <Image
+          src={conf.icon}
+          alt={conf.label ?? tech}
+          width={18}
+          height={18}
+          className="relative z-[1] w-[1.05em] h-[1.05em]"
+          // Note: coloring an external SVG via CSS only works if the SVG uses `currentColor`.
+          style={iconStyle}
+        />
+      ) : (
+        <iconify-icon
+          icon={conf.icon}
+          className="relative z-[1] w-[1.05em] h-[1.05em]"
+          style={iconStyle}
+        />
+      )}
       <span className="relative z-[1]">{conf.label ?? tech}</span>
     </span>
   );
