@@ -44,36 +44,111 @@ const TECH_MAP: Record<
 > = {
   /* Frameworks */
   nextjs: { icon: "simple-icons:nextdotjs", rgb: [0, 0, 0], label: "Next.js" },
-  nuxt: { icon: "simple-icons:nuxtdotjs", rgb: [0, 220, 130], label: "Nuxt" },
-  react: { icon: "simple-icons:react", rgb: [97, 218, 251], label: "React" },
-  vue: { icon: "simple-icons:vuedotjs", rgb: [65, 184, 131], label: "Vue" },
-  threejs: { icon: "simple-icons:threedotjs", rgb: [0, 0, 0], label: "Three.js" },
+  nuxt: {
+    icon: "/icons/material-icon-theme--nuxt.svg",
+    rgb: [0, 220, 130],
+    label: "Nuxt",
+  },
+  react: {
+    icon: "/icons/logos--react.svg",
+    rgb: [97, 218, 251],
+    label: "React",
+  },
+  vue: { icon: "/icons/logos--vue.svg", rgb: [65, 184, 131], label: "Vue" },
+  php: { icon: "/icons/logos--php.svg", rgb: [0, 43, 123], label: "PHP" },
+  elementor: {
+    icon: "/icons/simple-icons--elementor.svg",
+    rgb: [255, 93, 1],
+    label: "Elementor",
+  },
+  threejs: {
+    icon: "simple-icons:threedotjs",
+    rgb: [0, 0, 0],
+    label: "Three.js",
+  },
   astro: { icon: "simple-icons:astro", rgb: [255, 93, 1], label: "Astro" },
   vite: { icon: "simple-icons:vite", rgb: [100, 108, 255], label: "Vite" },
-
+  googleanalytics: {
+    icon: "/icons/logos--google-analytics.svg",
+    rgb: [227, 115, 0],
+    label: "Google Analytics",
+  },
+  liquid: {
+    icon: "/icons/catppuccin--liquid.svg",
+    rgb: [138, 173, 244],
+    label: "Liquid",
+  },
   /* Web Core */
-  typescript: { icon: "simple-icons:typescript", rgb: [49, 120, 198], label: "TypeScript" },
-  javascript: { icon: "simple-icons:javascript", rgb: [247, 223, 30], label: "JavaScript" },
+  typescript: {
+    icon: "/icons/devicon--typescript.svg",
+    rgb: [49, 120, 198],
+    label: "TypeScript",
+  },
+  javascript: {
+    icon: "/icons/logos--javascript.svg",
+    rgb: [247, 223, 30],
+    label: "JavaScript",
+  },
   html5: { icon: "simple-icons:html5", rgb: [227, 79, 38], label: "HTML5" },
-  css3: { icon: "simple-icons:css3", rgb: [38, 77, 228], label: "CSS3" },
-  tailwind: { icon: "simple-icons:tailwindcss", rgb: [56, 189, 248], label: "Tailwind CSS" },
-  sass: { icon: "simple-icons:sass", rgb: [204, 102, 153], label: "Sass" },
+  css: {
+    icon: "/icons/skill-icons--css.svg",
+    rgb: [38, 77, 228],
+    label: "CSS",
+  },
+  tailwind: {
+    icon: "/icons/devicon--tailwindcss.svg",
+    rgb: [56, 189, 248],
+    label: "Tailwind CSS",
+  },
+  sass: {
+    icon: "/icons/vscode-icons--file-type-scss2.svg",
+    rgb: [204, 102, 153],
+    label: "Sass",
+  },
 
   /* Backend / Runtime */
-  node: { icon: "simple-icons:nodedotjs", rgb: [51, 153, 51], label: "Node.js" },
+  node: {
+    icon: "simple-icons:nodedotjs",
+    rgb: [51, 153, 51],
+    label: "Node.js",
+  },
   express: { icon: "simple-icons:express", rgb: [0, 0, 0], label: "Express" },
-  graphql: { icon: "simple-icons:graphql", rgb: [225, 0, 152], label: "GraphQL" },
+  graphql: {
+    icon: "simple-icons:graphql",
+    rgb: [225, 0, 152],
+    label: "GraphQL",
+  },
   d3: { icon: "simple-icons:d3dotjs", rgb: [241, 101, 41], label: "D3.js" },
-  socketio: { icon: "simple-icons:socketdotio", rgb: [0, 0, 0], label: "Socket.io" },
+  socketio: {
+    icon: "simple-icons:socketdotio",
+    rgb: [0, 0, 0],
+    label: "Socket.io",
+  },
 
   /* Databases & Infra */
   prisma: { icon: "simple-icons:prisma", rgb: [0, 0, 0], label: "Prisma" },
-  planetscale: { icon: "simple-icons:planetscale", rgb: [0, 0, 0], label: "PlanetScale" },
+  planetscale: {
+    icon: "simple-icons:planetscale",
+    rgb: [0, 0, 0],
+    label: "PlanetScale",
+  },
   mysql: { icon: "simple-icons:mysql", rgb: [68, 121, 161], label: "MySQL" },
-  postgresql: { icon: "simple-icons:postgresql", rgb: [51, 103, 145], label: "PostgreSQL" },
-  mongodb: { icon: "simple-icons:mongodb", rgb: [88, 171, 96], label: "MongoDB" },
+  postgresql: {
+    icon: "simple-icons:postgresql",
+    rgb: [51, 103, 145],
+    label: "PostgreSQL",
+  },
+  mongodb: {
+    icon: "simple-icons:mongodb",
+    rgb: [88, 171, 96],
+    label: "MongoDB",
+  },
   redis: { icon: "simple-icons:redis", rgb: [228, 45, 36], label: "Redis" },
-  supabase: { icon: "simple-icons:supabase", rgb: [16, 185, 129], label: "Supabase" },
+  supabase: {
+    icon: "simple-icons:supabase",
+    rgb: [16, 185, 129],
+    label: "Supabase",
+  },
   docker: { icon: "simple-icons:docker", rgb: [36, 150, 237], label: "Docker" },
 
   /* Payments / APIs / Services */
@@ -83,17 +158,42 @@ const TECH_MAP: Record<
   mapbox: { icon: "simple-icons:mapbox", rgb: [0, 0, 0], label: "Mapbox" },
 
   /* Commerce & CMS */
-  shopify: { icon: "simple-icons:shopify", rgb: [96, 189, 99], label: "Shopify" },
-  woocommerce: { icon: "simple-icons:woocommerce", rgb: [146, 86, 145], label: "WooCommerce" },
-  wordpress: { icon: "simple-icons:wordpress", rgb: [33, 117, 155], label: "WordPress" },
+  shopify: {
+    icon: "/icons/logos--shopify.svg",
+    rgb: [96, 189, 99],
+    label: "Shopify",
+  },
+  woocommerce: {
+    icon: "/icons/devicon--woocommerce.svg",
+    rgb: [146, 86, 145],
+    label: "WooCommerce",
+  },
+  wordpress: {
+    icon: "/icons/bi--wordpress.svg",
+    rgb: [33, 117, 155],
+    label: "WordPress",
+  },
 
   /* Design & Others */
-  figma: { icon: "simple-icons:figma", rgb: [10, 207, 131], label: "Figma" },
-  python: { icon: "simple-icons:python", rgb: [55, 118, 171], label: "Python" },
+  figma: {
+    icon: "/icons/devicon--figma.svg",
+    rgb: [10, 207, 131],
+    label: "Figma",
+  },
+  python: {
+    icon: "/icons/logos--python.svg",
+    rgb: [55, 118, 171],
+    label: "Python",
+  },
 };
 
 const norm = (s: string) =>
-  (s || "").toString().trim().toLowerCase().replace(/\s+/g, "").replace(/[\._-]/g, "");
+  (s || "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/[\._-]/g, "");
 
 type TechBadgeProps = { tech: string };
 
@@ -101,7 +201,13 @@ function resolveTech(tech: string) {
   const raw = norm(tech);
   const key = ALIASES[raw] || raw;
   const fallback = key.replace(/(js|dotjs)$/g, "");
-  return TECH_MAP[key] || TECH_MAP[fallback] || { icon: "ph:code-bold", rgb: [180, 180, 180] as [number, number, number] };
+  return (
+    TECH_MAP[key] ||
+    TECH_MAP[fallback] || {
+      icon: "ph:code-bold",
+      rgb: [180, 180, 180] as [number, number, number],
+    }
+  );
 }
 
 function TechBadge({ tech }: TechBadgeProps) {
@@ -114,14 +220,34 @@ function TechBadge({ tech }: TechBadgeProps) {
     WebkitBackdropFilter: "blur(8px) saturate(1.2)",
     backdropFilter: "blur(8px) saturate(1.2)",
   };
-  const iconStyle: React.CSSProperties = { color: `rgb(${r},${g},${b})`, filter: "drop-shadow(0 1px 1px rgba(0,0,0,0.25))" };
+  const iconStyle: React.CSSProperties = {
+    color: `rgb(${r},${g},${b})`,
+    filter: "drop-shadow(0 1px 1px rgba(0,0,0,0.25))",
+  };
+
+  const isLocal = typeof conf.icon === "string" && conf.icon.startsWith("/");
 
   return (
     <span
       className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-slate-800 dark:text-slate-100 transition-all duration-150 hover:-translate-y-0.5"
       style={glass}
     >
-      <iconify-icon icon={conf.icon} className="relative z-[1] w-[1.05em] h-[1.05em]" style={iconStyle} />
+      {isLocal ? (
+        <Image
+          src={conf.icon}
+          alt={conf.label ?? tech}
+          width={18}
+          height={18}
+          className="relative z-[1] w-[1.05em] h-[1.05em]"
+          style={iconStyle}
+        />
+      ) : (
+        <iconify-icon
+          icon={conf.icon}
+          className="relative z-[1] w-[1.05em] h-[1.05em]"
+          style={iconStyle}
+        />
+      )}
       <span className="relative z-[1]">{conf.label ?? tech}</span>
     </span>
   );
@@ -136,27 +262,30 @@ type PageProps = {
 
 export default function ProjectDetailPage({ params }: PageProps) {
   const { slug } = use(params);
-  
-  const project = useMemo(() => 
-    projects.find(p => p.slug === slug), 
-    [slug]
-  );
+
+  const project = useMemo(() => projects.find((p) => p.slug === slug), [slug]);
 
   if (!project) {
     notFound();
   }
 
-  const relatedProjects = useMemo(() => 
-    projects
-      .filter(p => p.slug !== project.slug && p.category === project.category)
-      .slice(0, 2),
+  const relatedProjects = useMemo(
+    () =>
+      projects
+        .filter(
+          (p) => p.slug !== project.slug && p.category === project.category
+        )
+        .slice(0, 2),
     [project]
   );
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 text-slate-900 dark:text-slate-100">
       {/* Iconify loader */}
-      <Script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js" strategy="afterInteractive" />
+      <Script
+        src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"
+        strategy="afterInteractive"
+      />
 
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
@@ -168,15 +297,23 @@ export default function ProjectDetailPage({ params }: PageProps) {
         <div className="container mx-auto px-6 relative z-10">
           {/* Breadcrumb */}
           <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 mb-8">
-            <Link href="/" className="hover:text-slate-900 dark:hover:text-slate-100 transition-colors">
+            <Link
+              href="/"
+              className="hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+            >
               Home
             </Link>
             <span>→</span>
-            <Link href="/projects" className="hover:text-slate-900 dark:hover:text-slate-100 transition-colors">
+            <Link
+              href="/projects"
+              className="hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+            >
               Projekte
             </Link>
             <span>→</span>
-            <span className="text-slate-900 dark:text-slate-100">{project.title}</span>
+            <span className="text-slate-900 dark:text-slate-100">
+              {project.title}
+            </span>
           </div>
 
           {/* Project Header */}
@@ -213,17 +350,24 @@ export default function ProjectDetailPage({ params }: PageProps) {
                 </div>
               )}
               {project.status && (
-                <div className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${
-                  project.status === 'live' 
-                    ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400'
-                    : project.status === 'development'
-                    ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400'
-                    : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400'
-                }`}>
-                  <div className={`w-2 h-2 rounded-full ${
-                    project.status === 'live' ? 'bg-green-500' :
-                    project.status === 'development' ? 'bg-yellow-500' : 'bg-blue-500'
-                  }`} />
+                <div
+                  className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${
+                    project.status === "live"
+                      ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
+                      : project.status === "development"
+                      ? "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400"
+                      : "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400"
+                  }`}
+                >
+                  <div
+                    className={`w-2 h-2 rounded-full ${
+                      project.status === "live"
+                        ? "bg-green-500"
+                        : project.status === "development"
+                        ? "bg-yellow-500"
+                        : "bg-blue-500"
+                    }`}
+                  />
                   <span className="capitalize">{project.status}</span>
                 </div>
               )}
@@ -254,7 +398,6 @@ export default function ProjectDetailPage({ params }: PageProps) {
       <section className="py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto space-y-16">
-            
             {/* Description */}
             {project.description && (
               <div className="text-center">
@@ -297,14 +440,19 @@ export default function ProjectDetailPage({ params }: PageProps) {
                 {project.features && (
                   <div className="space-y-6">
                     <h2 className="text-2xl font-light text-slate-900 dark:text-white flex items-center gap-3">
-                      <iconify-icon icon="ph:list-checks" className="w-6 h-6 text-blue-600" />
+                      <iconify-icon
+                        icon="ph:list-checks"
+                        className="w-6 h-6 text-blue-600"
+                      />
                       Key Features
                     </h2>
                     <ul className="space-y-4">
                       {project.features.map((feature, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <div className="w-2 h-2 bg-blue-500 rounded-full mt-2.5 flex-shrink-0" />
-                          <span className="text-slate-600 dark:text-slate-300">{feature}</span>
+                          <span className="text-slate-600 dark:text-slate-300">
+                            {feature}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -315,14 +463,19 @@ export default function ProjectDetailPage({ params }: PageProps) {
                 {project.results && (
                   <div className="space-y-6">
                     <h2 className="text-2xl font-light text-slate-900 dark:text-white flex items-center gap-3">
-                      <iconify-icon icon="ph:chart-line-up" className="w-6 h-6 text-green-600" />
+                      <iconify-icon
+                        icon="ph:chart-line-up"
+                        className="w-6 h-6 text-green-600"
+                      />
                       Erfolge & Resultate
                     </h2>
                     <ul className="space-y-4">
                       {project.results.map((result, index) => (
                         <li key={index} className="flex items-start gap-3">
                           <div className="w-2 h-2 bg-green-500 rounded-full mt-2.5 flex-shrink-0" />
-                          <span className="text-slate-600 dark:text-slate-300">{result}</span>
+                          <span className="text-slate-600 dark:text-slate-300">
+                            {result}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -340,7 +493,13 @@ export default function ProjectDetailPage({ params }: PageProps) {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-medium text-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
                 >
-                  <iconify-icon icon="ph:arrow-square-out" className="w-5 h-5" />
+                  <Image
+                    src="/icons/iconoir--arrow-right.svg"
+                    alt="Arrow Right"
+                    width={20}
+                    height={20}
+                    className="w-5 h-5 bg-white border border-white rounded-full"
+                  />
                   <span>Live Demo ansehen</span>
                 </a>
               </div>
@@ -386,7 +545,10 @@ export default function ProjectDetailPage({ params }: PageProps) {
                       </p>
                       <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-sm font-medium">
                         <span>Mehr erfahren</span>
-                        <iconify-icon icon="ph:arrow-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        <iconify-icon
+                          icon="ph:arrow-right"
+                          className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                        />
                       </div>
                     </div>
                   </Link>
@@ -412,5 +574,3 @@ export default function ProjectDetailPage({ params }: PageProps) {
     </main>
   );
 }
-
-

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Icon } from "@iconify/react";
 import { projects } from "@/data/projects";
 import SplitText from "src/blocks/TextAnimations/SplitText/SplitText";
 const handleAnimationComplete = () => {

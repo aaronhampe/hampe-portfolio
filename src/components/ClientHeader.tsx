@@ -50,7 +50,7 @@ export default function Header() {
         }`}
       >
         <nav className="container mx-auto px-6" aria-label="Hauptnavigation">
-          <div className="flex items-center justify-around h-20">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link
               href="/"
@@ -103,7 +103,7 @@ export default function Header() {
               })}
             </div>
 
-            {/* CTA Button & Theme Switcher */}
+            {/* CTA Button & Theme Switcher (desktop/tablet) */}
             <div className="hidden md:flex items-center space-x-3">
               <ThemeSwitcher variant="button" />
               <Link
@@ -115,32 +115,36 @@ export default function Header() {
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen((v) => !v)}
-              aria-label="Menü öffnen"
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-menu-panel"
-              className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
-            >
-              <div className="w-5 h-4 flex flex-col justify-between">
-                <span
-                  className={`w-full h-0.5 rounded-full transition-all duration-300 bg-slate-700 dark:bg-slate-200 ${
-                    isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""
-                  }`}
-                />
-                <span
-                  className={`w-full h-0.5 rounded-full transition-all duration-300 bg-slate-700 dark:bg-slate-200 ${
-                    isMobileMenuOpen ? "-rotate-45 -translate-y-1.4" : ""
-                  }`}
-                />
-                <span
-                  className={`w-full h-0.5 rounded-full transition-all duration-300 bg-slate-700 dark:bg-slate-200 ${
-                    isMobileMenuOpen ? "opacity-0" : "" 
-                  }`}
-                />
-              </div>
-            </button>
+            {/* Right controls (mobile only): Theme + Menu */}
+            <div className="flex md:hidden items-center gap-2">
+              {/* Falls ThemeSwitcher keine 'icon'-Variante hat, einfach 'button' beibehalten */}
+              <ThemeSwitcher variant="button" />
+              <button
+                onClick={() => setIsMobileMenuOpen((v) => !v)}
+                aria-label="Menü öffnen"
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu-panel"
+                className="relative w-10 h-10 flex items-center justify-center rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
+              >
+                <div className="w-5 h-4 flex flex-col justify-between">
+                  <span
+                    className={`w-full h-0.5 rounded-full transition-all duration-300 bg-slate-700 dark:bg-slate-200 ${
+                      isMobileMenuOpen ? "rotate-45 translate-y-1.5" : ""
+                    }`}
+                  />
+                  <span
+                    className={`w-full h-0.5 rounded-full transition-all duration-300 bg-slate-700 dark:bg-slate-200 ${
+                      isMobileMenuOpen ? "-rotate-45 -translate-y-1.4" : ""
+                    }`}
+                  />
+                  <span
+                    className={`w-full h-0.5 rounded-full transition-all duration-300 bg-slate-700 dark:bg-slate-200 ${
+                      isMobileMenuOpen ? "opacity-0" : ""
+                    }`}
+                  />
+                </div>
+              </button>
+            </div>
           </div>
         </nav>
       </header>
