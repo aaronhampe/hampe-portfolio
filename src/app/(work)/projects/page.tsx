@@ -56,8 +56,8 @@ const TECH_MAP: Record<
   /* Frameworks */
   nextjs: { icon: "simple-icons:nextdotjs", rgb: [0, 0, 0], label: "Next.js" },
   nuxt: { icon: "/icons/material-icon-theme--nuxt.svg", rgb: [0, 220, 130], label: "Nuxt" },
-  react: { icon: "simple-icons:react", rgb: [97, 218, 251], label: "React" },
-  vue: { icon: "simple-icons:vuedotjs", rgb: [65, 184, 131], label: "Vue" },
+  react: { icon: "/icons/logos--react.svg", rgb: [97, 218, 251], label: "React" },
+  vue: { icon: "/icons/logos--vue.svg", rgb: [65, 184, 131], label: "Vue" },
   php: { icon: "/icons/logos--php.svg", rgb: [0, 43, 123], label: "PHP" },
   elementor: { icon: "/icons/simple-icons--elementor.svg", rgb: [255, 93, 1], label: "Elementor" },
   threejs: {
@@ -67,10 +67,11 @@ const TECH_MAP: Record<
   },
   astro: { icon: "simple-icons:astro", rgb: [255, 93, 1], label: "Astro" },
   vite: { icon: "simple-icons:vite", rgb: [100, 108, 255], label: "Vite" },
-
+  googleanalytics: { icon: "/icons/logos--google-analytics.svg", rgb: [227, 115, 0], label: "Google Analytics" },
+  liquid: { icon: "/icons/catppuccin--liquid.svg", rgb: [138, 173, 244], label: "Liquid" },
   /* Web Core */
   typescript: {
-    icon: "simple-icons:typescript",
+    icon: "/icons/devicon--typescript.svg",
     rgb: [49, 120, 198],
     label: "TypeScript",
   },
@@ -82,11 +83,11 @@ const TECH_MAP: Record<
   html5: { icon: "simple-icons:html5", rgb: [227, 79, 38], label: "HTML5" },
   css: { icon: "/icons/skill-icons--css.svg", rgb: [38, 77, 228], label: "CSS" },
   tailwind: {
-    icon: "simple-icons:tailwindcss",
+    icon: "/icons/devicon--tailwindcss.svg",
     rgb: [56, 189, 248],
     label: "Tailwind CSS",
   },
-  sass: { icon: "simple-icons:sass", rgb: [204, 102, 153], label: "Sass" },
+  sass: { icon: "/icons/vscode-icons--file-type-scss2.svg", rgb: [204, 102, 153], label: "Sass" },
 
   /* Backend / Runtime */
   node: {
@@ -141,24 +142,24 @@ const TECH_MAP: Record<
 
   /* Commerce & CMS */
   shopify: {
-    icon: "simple-icons:shopify",
+    icon: "/icons/logos--shopify.svg",
     rgb: [96, 189, 99],
     label: "Shopify",
   },
   woocommerce: {
-    icon: "simple-icons:woocommerce",
+    icon: "/icons/devicon--woocommerce.svg",
     rgb: [146, 86, 145],
     label: "WooCommerce",
   },
   wordpress: {
-    icon: "simple-icons:wordpress",
+    icon: "/icons/bi--wordpress.svg",
     rgb: [33, 117, 155],
     label: "WordPress",
   },
 
   /* Design & Others */
-  figma: { icon: "simple-icons:figma", rgb: [10, 207, 131], label: "Figma" },
-  python: { icon: "simple-icons:python", rgb: [55, 118, 171], label: "Python" },
+  figma: { icon: "/icons/devicon--figma.svg", rgb: [10, 207, 131], label: "Figma" },
+  python: { icon: "/icons/logos--python.svg", rgb: [55, 118, 171], label: "Python" },
 };
 
 const norm = (s: string) =>
@@ -322,10 +323,7 @@ export default function ProjectsPage() {
               <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
             </div>
 
-            <p className="text-xl md:text-2xl text-red-600 dark:text-red-500 font-light leading-relaxed">
-              Diese Seite befindet sich noch in Arbeit
-            </p>
-
+            
             <p className="text-md md:text-lg text-slate-600 dark:text-slate-300 font-light leading-relaxed">
               Eine Auswahl meiner bisherigen Arbeiten – von eleganten Websites
               bis hin zu komplexen Anwendungen

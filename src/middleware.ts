@@ -9,7 +9,7 @@ export function middleware() {
   // TODO: Iconify Script selbst hosten und dann 'unsafe-inline' / 'unsafe-eval' entfernen.
   const csp = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://code.iconify.design",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
     "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data: blob:",
     "font-src 'self' data:",

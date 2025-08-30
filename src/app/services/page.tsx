@@ -33,7 +33,7 @@ export default function ServicesPage() {
             <li>Modernes Design</li>
             <li>Einfache Wartung und Änderungen</li>
           </ul>
-          <p className="mt-4 text-2xl font-bold text-gray-900 dark:text-gray-100">ab 79,95 € / Monat</p>
+          <p className="mt-4 text-2xl font-bold text-gray-900 dark:text-gray-100">ab 199,95 € / Monat</p>
           <Link href="/contact">
             <div className="mt-6 inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-center hover:bg-blue-700 transition-colors">
               Anfragen
@@ -56,7 +56,7 @@ export default function ServicesPage() {
             <li>Fortgeschrittene Wartung</li>
             <li>Individuell – für größere und komplexere Projekte</li>
           </ul>
-          <p className="mt-4 text-2xl font-bold text-gray-900 dark:text-gray-100">ab 189,95 € / Monat</p>
+          <p className="mt-4 text-2xl font-bold text-gray-900 dark:text-gray-100">ab 389,95 € / Monat</p>
           <Link href="/contact">
             <div className="mt-6 inline-block px-6 py-3 bg-blue-600 text-white rounded-lg text-center hover:bg-blue-700 transition-colors">
               Anfragen

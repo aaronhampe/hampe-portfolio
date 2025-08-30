@@ -109,10 +109,12 @@ export default function Home() {
             {/* Websites */}
             <div className="group text-center p-8 rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Icon
-                  icon="ph:browser-duotone"
-                  className="w-10 h-10 text-blue-600 dark:text-blue-400"
-                  aria-hidden="true"
+               <Image
+                  src="/icons/flat-color-icons--template.svg"
+                  width={100}
+                  height={100}
+                  className="w-12 h-12"
+                  alt="Webshops Icon"
                 />
               </div>
               <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
@@ -126,11 +128,13 @@ export default function Home() {
 
             {/* Webshops */}
             <div className="group text-center p-8 rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-500">
-              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Icon
-                  icon="ph:storefront-duotone"
-                  className="w-10 h-10 text-purple-600 dark:text-purple-400"
-                  aria-hidden="true"
+              <div className="relative w-20 h-20 mx-auto mb-6 rounded-full bg-purple-50 dark:bg-yellow-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <Image
+                  src="/icons/flat-color-icons--shop.svg"
+                  width={100}
+                  height={100}
+                  className="w-12 h-12"
+                  alt="Webshops Icon"
                 />
               </div>
               <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
@@ -145,10 +149,12 @@ export default function Home() {
             {/* Software */}
             <div className="group text-center p-8 rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 transition-all duration-500">
               <div className="relative w-20 h-20 mx-auto mb-6 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Icon
-                  icon="ph:code-duotone"
-                  className="w-10 h-10 text-emerald-600 dark:text-emerald-400"
-                  aria-hidden="true"
+                <Image
+                  src="/icons/flat-color-icons--settings.svg"
+                  width={100}
+                  height={100}
+                  className="w-12 h-12"
+                  alt="Webshops Icon"
                 />
               </div>
               <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">

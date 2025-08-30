@@ -6,7 +6,7 @@ const navigation = {
     { name: "Home", href: "/" },
     //{ name: "Projekte", href: "/projects" },
     //{ name: "Services", href: "/services" },
-     { name: "Blog", href: "/blog" },
+    { name: "Blog", href: "/blog" },
     { name: "Über mich", href: "/about" },
     { name: "Kontakt", href: "/contact" },
   ],
@@ -242,8 +242,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Newsletter Section */}
-      <div className="border-t border-slate-200/50 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
+      {/* Newsletter Section <div className="border-t border-slate-200/50 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
         <div className="container mx-auto px-6 py-12">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
