@@ -82,7 +82,7 @@ export default function Home() {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-[-4em] left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="hidden lg:block absolute bottom-[-4em] left-1/2 transform -translate-x-1/2 animate-bounce">
             <div className="w-6 h-10 border-2 border-slate-300 dark:border-slate-600 rounded-full flex justify-center">
               <div className="w-1 h-3 bg-slate-400 dark:bg-slate-300 rounded-full mt-2 animate-pulse"></div>
             </div>
