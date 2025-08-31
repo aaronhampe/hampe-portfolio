@@ -66,6 +66,7 @@ const TECH_MAP: Record<
     label: "Three.js",
   },
   astro: { icon: "simple-icons:astro", rgb: [255, 93, 1], label: "Astro" },
+  wix: { icon: "/icons/logos--wix.svg", rgb: [0, 0, 0], label: "Wix" },
   vite: { icon: "simple-icons:vite", rgb: [100, 108, 255], label: "Vite" },
   googleanalytics: { icon: "/icons/logos--google-analytics.svg", rgb: [227, 115, 0], label: "Google Analytics" },
   liquid: { icon: "/icons/catppuccin--liquid.svg", rgb: [138, 173, 244], label: "Liquid" },

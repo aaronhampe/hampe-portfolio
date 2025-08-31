@@ -61,6 +61,7 @@ const TECH_MAP: Record<
     rgb: [255, 93, 1],
     label: "Elementor",
   },
+  wix: { icon: "/icons/logos--wix.svg", rgb: [0, 0, 0], label: "Wix" },
   threejs: {
     icon: "simple-icons:threedotjs",
     rgb: [0, 0, 0],

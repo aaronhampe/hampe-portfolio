@@ -152,4 +152,27 @@ export const projects: Project[] = [
     liveUrl: "https://secutimetec.de",
     status: "live",
   },
+  {
+    slug: "zusammen-fuer-ghana",
+    title: "Zusammen für Ghana",
+    teaser:
+      "Moderne Website für unseren Verein 'Zusammen für Ghana e.V.' mit Informationen und Spendenmöglichkeiten.",
+    cover: "/images/zfgsite.svg",
+    category: "website",
+    technologies: ["Wix"],
+    year: "2020 - heute",
+    client: "Zusammen für Ghana e.V.",
+    description:
+      "Mit dem Verein 'Zusammen für Ghana e.V.' haben wir es uns zum Ziel gesetzt, eine Schule in Hobor (Nähe Accra) zu bauen und zu erhalten. Die Kinder in den umgebenen Siedlungen hatten bisweilen keine Chance auf Bildung. Unser Verein in Zusammenarbeit mit unserem Partnerverein (NGO Kinder Zentrum International) hat dies verändert. Mittlerweile besuchen über 100 Kinder die Schule. Wir sind sehr stolz auf das, was wir gemeinsam erreicht haben.",
+    features: [
+      "Mehrsprachigkeit (Deutsch & Englisch)",
+      "SEO-optimiert für bessere Sichtbarkeit",
+    ],
+    results: [
+      "Bessere Core Web Vitals",
+      "Professionellere Online-Präsenz",
+    ],
+    liveUrl: "https://www.zusammenfuerghana.de",
+    status: "live",
+  },
 ];
