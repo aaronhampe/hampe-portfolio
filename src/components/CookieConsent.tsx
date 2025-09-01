@@ -9,9 +9,29 @@ import "vanilla-cookieconsent/dist/cookieconsent.css";
 declare global {
   interface Window {
     updateAnalyticsConsent?: (granted: boolean) => void;
-    cc?: { showSettings?: () => void };
+    cc?: CCInstance;
   }
 }
+
+// Minimale Typdefinitionen der CookieConsent-Instanz/Factory
+interface CookieConsentCtx {
+  cookie: { categories: string[] };
+}
+
+interface CookieConsentConfig {
+  guiOptions: unknown;
+  categories: Record<string, unknown>;
+  language: unknown;
+  onFirstConsent?: (ctx: CookieConsentCtx) => void;
+  onConsent?: (ctx: CookieConsentCtx) => void;
+  onChange?: (ctx: CookieConsentCtx & { changedCategories?: string[] }) => void;
+}
+
+type CCInstance = {
+  run: (config: CookieConsentConfig) => void;
+  showSettings: () => void;
+};
+type InitFn = () => CCInstance;
 
 export default function CookieConsent() {
   useEffect(() => {
@@ -20,27 +40,31 @@ export default function CookieConsent() {
     interface CookieConsentCtx {
       cookie: { categories: string[] };
     }
-    interface CookieConsentConfig {
-      guiOptions: unknown;
-      categories: Record<string, unknown>;
-      language: unknown;
-      onFirstConsent?: (ctx: CookieConsentCtx) => void;
-      onConsent?: (ctx: CookieConsentCtx) => void;
-      onChange?: (ctx: CookieConsentCtx & { changedCategories?: string[] }) => void;
-    }
+  // CookieConsentConfig is declared top-level for typing of CCInstance
     
+    // Type guards
+    const isInitFn = (fn: unknown): fn is InitFn => typeof fn === 'function';
+
     import("vanilla-cookieconsent").then((mod: unknown) => {
-      const cookieConsent = mod as { 
-        run: (config: CookieConsentConfig) => void;
-        showSettings: () => void;
-      };
-      
-      // Global verfügbar machen für den Settings-Button  
-      (window as unknown as { cc?: { showSettings?: () => void } }).cc = {
-        showSettings: cookieConsent.showSettings,
-      };
-      
-      cookieConsent.run({
+      const modDefault = (mod as { default?: unknown }).default;
+      const modNamed = (mod as { initCookieConsent?: unknown }).initCookieConsent;
+      const globalNamed = (globalThis as { initCookieConsent?: unknown }).initCookieConsent;
+
+      const init: InitFn | undefined =
+        (isInitFn(modDefault) ? modDefault : undefined) ||
+        (isInitFn(modNamed) ? modNamed : undefined) ||
+        (isInitFn(globalNamed) ? globalNamed : undefined);
+
+      if (!init) {
+        console.warn('[CookieConsent] Konnte initCookieConsent nicht finden.');
+        return;
+      }
+
+      const cookieConsent = init();
+      // Instanz global verfügbar machen (für Settings-Button)
+      window.cc = cookieConsent;
+
+      const config: CookieConsentConfig = {
         guiOptions: {
           consentModal: { layout: "box inline", position: "bottom right", equalWeightButtons: true, flipButtons: false },
           preferencesModal: { layout: "box", position: "right", equalWeightButtons: true, flipButtons: false },
@@ -141,7 +165,9 @@ export default function CookieConsent() {
             window.updateAnalyticsConsent(granted);
           }
         },
-      });
+      };
+
+      cookieConsent.run(config);
     });
   }, []);
 
