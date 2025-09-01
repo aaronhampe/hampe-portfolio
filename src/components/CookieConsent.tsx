@@ -9,11 +9,12 @@ import "vanilla-cookieconsent/dist/cookieconsent.css";
 declare global {
   interface Window {
     updateAnalyticsConsent?: (granted: boolean) => void;
-    cc?: CCInstance;
+    // Exponiere die CookieConsent API (Namespace) global, damit Buttons sie nutzen können
+    cc?: CookieConsentAPI;
   }
 }
 
-// Minimale Typdefinitionen der CookieConsent-Instanz/Factory
+// Minimale Typdefinitionen
 interface CookieConsentCtx {
   cookie: { categories: string[] };
 }
@@ -27,42 +28,33 @@ interface CookieConsentConfig {
   onChange?: (ctx: CookieConsentCtx & { changedCategories?: string[] }) => void;
 }
 
-type CCInstance = {
-  run: (config: CookieConsentConfig) => void;
-  showSettings: () => void;
+type CookieConsentAPI = {
+  run: (config: CookieConsentConfig) => Promise<void> | void;
+  showPreferences?: () => void;
+  show?: (createModal?: boolean) => void;
+  hide?: () => void;
+  // weitere Methoden bei Bedarf
 };
-type InitFn = () => CCInstance;
 
 export default function CookieConsent() {
   useEffect(() => {
-    // Lazy import to avoid SSR issues
-    // Minimale Typen basierend auf vanilla-cookieconsent
-    interface CookieConsentCtx {
-      cookie: { categories: string[] };
-    }
-  // CookieConsentConfig is declared top-level for typing of CCInstance
-    
-    // Type guards
-    const isInitFn = (fn: unknown): fn is InitFn => typeof fn === 'function';
+    // Lazy import to avoid SSR issues; unterstütze sowohl ESM als auch UMD Formate
+      type ModuleShape = { default?: CookieConsentAPI; run?: CookieConsentAPI['run'] };
+      interface UMDGlobal { CookieConsent?: CookieConsentAPI }
+      import("vanilla-cookieconsent").then((mod: unknown) => {
+        const m = mod as ModuleShape;
+        const api: CookieConsentAPI | undefined =
+          (m && typeof m.run === "function" ? (m as CookieConsentAPI) : undefined) ||
+          (m?.default && typeof m.default.run === "function" ? (m.default as CookieConsentAPI) : undefined) ||
+          (globalThis as unknown as UMDGlobal).CookieConsent; // UMD global (falls vorhanden)
 
-    import("vanilla-cookieconsent").then((mod: unknown) => {
-      const modDefault = (mod as { default?: unknown }).default;
-      const modNamed = (mod as { initCookieConsent?: unknown }).initCookieConsent;
-      const globalNamed = (globalThis as { initCookieConsent?: unknown }).initCookieConsent;
-
-      const init: InitFn | undefined =
-        (isInitFn(modDefault) ? modDefault : undefined) ||
-        (isInitFn(modNamed) ? modNamed : undefined) ||
-        (isInitFn(globalNamed) ? globalNamed : undefined);
-
-      if (!init) {
-        console.warn('[CookieConsent] Konnte initCookieConsent nicht finden.');
+      if (!api || typeof api.run !== "function") {
+        console.warn('[CookieConsent] Konnte CookieConsent API nicht finden.');
         return;
       }
 
-      const cookieConsent = init();
-      // Instanz global verfügbar machen (für Settings-Button)
-      window.cc = cookieConsent;
+      // API global verfügbar machen (für Settings-Button)
+      window.cc = api;
 
       const config: CookieConsentConfig = {
         guiOptions: {
@@ -152,7 +144,7 @@ export default function CookieConsent() {
               s.setAttribute('data-domain', 'TODO-DOMAIN'); // TODO: Domain eintragen
               s.setAttribute('data-api', '/api/event'); // optional für Proxy
               s.defer = true;
-              s.dataset.plausible = 'true';
+                (s as HTMLScriptElement).dataset.plausible = 'true';
               s.src = 'https://plausible.io/js/script.js'; // oder eigenes self-hosted Script
               document.head.appendChild(s);
             }
@@ -167,7 +159,7 @@ export default function CookieConsent() {
         },
       };
 
-      cookieConsent.run(config);
+      api.run(config);
     });
   }, []);
 

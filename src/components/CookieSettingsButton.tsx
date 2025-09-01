@@ -8,10 +8,12 @@ export function CookieSettingsButton() {
   useEffect(() => {
     // Nur anzeigen wenn Cookie-Consent bereits gesetzt wurde
     const checkCookieConsent = () => {
-      const cookieExists = document.cookie
-        .split(';')
-        .some(cookie => cookie.trim().startsWith('cc_cookie='));
-      setIsVisible(cookieExists);
+      // Bevorzugt API fragen, sonst Cookie-String prüfen
+      const cc = (window as unknown as { cc?: { validConsent?: () => boolean } }).cc;
+      const hasConsent = typeof cc?.validConsent === 'function'
+        ? !!cc.validConsent()
+        : document.cookie.split(';').some(c => c.trim().startsWith('cc_cookie='));
+      setIsVisible(hasConsent);
     };
 
     checkCookieConsent();
@@ -24,9 +26,9 @@ export function CookieSettingsButton() {
 
   const handleClick = () => {
     // Bevorzugt: Einstellungen-Modal öffnen (sofern von CookieConsent verfügbar)
-    const win = window as unknown as { cc?: { showSettings?: () => void } };
-    if (win.cc?.showSettings) {
-      win.cc.showSettings();
+    const win = window as unknown as { cc?: { showPreferences?: () => void } };
+    if (win.cc?.showPreferences) {
+      win.cc.showPreferences();
       return;
     }
     // Fallback: Cookie löschen, damit der Banner wieder erscheint und neu laden
