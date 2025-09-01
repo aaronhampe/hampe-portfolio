@@ -23,9 +23,14 @@ export function CookieSettingsButton() {
   }, []);
 
   const handleClick = () => {
-    // Cookie löschen, damit der Banner wieder erscheint
+    // Bevorzugt: Einstellungen-Modal öffnen (sofern von CookieConsent verfügbar)
+    const win = window as unknown as { cc?: { showSettings?: () => void } };
+    if (win.cc?.showSettings) {
+      win.cc.showSettings();
+      return;
+    }
+    // Fallback: Cookie löschen, damit der Banner wieder erscheint und neu laden
     document.cookie = "cc_cookie=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-    // Seite neu laden
     window.location.reload();
   };
 

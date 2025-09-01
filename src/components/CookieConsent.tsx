@@ -5,6 +5,14 @@ import "vanilla-cookieconsent/dist/cookieconsent.css";
 // NOTE: Falls du die CSS global customizen willst: überschreibe die Klassen in globals.css nach dem Import.
 // Minimaler Setup mit Kategorien (necessary, functional, analytics, marketing)
 
+// Kleine Erweiterung des Window-Typs für unsere Consent-Bridge (top-level)
+declare global {
+  interface Window {
+    updateAnalyticsConsent?: (granted: boolean) => void;
+    cc?: { showSettings?: () => void };
+  }
+}
+
 export default function CookieConsent() {
   useEffect(() => {
     // Lazy import to avoid SSR issues
@@ -103,11 +111,16 @@ export default function CookieConsent() {
           },
         },
         // Optional: Callback Hooks um z.B. Analytics erst bei Consent zu initialisieren
-  onFirstConsent: () => {
+        onFirstConsent: () => {
           // Erstes Consent Event
         },
         onConsent: (ctx: CookieConsentCtx) => {
-          if (Array.isArray(ctx.cookie.categories) && ctx.cookie.categories.includes("analytics")) {
+          const granted = Array.isArray(ctx.cookie.categories) && ctx.cookie.categories.includes("analytics");
+          // GA Consent Bridge
+          if (typeof window.updateAnalyticsConsent === 'function') {
+            window.updateAnalyticsConsent(granted);
+          }
+          if (granted) {
             // Dynamisches Laden von Plausible erst nach Einwilligung
             const existing = document.querySelector('script[data-plausible]');
             if (!existing) {
@@ -121,8 +134,12 @@ export default function CookieConsent() {
             }
           }
         },
-        onChange: () => {
-          // Änderungen der Auswahl
+        onChange: (ctx: CookieConsentCtx & { changedCategories?: string[] }) => {
+          // Änderungen der Auswahl → Consent für GA aktualisieren
+          const granted = Array.isArray(ctx.cookie.categories) && ctx.cookie.categories.includes('analytics');
+          if (typeof window.updateAnalyticsConsent === 'function') {
+            window.updateAnalyticsConsent(granted);
+          }
         },
       });
     });
