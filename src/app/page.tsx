@@ -161,14 +161,20 @@ export default function Home() {
                   Portfolio ansehen
                 </Link>
               </div>
-            </div>
 
-            {/* Scroll Indicator */}
-            <div className="hidden lg:block absolute bottom-[-4em] left-1/2 transform -translate-x-1/2 animate-bounce">
-              <div className="w-6 h-10 border-2 border-slate-300 dark:border-slate-600 rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-slate-400 dark:bg-slate-300 rounded-full mt-2 animate-pulse"></div>
+              {/* Scroll Indicator */}
+              <div className="hidden lg:flex justify-center pt-6 pb-8">
+                <div className="flex flex-col items-center animate-bounce">
+                  <div className="w-6 h-10 border-2 border-slate-300 dark:border-slate-600 rounded-full flex justify-center">
+                    <div className="w-1 h-3 bg-slate-400 dark:bg-slate-300 rounded-full mt-2 animate-pulse"></div>
+                  </div>
+                  <span className="text-xs text-slate-400 dark:text-slate-500 mt-2 font-light">
+                    Scrollen
+                  </span>
+                </div>
               </div>
             </div>
+
           </div>
         </section>
 

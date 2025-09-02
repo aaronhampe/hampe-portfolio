@@ -23,10 +23,10 @@ export default function DatenschutzPage() {
           Welserstraße 3<br />
           87463 Dietmannsried<br />
           Deutschland<br /> <br />
-          <h3  className="text-xl font-semibold">Kontakt</h3>
+        </p>
+        <h3  className="text-xl font-semibold">Kontakt</h3>
           E-Mail: <a href="mailto:info@aaronhampe.de" className="underline decoration-dotted">info@aaronhampe.de</a> <br />
           Telefon: <a href="tel:+4915129574884" className="underline decoration-dotted">+49 151 29574884</a>
-        </p>
       </section>
 
       <section className="space-y-3" aria-labelledby="begriffe">
@@ -160,7 +160,7 @@ export default function DatenschutzPage() {
 
       <footer className="pt-4 border-t border-gray-200 dark:border-gray-800">
         <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">
-          Stand: 22.08.2025 – Diese Erklärung enthält Platzhalter und muss auf tatsächliche Dienste (Analytics, Fonts, CDN, Hosting) abgestimmt werden.
+          Stand: 22.08.2025 
         </p>
       </footer>
     </main>

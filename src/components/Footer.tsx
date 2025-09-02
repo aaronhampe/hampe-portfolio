@@ -16,12 +16,13 @@ const navigation = {
     //{ name: "Custom Software", href: "/services#software" },
     { name: "Wartung & Support", href: "/services#support" },
     { name: "KI-gestützte Entwicklung", href: "/ai" },
-    { name: "KI-Ethik", href: "/ai/ethics" },
+    { name: "FAQ", href: "/faq" },
   ],
   legal: [
     { name: "Impressum", href: "/impressum" },
     { name: "Datenschutz", href: "/datenschutz" },
     { name: "AGB", href: "/agb" },
+    { name: "KI-Ethik", href: "/ai/ethics" },
   ],
   social: [
     {

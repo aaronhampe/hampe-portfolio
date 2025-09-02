@@ -72,14 +72,10 @@ export default function ImpressumPage() {
               >
                 +49 151 29574884
               </a>
-              <br />
-            
             </p>
-          
           </li>
           <li>
-            <p className="mt-4">
-              {" "}
+            <p>
               E-Mail:{" "}
               <a
                 href="mailto:info@aaronhampe.de"
@@ -160,19 +156,7 @@ export default function ImpressumPage() {
           Verbraucherstreitbeilegung / OS-Plattform
         </h2>
         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          Die Europäische Kommission stellt eine Plattform zur
-          Online-Streitbeilegung (OS) bereit:{" "}
-          <a
-            href="https://ec.europa.eu/consumers/odr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline decoration-dotted"
-          >
-            https://ec.europa.eu/consumers/odr
-          </a>
-          . <br />
-          Ich bin{" "}
-          {/* TODO: 'nicht bereit und nicht verpflichtet' oder 'bereit' */} an
+          Ich bin nicht bereit und nicht verpflichtet an
           Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
           teilzunehmen.
         </p>
@@ -184,8 +168,9 @@ export default function ImpressumPage() {
           Bild- & Quellenhinweise
         </h2>
         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          Eigene Grafiken, Logos und Renderings.{" "}
-          {/* TODO: Falls Stockfotos / Icon-Sets / Open-Source-Libraries mit Lizenzvermerken genutzt werden, hier ergänzen. */}
+          Eigene Grafiken und Renderings. Logos teilweise von Iconify und
+          anderen Quellen. Alles nur lokale Ressourcen, keine externen
+          Inhalte.
         </p>
       </section>
 
@@ -195,16 +180,13 @@ export default function ImpressumPage() {
           Hosting
         </h2>
         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          Hosting / Infrastruktur über{" "}
-          {/* TODO: z.B. Vercel Inc., Amazon Web Services, Hetzner Online GmbH */}
-          . Details zur Datenverarbeitung siehe Datenschutzerklärung.
+          Hosting / Infrastruktur über Vercel. Details zur Datenverarbeitung siehe Datenschutzerklärung.
         </p>
       </section>
 
       <footer className="pt-4 border-t border-gray-200 dark:border-gray-800">
         <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">
-          Stand: {/* TODO: Datum einfügen */} — Dieses Impressum enthält
-          Platzhalter und muss vor Livegang geprüft und angepasst werden.
+          Stand: 20.09.2025
         </p>
       </footer>
     </main>

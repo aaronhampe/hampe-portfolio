@@ -246,24 +246,27 @@ function FilterButton({ name, count, active, onClick }: FilterButtonProps) {
       onClick={onClick}
       aria-pressed={active}
       className={[
-        "group px-6 py-3 rounded-2xl font-medium transition-all duration-300 focus:outline-none",
-        "hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-blue-400",
+        "group relative px-8 py-4 rounded-full font-medium transition-all duration-500 focus:outline-none",
+        "hover:scale-105 focus-visible:ring-2 focus-visible:ring-blue-400/50 focus-visible:ring-offset-4",
         active
-          ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white border-2 border-transparent shadow-lg hover:shadow-xl"
-          : "bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-blue-300 dark:hover:border-blue-400/60 hover:text-blue-600 dark:hover:text-blue-400 hover:shadow-lg",
+          ? "bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-2xl"
+          : "bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 hover:bg-white/80 dark:hover:bg-slate-800/80 hover:border-slate-300/50 dark:hover:border-slate-600/50",
       ].join(" ")}
     >
-      <span>{name}</span>
+      <span className="relative z-10">{name}</span>
       <span
         className={[
-          "ml-2 px-2 py-1 rounded-full text-xs transition-colors duration-300 border",
+          "ml-3 px-3 py-1 rounded-full text-xs font-semibold transition-all duration-500",
           active
-            ? "bg-white/20 text-white border-white/30"
-            : "bg-slate-100 dark:bg-slate-800 border-slate-200/60 dark:border-slate-700/60 group-hover:bg-blue-100 dark:group-hover:bg-blue-950/40",
+            ? "bg-white/20 text-white/90 dark:bg-slate-900/20 dark:text-slate-900/90"
+            : "bg-slate-100/80 dark:bg-slate-700/60 text-slate-600 dark:text-slate-400",
         ].join(" ")}
       >
         {count}
       </span>
+      {active && (
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 blur-xl"></div>
+      )}
     </button>
   );
 }
@@ -297,7 +300,7 @@ export default function ProjectsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 text-slate-900 dark:text-slate-100">
+    <main className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
       {/* Iconify loader for web component <iconify-icon> */}
       <Script
         src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"
@@ -305,66 +308,58 @@ export default function ProjectsPage() {
       />
 
       {/* Hero */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/5 dark:bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 dark:bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
-
+      <section className="relative py-32 md:py-40 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-white to-blue-50/30 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900"></div>
+        
         <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center max-w-4xl mx-auto space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-thin tracking-tight text-slate-900 dark:text-white">
-                Meine
-                <span className="font-light bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  {" "}
-                  Projekte
-                </span>
+          <div className="text-center max-w-5xl mx-auto space-y-12">
+            <div className="space-y-8">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-thin tracking-tighter text-slate-900 dark:text-white leading-none">
+                Projekte
               </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+              <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
+                Ausgewählte Arbeiten, die Geschichten erzählen
+              </p>
             </div>
 
-            
-            <p className="text-md md:text-lg text-slate-600 dark:text-slate-300 font-light leading-relaxed">
-              Eine Auswahl meiner bisherigen Arbeiten – von eleganten Websites
-              bis hin zu komplexen Anwendungen
-            </p>
-
-            {/* Stats */}
-            <div className="flex flex-wrap justify-center gap-8 pt-8">
+            {/* Stats - Minimalistisch wie Apple */}
+            <div className="flex justify-center items-center gap-4 sm:gap-8 md:gap-12 lg:gap-16 pt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-slate-900 dark:text-white">
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin text-slate-900 dark:text-white mb-2">
                   {projects.length}
                 </div>
-                <div className="text-sm text-slate-600 dark:text-slate-300">
+                <div className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
                   Projekte
                 </div>
               </div>
+              <div className="w-px h-12 sm:h-14 md:h-16 bg-slate-200 dark:bg-slate-800"></div>
               <div className="text-center">
-                <CountUp
-                  from={0}
-                  to={20}
-                  separator=","
-                  direction="up"
-                  duration={1}
-                  className="text-3xl font-bold text-slate-900 dark:text-white"
-                />+
-                <div className="text-sm text-slate-600 dark:text-slate-300">
-                  Zufriedene Kunden
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin text-slate-900 dark:text-white mb-2">
+                  <CountUp
+                    from={0}
+                    to={20}
+                    separator=""
+                    direction="up"
+                    duration={2}
+                  />+
+                </div>
+                <div className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+                  Kunden
                 </div>
               </div>
+              <div className="w-px h-12 sm:h-14 md:h-16 bg-slate-200 dark:bg-slate-800"></div>
               <div className="text-center">
-                
-                <CountUp
-                  from={0}
-                  to={6}
-                  separator=","
-                  direction="up"
-                  duration={1}
-                  className="text-3xl font-bold text-slate-900 dark:text-white"
-                />+
-                <div className="text-sm text-slate-600 dark:text-slate-300">
-                  Jahre Erfahrung
+                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin text-slate-900 dark:text-white mb-2">
+                  <CountUp
+                    from={0}
+                    to={6}
+                    separator=""
+                    direction="up"
+                    duration={2}
+                  />+
+                </div>
+                <div className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+                  Jahre
                 </div>
               </div>
             </div>
@@ -372,14 +367,10 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* Filter */}
-      <section className="py-16 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm border-y border-slate-200/50 dark:border-slate-700/50">
+      {/* Filter - Apple-Style */}
+      <section className="py-20 relative">
         <div className="container mx-auto px-6">
-          <div
-            className="flex flex-wrap justify-center gap-4"
-            role="toolbar"
-            aria-label="Projektfilter"
-          >
+          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             {categories.map((c) => (
               <FilterButton
                 key={c.id}
@@ -390,35 +381,31 @@ export default function ProjectsPage() {
               />
             ))}
           </div>
-          {/* Live-Region für Screenreader */}
           <p className="sr-only" aria-live="polite">
             {filtered.length} Projekte angezeigt.
           </p>
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-24">
+      {/* Projects Grid - Minimalistisch und elegant */}
+      <section className="pb-32">
         <div className="container mx-auto px-6">
-          <div className="grid gap-12 max-w-7xl mx-auto">
+          <div className="space-y-32 max-w-7xl mx-auto">
             {filtered.map((project, index) => (
               <div
                 key={project.slug}
                 className="group animate-fade-in-up opacity-0"
-                style={{ animationDelay: `${index * 100}ms` }}
+                style={{ animationDelay: `${index * 150}ms` }}
               >
                 <Link
                   href={`/projects/${project.slug}`}
-                  className={`flex flex-col ${
-                    index % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
-                  }
-                              gap-12 items-center rounded-3xl p-8 transition-all duration-500 hover:-translate-y-2
-                              bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-700
-                              shadow-lg hover:shadow-2xl`}
+                  className={`grid ${
+                    index % 2 === 1 ? "lg:grid-cols-[1fr,1.2fr]" : "lg:grid-cols-[1.2fr,1fr]"
+                  } gap-16 lg:gap-20 items-center transition-all duration-700 hover:-translate-y-4 group`}
                 >
                   {/* Bild */}
-                  <div className="flex-1 relative">
-                    <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800">
+                  <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                    <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-2xl group-hover:shadow-3xl transition-shadow duration-700">
                       <Image
                         src={project.cover}
                         alt={project.title}
@@ -428,44 +415,40 @@ export default function ProjectsPage() {
                       />
                     </div>
 
-                    {/* Nummer */}
-                    <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg">
-                      {String(index + 1).padStart(2, "0")}
-                    </div>
-
-                    {/* Kategorie-Badge */}
-                    <div
-                      className="absolute top-4 right-4 px-3 py-1 rounded-full text-sm font-medium
-                                    bg-white/90 dark:bg-slate-900/80 backdrop-blur-sm
-                                    text-slate-600 dark:text-slate-300
-                                    border border-slate-200/50 dark:border-slate-700/60"
-                    >
-                      {project.category === "website" && "🌐 Website"}
-                      {project.category === "webshop" && "🛒 Webshop"}
-                      {project.category === "software" && "⚡ Software"}
+                    {/* Subtiler Badge statt Nummer */}
+                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-full flex items-center justify-center shadow-xl border border-slate-200/50 dark:border-slate-700/50">
+                      <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
                     </div>
                   </div>
 
-                  {/* Details */}
-                  <div className="flex-1 space-y-6 text-center lg:text-left">
-                    <div>
-                      <h2 className="text-3xl md:text-4xl font-light text-slate-900 dark:text-white mb-4">
+                  {/* Content - Apple-Style Clean */}
+                  <div className={`space-y-8 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                    <div className="space-y-6">
+                      <div className="inline-flex items-center px-4 py-2 rounded-full bg-slate-100/80 dark:bg-slate-800/60 backdrop-blur-sm">
+                        <span className="text-sm font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider">
+                          {project.category === "website" && "Website"}
+                          {project.category === "webshop" && "E-Commerce"}
+                          {project.category === "software" && "Software"}
+                        </span>
+                      </div>
+
+                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-thin text-slate-900 dark:text-white tracking-tight leading-none">
                         {project.title}
                       </h2>
-                      <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+                      
+                      <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-light">
                         {project.teaser}
                       </p>
                     </div>
 
-                    {/* Tech Stack */}
+                    {/* Tech Stack - Minimal */}
                     {project.technologies && (
-                      <div className="space-y-3">
-                        <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">
-                          Technologien
-                        </h3>
-                        <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+                      <div className="space-y-4">
+                        <div className="flex flex-wrap gap-2">
                           {project.technologies
-                            .slice()
+                            .slice(0, 4)
                             .sort((a: string, b: string) =>
                               (resolveTech(a).label ?? a).localeCompare(
                                 resolveTech(b).label ?? b,
@@ -476,67 +459,35 @@ export default function ProjectsPage() {
                             .map((tech: string) => (
                               <TechBadge key={tech} tech={tech} />
                             ))}
+                          {project.technologies.length > 4 && (
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-slate-500 dark:text-slate-500 bg-slate-100/50 dark:bg-slate-800/50">
+                              +{project.technologies.length - 4}
+                            </span>
+                          )}
                         </div>
                       </div>
                     )}
 
-                    {/* Meta */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start text-sm text-slate-500 dark:text-slate-400">
-                      {project.year && (
-                        <div className="flex items-center gap-2">
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                            />
-                          </svg>
-                          <span>{project.year}</span>
-                        </div>
-                      )}
+                    {/* Meta Information */}
+                    <div className="flex items-center gap-6 text-sm text-slate-500 dark:text-slate-500">
+                      {project.year && <span>{project.year}</span>}
                       {project.client && (
-                        <div className="flex items-center gap-2">
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2h8z"
-                            />
-                          </svg>
+                        <>
+                          <div className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></div>
                           <span>{project.client}</span>
-                        </div>
+                        </>
                       )}
                     </div>
 
-                    {/* CTA */}
+                    {/* CTA - Apple Style */}
                     <div className="pt-4">
-                      <div className="inline-flex items-center gap-3 text-blue-600 dark:text-blue-400 font-medium group-hover:gap-5 transition-all duration-300">
-                        <span>Projekt ansehen</span>
-                        <svg
-                          className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
+                      <div className="inline-flex items-center gap-3 text-blue-600 dark:text-blue-400 font-medium text-lg group-hover:gap-5 transition-all duration-500">
+                        <span>Ansehen</span>
+                        <div className="w-6 h-6 rounded-full border border-current flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-blue-400 dark:group-hover:text-slate-900 transition-all duration-300">
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -547,39 +498,30 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-500/20 dark:bg-blue-400/15 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/20 dark:bg-purple-400/15 rounded-full blur-3xl"></div>
-        </div>
-
+      {/* CTA Section - Apple Minimalism */}
+      <section className="py-32 bg-slate-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950"></div>
+        
         <div className="container mx-auto px-6 text-center relative z-10">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <h2 className="text-4xl md:text-6xl font-thin text-white mb-6">
-              Haben Sie ein
-              <span className="font-light bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                {" "}
-                Projekt im Kopf?
-              </span>
+          <div className="max-w-4xl mx-auto space-y-12">
+            <h2 className="text-5xl md:text-7xl font-thin text-white tracking-tight leading-none">
+              Ein Projekt<br />im Kopf?
             </h2>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Lassen Sie uns gemeinsam Ihre Idee in eine beeindruckende digitale
-              Lösung verwandeln.
+            <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
+              Verwandeln wir Ihre Vision in digitale Realität.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+            
+            <div className="pt-8">
               <Link
                 href="/contact"
-                className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-medium text-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/25 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+                className="group inline-flex items-center gap-4 px-12 py-6 bg-white text-slate-900 rounded-full font-medium text-lg hover:bg-slate-100 transition-all duration-300 hover:scale-105 shadow-2xl"
               >
-                <span className="relative z-10">Projekt besprechen</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </Link>
-              <Link
-                href="/services"
-                className="px-10 py-5 border-2 border-white/20 text-white rounded-2xl font-medium text-lg transition-all duration-300 hover:border-white/40 hover:bg-white/5 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
-              >
-                Services ansehen
+                <span>Projekt starten</span>
+                <div className="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </Link>
             </div>
           </div>
