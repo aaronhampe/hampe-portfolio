@@ -174,7 +174,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
           </div>
         </section>
 
@@ -187,70 +186,160 @@ export default function Home() {
                 <span className="font-light text-blue-600"> entwickle</span>
               </h2>
               <p className="text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-                Von der Konzeption bis zur Umsetzung – professionelle Lösungen für
-                Ihren digitalen Erfolg
+                Von der Konzeption bis zur Umsetzung – professionelle Lösungen
+                für Ihren digitalen Erfolg
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {/* Websites */}
-              <div className="group text-center p-8 rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-500">
-                <div className="relative w-20 h-20 mx-auto mb-6 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                 <Image
-                    src="/icons/flat-color-icons--template.svg"
-                    width={100}
-                    height={100}
-                    className="w-12 h-12"
-                    alt="Webshops Icon"
-                  />
+              <div className="group relative text-center p-8 rounded-3xl backdrop-blur-xl border border-slate-200/20 dark:border-slate-700/20 hover:-translate-y-4 transition-all duration-700 hover:rotate-1 bg-gradient-to-br from-white/60 via-white/40 to-white/60 dark:from-slate-800/60 dark:via-slate-800/40 dark:to-slate-800/60 shadow-lg hover:shadow-blue-500/25 hover:shadow-2xl">
+                {/* Gradient Border Effect */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm"></div>
+
+                {/* Background Glow */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"></div>
+
+                <div className="relative z-10">
+                  <div className="relative w-24 h-24 mx-auto mb-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/40 dark:to-blue-800/40 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-700 shadow-lg group-hover:shadow-blue-500/30 group-hover:shadow-xl">
+                    {/* Icon Glow */}
+                    <div className="absolute inset-0 rounded-2xl bg-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                    <Image
+                      src="/icons/flat-color-icons--template.svg"
+                      width={100}
+                      height={100}
+                      className="w-14 h-14 relative z-10 group-hover:drop-shadow-lg transition-all duration-500"
+                      alt="Website Icon"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-light text-slate-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                    Websites
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors duration-300">
+                    Moderne, responsive Unternehmenswebsites die Ihre Marke
+                    perfekt repräsentieren und Kunden überzeugen.
+                  </p>
+
+                  <Link
+                    href="/projects"
+                    className="mt-6 inline-flex items-center gap-2 text-sm dark:text-white mb-4 text-blue-600 font-medium"
+                  >
+                    Mehr erfahren
+                    <svg
+                      className="w-4 h-4 transform transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </Link>
                 </div>
-                <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-                  Websites
-                </h3>
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Moderne, responsive Unternehmenswebsites die Ihre Marke perfekt
-                  repräsentieren und Kunden überzeugen.
-                </p>
               </div>
 
               {/* Webshops */}
-              <div className="group text-center p-8 rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 transition-all duration-500">
-                <div className="relative w-20 h-20 mx-auto mb-6 rounded-full bg-purple-50 dark:bg-yellow-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Image
-                    src="/icons/flat-color-icons--shop.svg"
-                    width={100}
-                    height={100}
-                    className="w-12 h-12"
-                    alt="Webshops Icon"
-                  />
+              <div className="group relative text-center p-8 rounded-3xl backdrop-blur-xl border border-slate-200/20 dark:border-slate-700/20 hover:-translate-y-4 transition-all duration-700 hover:-rotate-1 bg-gradient-to-br from-white/60 via-white/40 to-white/60 dark:from-slate-800/60 dark:via-slate-800/40 dark:to-slate-800/60 shadow-lg hover:shadow-purple-500/25 hover:shadow-2xl">
+                {/* Gradient Border Effect */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-purple-500/20 via-transparent to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm"></div>
+
+                {/* Background Glow */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"></div>
+
+                <div className="relative z-10">
+                  <div className="relative w-24 h-24 mx-auto mb-8 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-100 dark:from-purple-900/40 dark:to-pink-800/40 flex items-center justify-center group-hover:scale-110 group-hover:-rotate-12 transition-all duration-700 shadow-lg group-hover:shadow-purple-500/30 group-hover:shadow-xl">
+                    {/* Icon Glow */}
+                    <div className="absolute inset-0 rounded-2xl bg-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                    <Image
+                      src="/icons/flat-color-icons--shop.svg"
+                      width={100}
+                      height={100}
+                      className="w-14 h-14 relative z-10 group-hover:drop-shadow-lg transition-all duration-500"
+                      alt="Webshop Icon"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-light text-slate-900 dark:text-white mb-4 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
+                    Webshops
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors duration-300">
+                    Leistungsstarke E-Commerce-Lösungen mit optimierter User
+                    Experience für maximalen Online-Umsatz.
+                  </p>
+
+                  <Link
+                    href="/projects"
+                    className="mt-6 inline-flex items-center gap-2 text-sm text-purple-600 dark:text-purple-400 font-medium"
+                  >
+                    Mehr erfahren
+                    <svg
+                      className="w-4 h-4 transform transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </Link>
                 </div>
-                <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-                  Webshops
-                </h3>
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Leistungsstarke E-Commerce-Lösungen mit optimierter User
-                  Experience für maximalen Online-Umsatz.
-                </p>
               </div>
 
               {/* Software */}
-              <div className="group text-center p-8 rounded-3xl bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 transition-all duration-500">
-                <div className="relative w-20 h-20 mx-auto mb-6 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Image
-                    src="/icons/flat-color-icons--settings.svg"
-                    width={100}
-                    height={100}
-                    className="w-12 h-12"
-                    alt="Webshops Icon"
-                  />
+              <div className="group relative text-center p-8 rounded-3xl backdrop-blur-xl border border-slate-200/20 dark:border-slate-700/20 hover:-translate-y-4 transition-all duration-700 hover:rotate-1 bg-gradient-to-br from-white/60 via-white/40 to-white/60 dark:from-slate-800/60 dark:via-slate-800/40 dark:to-slate-800/60 shadow-lg hover:shadow-emerald-500/25 hover:shadow-2xl">
+                {/* Gradient Border Effect */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-emerald-500/20 via-transparent to-teal-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm"></div>
+
+                {/* Background Glow */}
+                <div className="absolute -inset-4 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl"></div>
+
+                <div className="relative z-10">
+                  <div className="relative w-24 h-24 mx-auto mb-8 rounded-2xl bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-emerald-900/40 dark:to-teal-800/40 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-700 shadow-lg group-hover:shadow-emerald-500/30 group-hover:shadow-xl">
+                    {/* Icon Glow */}
+                    <div className="absolute inset-0 rounded-2xl bg-emerald-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+                    <Image
+                      src="/icons/flat-color-icons--settings.svg"
+                      width={100}
+                      height={100}
+                      className="w-14 h-14 relative z-10 group-hover:drop-shadow-lg transition-all duration-500 group-hover:animate-spin"
+                      alt="Software Icon"
+                    />
+                  </div>
+                  <h3 className="text-2xl font-light text-slate-900 dark:text-white mb-4 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">
+                    Software
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors duration-300">
+                    Maßgeschneiderte Anwendungen und Tools, die Ihre
+                    Geschäftsprozesse optimieren und automatisieren.
+                  </p>
+
+                  <Link
+                    href="/projects"
+                    className="mt-6 inline-flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400 font-medium"
+                  >
+                    Mehr erfahren
+                    <svg
+                      className="w-4 h-4 transform transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </Link>
                 </div>
-                <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-4">
-                  Software
-                </h3>
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
-                  Maßgeschneiderte Anwendungen und Tools, die Ihre
-                  Geschäftsprozesse optimieren und automatisieren.
-                </p>
               </div>
             </div>
           </div>
@@ -375,8 +464,8 @@ export default function Home() {
               </h2>
 
               <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                Lassen Sie uns gemeinsam eine digitale Lösung entwickeln, die Ihr
-                Unternehmen voranbringt.
+                Lassen Sie uns gemeinsam eine digitale Lösung entwickeln, die
+                Ihr Unternehmen voranbringt.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
@@ -402,4 +491,3 @@ export default function Home() {
     </>
   );
 }
-
