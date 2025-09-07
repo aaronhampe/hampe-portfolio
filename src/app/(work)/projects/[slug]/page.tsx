@@ -387,7 +387,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
                 alt={project.title}
                 width={1200}
                 height={750}
-                className="w-full h-full object-cover"
+                className="w-full h-full "
                 priority
               />
             </div>

@@ -405,7 +405,7 @@ export default function ProjectsPage() {
                 >
                   {/* Bild */}
                   <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-2xl group-hover:shadow-3xl transition-shadow duration-700">
+                    <div className="p-4 aspect-[4/3] rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-2xl group-hover:shadow-3xl transition-shadow duration-700">
                       <Image
                         src={project.cover}
                         alt={project.title}

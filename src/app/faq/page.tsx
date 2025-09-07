@@ -66,12 +66,12 @@ export default function FAQPage() {
               Paket beginnt bei
               <span className="font-semibold text-gray-900 dark:text-gray-100">
                 {" "}
-                199,95 €
+                199,95€{" "}
               </span>
               pro Monat. Für die meisten Geschäfte ist das Pro Paket ab
               <span className="font-semibold text-gray-900 dark:text-gray-100">
                 {" "}
-                389,95 €
+                389,95€{" "}
               </span>
               pro Monat optimal.
             </p>
