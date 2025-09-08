@@ -4,94 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 import SplitText from "src/blocks/TextAnimations/SplitText/SplitText";
-import Script from "next/script";
-import { useEffect } from "react";
-import { usePathname } from "next/navigation";
+// GA wird global in layout.tsx initialisiert
 
 const handleAnimationComplete = () => {
   console.log("All letters have animated!");
 };
 
-// Minimal typing for window.gtag to avoid `any` and keep lint happy
-type GtagCommand = "js" | "config" | "consent" | "event";
-type GtagFn = (command: GtagCommand, ...args: unknown[]) => void;
-declare global {
-  interface Window {
-    gtag?: GtagFn;
-    dataLayer?: unknown[];
-    updateAnalyticsConsent?: (granted: boolean) => void;
-    gaConsentGranted?: boolean;
-  }
-}
-
 export default function Home() {
-  const pathname = usePathname();
-
-  // Send page_view on client-side route changes (after consent is granted)
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (!window.gaConsentGranted || !window.gtag) return;
-    window.gtag("config", "G-2L6Y8KV74Y", {
-      page_path: pathname,
-    });
-  }, [pathname]);
-
   return (
     <>
-      {/* Google tag (gtag.js) is loaded only after analytics consent is granted */}
-      <Script id="gtag-init" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          window.gtag = window.gtag || gtag;
-
-          // Consent Mode: default to denied until user accepts in cookie settings
-          gtag('consent', 'default', {
-            analytics_storage: 'denied',
-            ad_storage: 'denied',
-            functionality_storage: 'granted',
-            security_storage: 'granted'
-          });
-
-          // Helper your cookie UI can call: window.updateAnalyticsConsent(true|false)
-          window.updateAnalyticsConsent = function(granted) {
-            var status = granted ? 'granted' : 'denied';
-            gtag('consent', 'update', { analytics_storage: status });
-            window.gaConsentGranted = granted === true;
-            if (granted) {
-              // Dynamically load GA script only after consent
-              if (!document.querySelector('script[data-ga-loader]')) {
-                var s = document.createElement('script');
-                s.async = true;
-                s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2L6Y8KV74Y';
-                s.setAttribute('data-ga-loader', 'true');
-                document.head.appendChild(s);
-              }
-              // Initialize GA4 config when consent is granted
-              gtag('js', new Date());
-              gtag('config', 'G-2L6Y8KV74Y', {
-                anonymize_ip: true
-              });
-              try {
-                localStorage.setItem('analytics_consent', 'granted');
-              } catch(e) {}
-            } else {
-              try {
-                localStorage.setItem('analytics_consent', 'denied');
-              } catch(e) {}
-            }
-          };
-
-          // Optional: auto-apply previously saved consent from localStorage
-          try {
-            var saved = localStorage.getItem('analytics_consent');
-            if (saved === 'granted') {
-              window.updateAnalyticsConsent(true);
-            }
-          } catch(e) {}
-        `}
-      </Script>
-
       <main className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
