@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     'IT Service',
     'IT Hannover',
     'IT Hildesheim',
+    'KI-Entwicklung',
+    'Softwareentwicklung',
+    'E-Commerce',  
     'Webentwicklung',
     'Next.js',
     'Nuxt',
@@ -83,9 +86,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               telephone: '+49 151 29574884',
               email: 'info@aaronhampe.de',
               description:
-                'IT‑getriebene Webentwicklung und Beratung: Websites, Webshops, Software, IT‑Integration und Support für KMU.',
+                'KI‑getriebene Webentwicklung und Beratung: Websites, Webshops, Software, IT‑Integration und Support für KMU.',
               serviceType: ['IT‑Beratung', 'Webentwicklung', 'E‑Commerce', 'Softwareentwicklung', 'IT‑Support'],
-              keywords: 'IT, IT Dienstleistungen, IT Beratung, IT Service, Webentwicklung, Hannover, Hildesheim',
+              keywords: 'IT, IT Dienstleistungen,KI-Entwicklung, AI, KI, IT Beratung, IT Service, Webentwicklung, Hannover, Hildesheim',
             }),
           }}
         />
