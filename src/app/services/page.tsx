@@ -20,7 +20,7 @@ export default function ServicesPage() {
                 Leistungen
               </h1>
               <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light max-w-3xl mx-auto leading-relaxed">
-                Professionelle Lösungen für Ihren digitalen Erfolg
+                Professionelle IT‑Lösungen für Ihren digitalen Erfolg
               </p>
             </div>
           </div>

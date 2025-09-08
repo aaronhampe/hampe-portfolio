@@ -12,30 +12,35 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'HAMPE – AI‑gestützte Webentwicklung',
+    default: 'HAMPE – IT‑ & AI‑gestützte Webentwicklung',
     template: '%s – HAMPE',
   },
   description:
-    'Websites, Webshops und Software für KMU: KI‑gestützt, DSGVO‑konform, in einer Woche live. Maßgeschneiderte Lösungen aus Hildesheim.',
+    'IT‑getriebene Webentwicklung: Websites, Webshops und Software für KMU – KI‑gestützt, DSGVO‑konform, in einer Woche live. Maßgeschneiderte IT‑Lösungen aus Hildesheim/Hannover.',
   keywords: [
+    'IT',
+    'IT Dienstleistungen',
+    'IT‑Beratung',
+    'IT Service',
+    'IT Hannover',
+    'IT Hildesheim',
     'Webentwicklung',
     'Next.js',
     'Nuxt',
     'React',
     'Tailwind CSS',
     'KI',
-    'Hannover',
     'DSGVO',
     'Core Web Vitals',
   ],
   authors: [{ name: 'Aaron Hampe' }],
   openGraph: {
-    title: 'HAMPE – AI‑gestützte Webentwicklung',
+    title: 'HAMPE – IT‑ & AI‑gestützte Webentwicklung',
     description:
-      'AI‑gestützte Websites, Webshops und Software für kleine und mittelständische Unternehmen – in einer Woche live, DSGVO‑konform, messbar mehr Leads.',
+      'IT‑ und KI‑gestützte Websites, Webshops und Software für kleine und mittelständische Unternehmen – schnell live, DSGVO‑konform, messbar mehr Leads.',
     type: 'website',
     locale: 'de_DE',
-    siteName: 'HAMPE Webentwicklung',
+    siteName: 'HAMPE Webentwicklung & IT‑Services',
   },
   robots: {
     index: true,
@@ -64,6 +69,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </ThemeProvider>
         </PlausibleProvider>
+        {/* JSON-LD: ProfessionalService mit IT‑Fokus */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'ProfessionalService',
+              name: 'HAMPE – Webentwicklung & IT‑Services',
+              url: 'https://www.aaronhampe.de',
+              areaServed: ['Hannover', 'Hildesheim', 'Deutschland'],
+              sameAs: [],
+              telephone: '+49 151 29574884',
+              email: 'info@aaronhampe.de',
+              description:
+                'IT‑getriebene Webentwicklung und Beratung: Websites, Webshops, Software, IT‑Integration und Support für KMU.',
+              serviceType: ['IT‑Beratung', 'Webentwicklung', 'E‑Commerce', 'Softwareentwicklung', 'IT‑Support'],
+              keywords: 'IT, IT Dienstleistungen, IT Beratung, IT Service, Webentwicklung, Hannover, Hildesheim',
+            }),
+          }}
+        />
       </body>
     </html>
   );

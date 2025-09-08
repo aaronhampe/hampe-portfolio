@@ -117,8 +117,8 @@ export default function Home() {
               </div>
 
               <SplitText
-                text="Ihr Partner für erstklassige Websites, innovative
-              Webshops und maßgeschneiderte Software-Lösungen"
+                text="Ihr Partner für erstklassige IT‑Lösungen: Websites, innovative
+              Webshops und maßgeschneiderte Software"
                 className="md:text-2xl text-slate-600 dark:text-slate-300 font-light max-w-3xl mx-auto leading-relaxed"
                 delay={20}
                 duration={0.2}
@@ -133,15 +133,15 @@ export default function Home() {
               />
 
               {/* Services Tags */}
-              <div className="flex flex-wrap justify-center gap-3 text-sm">
+        <div className="flex flex-wrap justify-center gap-3 text-sm">
                 <span className="px-4 py-2 bg-white/70 dark:bg-white/10 backdrop-blur-sm rounded-full text-slate-700 dark:text-slate-200 border border-slate-200/50 dark:border-white/10">
-                  Next.js | Nuxt 4 Development
+          IT‑Webentwicklung · Next.js | Nuxt 4
                 </span>
                 <span className="px-4 py-2 bg-white/70 dark:bg-white/10 backdrop-blur-sm rounded-full text-slate-700 dark:text-slate-200 border border-slate-200/50 dark:border-white/10">
-                  E-Commerce Lösungen
+          IT‑gestützte E‑Commerce Lösungen
                 </span>
                 <span className="px-4 py-2 bg-white/70 dark:bg-white/10 backdrop-blur-sm rounded-full text-slate-700 dark:text-slate-200 border border-slate-200/50 dark:border-white/10">
-                  Custom Software
+          Individuelle IT‑Software
                 </span>
               </div>
 

@@ -1,7 +1,7 @@
 export const metadata = {
   title: "FAQ – HAMPE",
   description:
-    "Antworten auf häufig gestellte Fragen zu Preisen, Inhalten, SEO, Wartung und Eigentumsrechten.",
+    "Antworten zu IT‑Leistungen: Preise, Inhalte, SEO, Wartung und Eigentumsrechte – kompakt erklärt.",
 };
 
 /**
@@ -15,8 +15,8 @@ export default function FAQPage() {
           Häufige Fragen
         </h1>
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          Hier finden Sie Antworten auf die wichtigsten Fragen zu unseren Services
-          und Arbeitsweise.
+          Hier finden Sie Antworten zu unseren IT‑Services und unserer Arbeitsweise –
+          transparent, kompakt und verständlich.
         </p>
       </div>
 

@@ -99,7 +99,7 @@ export default function Contact() {
             </div>
 
             <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 font-light leading-relaxed">
-              Haben Sie ein Projekt im Kopf? Ich freue mich auf Ihre Nachricht und berate Sie gerne unverbindlich.
+              Haben Sie ein IT‑Projekt im Kopf? Ich freue mich auf Ihre Nachricht und berate Sie gerne unverbindlich.
             </p>
           </div>
 

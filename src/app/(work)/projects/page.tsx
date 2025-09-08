@@ -318,7 +318,7 @@ export default function ProjectsPage() {
                 Projekte
               </h1>
               <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
-                Ausgewählte Arbeiten, die Geschichten erzählen
+                Ausgewählte IT‑Projekte, die Geschichten erzählen
               </p>
             </div>
 
