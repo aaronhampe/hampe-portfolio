@@ -58,8 +58,8 @@ const TECH_MAP: Record<
   nuxt: { icon: "/icons/material-icon-theme--nuxt.svg", rgb: [0, 220, 130], label: "Nuxt" },
   react: { icon: "/icons/logos--react.svg", rgb: [97, 218, 251], label: "React" },
   vue: { icon: "/icons/logos--vue.svg", rgb: [65, 184, 131], label: "Vue" },
-  php: { icon: "/icons/logos--php.svg", rgb: [0, 43, 123], label: "PHP" },
-  elementor: { icon: "/icons/simple-icons--elementor.svg", rgb: [255, 93, 1], label: "Elementor" },
+  php: { icon: "/icons/file-icons--php.svg", rgb: [0, 43, 123], label: "PHP" },
+  elementor: { icon: "/icons/simple-icons--elementor.svg", rgb: [187, 105, 215], label: "Elementor" },
   threejs: {
     icon: "simple-icons:threedotjs",
     rgb: [0, 0, 0],
@@ -153,7 +153,7 @@ const TECH_MAP: Record<
     label: "WooCommerce",
   },
   wordpress: {
-    icon: "/icons/bi--wordpress.svg",
+    icon: "/icons/skill-icons--wordpress.svg",
     rgb: [33, 117, 155],
     label: "WordPress",
   },

@@ -55,10 +55,10 @@ const TECH_MAP: Record<
     label: "React",
   },
   vue: { icon: "/icons/logos--vue.svg", rgb: [65, 184, 131], label: "Vue" },
-  php: { icon: "/icons/logos--php.svg", rgb: [0, 43, 123], label: "PHP" },
+  php: { icon: "/icons/file-icons--php.svg", rgb: [0, 43, 123], label: "PHP" },
   elementor: {
     icon: "/icons/simple-icons--elementor.svg",
-    rgb: [255, 93, 1],
+    rgb: [187, 105, 215],
     label: "Elementor",
   },
   wix: { icon: "/icons/logos--wix.svg", rgb: [0, 0, 0], label: "Wix" },
@@ -170,7 +170,7 @@ const TECH_MAP: Record<
     label: "WooCommerce",
   },
   wordpress: {
-    icon: "/icons/bi--wordpress.svg",
+    icon: "/icons/skill-icons--wordpress.svg",
     rgb: [33, 117, 155],
     label: "WordPress",
   },
@@ -378,7 +378,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
       </section>
 
       {/* Project Image */}
-      <section className="py-16">
+      <section className="py-2">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <div className="aspect-[16/10] rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800 shadow-2xl">
@@ -387,7 +387,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
                 alt={project.title}
                 width={1200}
                 height={750}
-                className="w-full h-full "
+                className="w-full h-full"
                 priority
               />
             </div>
@@ -521,20 +521,20 @@ export default function ProjectDetailPage({ params }: PageProps) {
                 <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className=" grid md:grid-cols-2 gap-8">
                 {relatedProjects.map((relatedProject) => (
                   <Link
                     key={relatedProject.slug}
                     href={`/projects/${relatedProject.slug}`}
                     className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
                   >
-                    <div className="aspect-[16/10] bg-slate-100 dark:bg-slate-700">
+                    <div className=" aspect-[16/10] bg-slate-100 dark:bg-slate-700">
                       <Image
                         src={relatedProject.cover}
                         alt={relatedProject.title}
-                        width={600}
-                        height={375}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        width={1200}
+                        height={750}
+                        className="w-full h-full  group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                     <div className="p-6">
