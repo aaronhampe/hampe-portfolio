@@ -9,7 +9,7 @@ export default function AgbPage() {
       <header className="space-y-4">
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight">Allgemeine Geschäftsbedingungen (AGB)</h1>
         <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          Vorliegende AGB bilden den Rahmen für Verträge über Konzeption, Design, Entwicklung und ggf. Wartung von Websites, Web‑Anwendungen und sonstiger Softwareleistungen zwischen <strong>Aaron Hampe</strong> (Anbieter) und seinen Auftraggebern. Diese Fassung enthält Platzhalter und muss final rechtlich geprüft werden. {/* Kein Rechtsrat. */}
+          Vorliegende AGB bilden den Rahmen für Verträge über Konzeption, Design, Entwicklung und ggf. Wartung von Websites, Web‑Anwendungen und sonstiger Softwareleistungen zwischen <strong>Aaron Hampe</strong> (Anbieter) und seinen Auftraggebern.
         </p>
       </header>
 
@@ -115,7 +115,7 @@ export default function AgbPage() {
         <h2 id="schluß" className="text-2xl font-semibold">14. Schlussbestimmungen</h2>
         <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300 text-sm">
           <li>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts.</li>
-          <li>Gerichtsstand (sofern zulässig): {/* TODO: z.B. Sitz des Anbieters */}</li>
+          <li>Gerichtsstand: Hannover</li>
           <li>Änderungen / Ergänzungen bedürfen Textform. Individuelle Abreden gehen vor.</li>
           <li>Salvatorische Klausel: Unwirksame Bestimmungen werden durch wirksame ersetzt, die dem wirtschaftlichen Zweck am nächsten kommen.</li>
         </ul>

@@ -52,8 +52,7 @@ export default function ImpressumPage() {
           Verantwortlich für den Inhalt (§ 18 Abs. 2 MStV)
         </h2>
         <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-          Aaron Hampe, Anschrift wie oben. Bei inhaltlichen oder
-          journalistisch-redaktionellen Beiträgen bitte final Abgrenzung prüfen.
+          Aaron Hampe, Anschrift wie oben.
         </p>
       </section>
 
@@ -87,21 +86,6 @@ export default function ImpressumPage() {
           </li>
         </ul>
       </section>
-
-      {/* 4. Berufsrechtliche Angaben (falls relevant) */}
-      <section className="space-y-2" aria-labelledby="beruf">
-        <h2 id="beruf" className="text-2xl font-semibold">
-          Berufsrechtliche Angaben
-        </h2>
-        <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          {/* Falls kein reglementierter Beruf: */}
-          Nicht einschlägig – es liegt kein reglementierter Beruf im Sinne
-          spezieller Kammer- oder Zulassungspflichten vor. Falls doch, hier
-          Kammer, Berufsbezeichnung, Verleihungsstaat und berufsrechtliche
-          Regelungen ergänzen.
-        </p>
-      </section>
-
       {/* 5. Haftung für Inhalte */}
       <section className="space-y-3" aria-labelledby="haftung-inhalte">
         <h2 id="haftung-inhalte" className="text-2xl font-semibold">
@@ -150,18 +134,6 @@ export default function ImpressumPage() {
         </p>
       </section>
 
-      {/* 8. Streitbeilegung */}
-      <section className="space-y-3" aria-labelledby="streitbeilegung">
-        <h2 id="streitbeilegung" className="text-2xl font-semibold">
-          Verbraucherstreitbeilegung / OS-Plattform
-        </h2>
-        <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-          Ich bin nicht bereit und nicht verpflichtet an
-          Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
-          teilzunehmen.
-        </p>
-      </section>
-
       {/* 9. Bildnachweise / Quellen (falls nötig) */}
       <section className="space-y-3" aria-labelledby="quellen">
         <h2 id="quellen" className="text-2xl font-semibold">
@@ -186,7 +158,7 @@ export default function ImpressumPage() {
 
       <footer className="pt-4 border-t border-gray-200 dark:border-gray-800">
         <p className="text-xs text-gray-500 dark:text-gray-500 leading-relaxed">
-          Stand: 20.09.2025
+          Stand: 25.09.2025
         </p>
       </footer>
     </main>

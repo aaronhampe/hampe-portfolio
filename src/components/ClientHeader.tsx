@@ -18,6 +18,7 @@ const navigation = [
   { name: "Home", href: "/" },
  //{ name: "Projekte", href: "/projects" },
   { name: "Portfolio", href: "/projects" },
+  { name: "Leistungen", href: "/services" },
   { name: "Kontakt", href: "/contact" },
 ];
 
