@@ -125,7 +125,7 @@ export const projects: Project[] = [
       "Professionelle Online-Präsenz",
     ],
     liveUrl: "https://github.com/ExaCLe/trisight",
-    status: "live",
+    status: "completed",
   },
   {
     slug: "secutimetec-site",
