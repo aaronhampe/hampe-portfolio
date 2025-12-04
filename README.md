@@ -1,6 +1,6 @@
 # HAMPE – Portfolio (Next.js)
 
-Moderne Portfolio-Website von **Aaron Hampe** mit Fokus auf Performance, Dark-Mode und klaren CTAs.
+Mein Portfolio.
 
 ## Stack
 - Next.js (App Router) · TypeScript · Tailwind CSS
