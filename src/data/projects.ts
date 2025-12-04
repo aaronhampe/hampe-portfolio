@@ -46,7 +46,8 @@ export const projects: Project[] = [
     results: [
       "Online-Shop für Sicherheitstechnik gemeinsam veröffentlicht (2023)",
       "SEO-Optimierung, UX-Optimierung, Produkt-Pflege, Funktionalitäten erweitert (2023- heute)",
-      "Automatisierte Workflows",
+      "Ads und Analytics eingerichtet",
+      "6-Stellige Shopumsätze",
     ],
     liveUrl: "https://stt-shop.de",
     status: "live",
@@ -114,17 +115,13 @@ export const projects: Project[] = [
     description:
       "Eine moderne, performante Portfolio-Website für das Musikprojekt mit Fokus auf User Experience und schnelle Ladezeiten.",
     features: [
-      "Responsive Design für alle Endgeräte",
-      "Audio-Player Integration",
-      "Optimierte Performance (95+ Lighthouse Score)",
-      "SEO-optimiert für bessere Sichtbarkeit",
+      "Eigene Sehtest erstellen",
+      "Konfiguration der Testobjekte",
+      "Benutzerprofile, Ranglisten und Ergebnisdaten"
     ],
     results: [
-      "50% bessere Core Web Vitals",
-      "Erhöhte Streaming-Zahlen",
-      "Professionelle Online-Präsenz",
+      "Funktionierende Seh-Test",
     ],
-    liveUrl: "https://github.com/ExaCLe/trisight",
     status: "completed",
   },
   {
