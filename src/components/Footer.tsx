@@ -4,16 +4,13 @@ import Image from "next/image";
 const navigation = {
   main: [
     { name: "Home", href: "/" },
-    //{ name: "Projekte", href: "/projects" },
-    //{ name: "Services", href: "/services" },
+    { name: "Portfolio", href: "/projects" },
     { name: "Blog", href: "/blog" },
     { name: "Über mich", href: "/about" },
     { name: "Kontakt", href: "/contact" },
   ],
   services: [
     { name: "Website Entwicklung", href: "/services#websites" },
-    //{ name: "E-Commerce Lösungen", href: "/services#webshops" },
-    //{ name: "Custom Software", href: "/services#software" },
     { name: "Wartung & Support", href: "/services#support" },
     { name: "KI-gestützte Entwicklung", href: "/ai" },
     { name: "FAQ", href: "/faq" },
@@ -30,7 +27,7 @@ const navigation = {
       href: "https://github.com/aaronhampe",
       icon: (
         <svg
-          className="w-6 h-6"
+          className="w-5 h-5"
           fill="currentColor"
           viewBox="0 0 24 24"
           aria-hidden="true"
@@ -48,7 +45,7 @@ const navigation = {
       href: "https://linkedin.com/in/aaron-hampe-997b69203",
       icon: (
         <svg
-          className="w-6 h-6"
+          className="w-5 h-5"
           fill="currentColor"
           viewBox="0 0 24 24"
           aria-hidden="true"
@@ -56,21 +53,7 @@ const navigation = {
           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
         </svg>
       ),
-    },/*
-    {
-      name: "Xing",
-      href: "https://xing.com/profile/aaron_hampe",
-      icon: (
-        <svg
-          className="w-6 h-6"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.284.542 4.919 8.695 4.919 8.695.186.335.36.688.927.688h3.454c.543 0 .758-.336.609-.585 0 0-4.896-8.582-4.896-8.582s7.565-13.384 7.565-13.384c.151-.249-.061-.549-.609-.549h-3.44zm-8.212 7.921c-.543 0-.758.336-.609.585 0 0 2.146 3.764 2.146 3.764s-3.314 5.874-3.314 5.874c-.151.249.061.549.609.549h3.454c.517 0 .741-.325.927-.66 0 0 3.253-5.983 3.253-5.983-.284-.542-2.146-3.764-2.146-3.764-.186-.335-.36-.365-.927-.365h-3.393z" />
-        </svg>
-      ),
-    },*/
+    },
   ],
 };
 
@@ -78,94 +61,60 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-slate-50 dark:bg-slate-900 border-t border-slate-200/50 dark:border-slate-800">
-      {/* Main Footer Content */}
-      <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+    <footer className="bg-zinc-50 dark:bg-zinc-950 pt-32 pb-12 overflow-hidden border-t border-zinc-200 dark:border-zinc-800">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-24">
+          
           {/* Brand Column */}
-          <div className="lg:col-span-1 space-y-6">
-            <div className="flex items-center">
-              <Link
-                href="/"
-                className="group flex items-center transition-all duration-300"
-                aria-label="Zur Startseite"
-              >
-                <div className="relative">
-                  {/* Light */}
-                  <Image
-                    src="/images/hampe-logo.png"
-                    alt="HAMPE Webentwicklung"
-                    width={120}
-                    height={40}
-                    className="h-8 w-auto group-hover:scale-105 transition-all duration-300 dark:hidden"
-                    priority
-                  />
-                  {/* Dark (Variante wählen) */}
-                  <Image
-                    src="/images/hampe-logo-dark.png" // oder: /images/hampe-logo-dark-outline.png
-                    alt="HAMPE Webentwicklung"
-                    width={120}
-                    height={40}
-                    className="hidden h-8 w-auto group-hover:scale-105 transition-all duration-300 dark:block"
-                    priority
-                  />
-                </div>
-              </Link>
-            </div>
+          <div className="lg:col-span-2 flex flex-col items-start space-y-8">
+            <Link
+              href="/"
+              className="flex items-center transition-opacity hover:opacity-70 dark:invert-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 rounded-lg dark:focus-visible:ring-white"
+              aria-label="Zur Startseite"
+            >
+              <div className="relative">
+                <Image
+                  src="/images/hampe-logo.png"
+                  alt="HAMPE"
+                  width={120}
+                  height={36}
+                  className="h-8 w-auto dark:hidden"
+                  priority
+                />
+                <Image
+                  src="/images/hampe-logo-dark.png"
+                  alt="HAMPE"
+                  width={120}
+                  height={36}
+                  className="hidden h-8 w-auto dark:block"
+                  priority
+                />
+              </div>
+            </Link>
 
-            <p className="text-slate-600 dark:text-slate-300 leading-relaxed max-w-sm">
-              Professionelle Websites, innovative Webshops und maßgeschneiderte
-              Software-Lösungen für Ihren digitalen Erfolg.
+            <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs text-sm">
+              I am a digital partner focusing on fast-loading, state-of-the-art tech and beautiful web design that pushes the boundaries of standard execution.
             </p>
 
-            {/* Contact Info */}
-            <div className="space-y-3 text-sm">
-              <div className="flex items-center space-x-3 text-slate-600 dark:text-slate-300">
-                <svg
-                  className="w-5 h-5 text-slate-400 dark:text-slate-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <span>Hannover, Deutschland</span>
-              </div>
-              <div className="flex items-center space-x-3 text-slate-600 dark:text-slate-300">
-                <svg
-                  className="w-5 h-5 text-slate-400 dark:text-slate-500"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                <span>info@aaronhampe.de</span>
-              </div>
+            <div className="flex gap-4">
+               {navigation.social.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all duration-300 focus:outline-none"
+                    aria-label={item.name}
+                  >
+                    {item.icon}
+                  </Link>
+                ))}
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Links Columns */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+            <h3 className="text-xs font-semibold tracking-wider text-zinc-900 dark:text-white uppercase mb-4">
               Navigation
             </h3>
             <ul className="space-y-3">
@@ -173,18 +122,18 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                    className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors duration-300 relative inline-flex pb-1 group"
                   >
                     {item.name}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-zinc-900 dark:bg-white transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+            <h3 className="text-xs font-semibold tracking-wider text-zinc-900 dark:text-white uppercase mb-4">
               Leistungen
             </h3>
             <ul className="space-y-3">
@@ -192,18 +141,18 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                    className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors duration-300 relative inline-flex pb-1 group"
                   >
                     {item.name}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-zinc-900 dark:bg-white transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Legal & Social */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+             <h3 className="text-xs font-semibold tracking-wider text-zinc-900 dark:text-white uppercase mb-4">
               Rechtliches
             </h3>
             <ul className="space-y-3">
@@ -211,82 +160,29 @@ export default function Footer() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
+                    className="text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors duration-300 relative inline-flex pb-1 group"
                   >
                     {item.name}
+                    <span className="absolute bottom-0 left-0 w-0 h-px bg-zinc-900 dark:bg-white transition-all duration-300 group-hover:w-full"></span>
                   </Link>
                 </li>
               ))}
             </ul>
-
-            {/* Social Links */}
-            <div className="pt-4">
-              <h4 className="text-sm font-medium text-slate-900 dark:text-slate-100 mb-4">
-                Folgen Sie mir
-              </h4>
-              <div className="flex space-x-4">
-                {navigation.social.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-white dark:bg-slate-800 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:shadow-lg transition-all duration-300 border border-slate-200/50 dark:border-slate-700"
-                    aria-label={item.name}
-                  >
-                    {item.icon}
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
+
         </div>
-      </div>
 
-      {/* Newsletter Section <div className="border-t border-slate-200/50 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50">
-        <div className="container mx-auto px-6 py-12">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
-              Bleiben Sie auf dem Laufenden
-            </h3>
-            <p className="text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto">
-              Erhalten Sie Updates zu neuen Projekten, Technologie-Trends und
-              exklusive Einblicke in die Webentwicklung.
-            </p>
-
-            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Ihre E-Mail-Adresse"
-                className="flex-1 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none transition-all duration-300"
-                required
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 whitespace-nowrap"
-              >
-                Anmelden
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-slate-200/50 dark:border-slate-800 bg-slate-100/50 dark:bg-slate-900">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-slate-600 dark:text-slate-300">
-              © {currentYear} Aaron Hampe. Alle Rechte vorbehalten.
-            </div>
-
-            <div className="flex items-center space-x-6 text-sm text-slate-500 dark:text-slate-400">
-              <span>Entwickelt mit Next.js & Tailwind CSS</span>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span>Alle Systeme betriebsbereit</span>
-              </div>
-            </div>
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-zinc-400 dark:text-zinc-600 border-t border-zinc-200 dark:border-zinc-800">
+          <p>
+            &copy; {currentYear} Aaron Hampe. Alle Rechte vorbehalten.
+          </p>
+          <div className="flex items-center space-x-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span>All systems operational</span>
           </div>
         </div>
       </div>
