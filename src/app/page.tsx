@@ -19,7 +19,7 @@ export default function Home() {
         ========================================
       */}
       <section className="relative min-h-screen flex flex-col justify-end overflow-hidden pb-16 md:pb-32 pt-32">
-        {/* Bright Video Background */}
+        {/* Colorful Video Background */}
         <video
           autoPlay
           loop
@@ -29,21 +29,21 @@ export default function Home() {
           src="/videos/hampe-blurred-background.webm"
         />
         
-        {/* Subtle overlay to ensure the menu works, but keeping it mostly bright */}
-        <div className="absolute inset-0 bg-white/20 z-0 pointer-events-none"></div>
+        {/* Dark overlay for white text readability over the colorful video */}
+        <div className="absolute inset-0 bg-black/35 z-0 pointer-events-none"></div>
 
         <div className="container relative z-10 px-4 md:px-8 max-w-7xl mx-auto flex flex-col items-start text-left">
           
           <div className="space-y-6 md:space-y-8 w-full max-w-3xl">
             {/* Smaller, stark left-aligned heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] font-medium tracking-tight text-zinc-950 uppercase">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] font-medium tracking-tight text-white uppercase drop-shadow-lg">
               <span className="block mb-2 overflow-hidden">
                 <span className="block animate-[slideUp_1s_cubic-bezier(0.16,1,0.3,1)_forwards] translate-y-full">
                   Digitale
                 </span>
               </span>
               <span className="block overflow-hidden">
-                <span className="block animate-[slideUp_1s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards] translate-y-full text-zinc-800">
+                <span className="block animate-[slideUp_1s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards] translate-y-full">
                   Exzellenz.
                 </span>
               </span>
@@ -53,7 +53,7 @@ export default function Home() {
             <div className="max-w-xl">
               <SplitText
                 text="Die digitale Welt muss funktionieren. Aber sie darf auch schön sein. Ich sorge dafür, dass beides zusammenkommt."
-                className="text-base md:text-lg lg:text-xl font-medium text-zinc-900 drop-shadow-sm leading-relaxed"
+                className="text-base md:text-lg lg:text-xl font-medium text-white/90 drop-shadow-md leading-relaxed"
                 delay={10}
                 duration={0.3}
                 ease="power3.out"
@@ -69,13 +69,13 @@ export default function Home() {
 
             {/* Service Tags (Pill shaped, minimalist, left aligned) */}
             <div className="flex flex-wrap justify-start gap-3 pt-4 animate-[fadeIn_1.5s_ease_1s_both]">
-              <span className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-zinc-900/20 bg-white/50 text-zinc-900 backdrop-blur-md">
+              <span className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-white/25 bg-white/10 text-white backdrop-blur-md">
                 Next.js / React
               </span>
-              <span className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-zinc-900/20 bg-white/50 text-zinc-900 backdrop-blur-md">
+              <span className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-white/25 bg-white/10 text-white backdrop-blur-md">
                 E‑Commerce
               </span>
-              <span className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-zinc-900/20 bg-white/50 text-zinc-900 backdrop-blur-md">
+              <span className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-white/25 bg-white/10 text-white backdrop-blur-md">
                 SaaS & Tools
               </span>
             </div>
@@ -84,14 +84,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-start items-center pt-6 md:pt-8 w-full animate-[fadeIn_1.5s_ease_1.2s_both]">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-zinc-950 text-white font-medium text-sm md:text-base tracking-wide hover:scale-105 active:scale-95 transition-transform duration-300 shadow-[0_0_40px_rgba(0,0,0,0.1)] flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-zinc-950 font-medium text-sm md:text-base tracking-wide hover:scale-105 active:scale-95 transition-transform duration-300 shadow-[0_0_40px_rgba(255,255,255,0.15)] flex items-center justify-center gap-2"
               >
                 <span>Projekt starten</span>
                 <span className="text-lg leading-none">&rarr;</span>
               </Link>
               <Link
                 href="/projects"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/60 backdrop-blur-md text-zinc-950 border border-zinc-900/20 font-medium text-sm md:text-base tracking-wide hover:bg-white transition-colors duration-300 flex items-center justify-center"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/25 font-medium text-sm md:text-base tracking-wide hover:bg-white/20 transition-colors duration-300 flex items-center justify-center"
               >
                 Portfolio ansehen
               </Link>

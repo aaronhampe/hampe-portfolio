@@ -34,7 +34,7 @@ export default function FAQPage() {
             {[
               {
                 question: "Wie viel kostet eine Website?",
-                answer: "Ich verkaufe Websiten grundsätzlich nur auf Relaunch, Optimierungs & Wartungsbasis. Wir gehen also immer eine längere Zusammenarbeit ein, um langfristig all ihre Sorgen und Probleme bezüglich Thema Webentwicklung zu lösen. Ein einfaches Standard Paket beginnt bei 199,95€ pro Monat. Für die meisten Geschäfte ist das Pro Paket ab 389,95€ pro Monat optimal."
+                answer: "Den Preis berechne ich nach einem Stundensatz. Die Preise variieren also mit jedem Projekt. Melden Sie sich gern zu einem unverbindlichem 10-Minuten Gespräch - Dort könnten wir den Preis zusammen feststellen."
               },
               {
                 question: "Welche Inhalte muss ich liefern?",

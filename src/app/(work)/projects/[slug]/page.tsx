@@ -230,7 +230,7 @@ function TechBadge({ tech }: TechBadgeProps) {
 
   return (
     <span
-      className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-slate-800 dark:text-slate-100 transition-all duration-150 hover:-translate-y-0.5"
+      className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-zinc-800 dark:text-zinc-100 transition-all duration-150 hover:-translate-y-0.5"
       style={glass}
     >
       {isLocal ? (
@@ -281,7 +281,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
   );
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 text-slate-900 dark:text-slate-100">
+    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 transition-colors duration-500">
       {/* Iconify loader */}
       <Script
         src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"
@@ -289,88 +289,61 @@ export default function ProjectDetailPage({ params }: PageProps) {
       />
 
       {/* Hero Section */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/5 dark:bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 dark:bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        </div>
+      <section className="relative pt-32 pb-16 md:pt-48 md:pb-24 overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 mb-8">
-            <Link
-              href="/"
-              className="hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
-            >
-              Home
-            </Link>
-            <span>→</span>
-            <Link
-              href="/projects"
-              className="hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
-            >
-              Projekte
-            </Link>
-            <span>→</span>
-            <span className="text-slate-900 dark:text-slate-100">
-              {project.title}
-            </span>
+          <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 mb-8">
+            <Link href="/" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Home</Link>
+            <span className="text-zinc-300 dark:text-zinc-700">→</span>
+            <Link href="/projects" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Projekte</Link>
+            <span className="text-zinc-300 dark:text-zinc-700">→</span>
+            <span className="text-zinc-900 dark:text-white truncate max-w-[200px]">{project.title}</span>
           </div>
 
-          {/* Project Header */}
-          <div className="text-center max-w-4xl mx-auto space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-6xl font-thin tracking-tight text-slate-900 dark:text-white">
-                {project.title}
-              </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+          <div className="max-w-4xl space-y-6">
+            {/* Category & Status */}
+            <div className="flex flex-wrap items-center gap-3">
+              {project.category && (
+                <span className="inline-flex items-center px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900">
+                  {project.category === "website" && "Website"}
+                  {project.category === "webshop" && "E-Commerce"}
+                  {project.category === "software" && "Software"}
+                </span>
+              )}
+              {project.status && (
+                <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest ${
+                  project.status === "live"
+                    ? "bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-400 border border-green-200 dark:border-green-800"
+                    : project.status === "development"
+                    ? "bg-yellow-50 dark:bg-yellow-950/30 text-yellow-700 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-800"
+                    : "bg-zinc-100 dark:bg-zinc-900 text-zinc-500 dark:text-zinc-400 border border-zinc-200 dark:border-zinc-800"
+                }`}>
+                  <div className={`w-1.5 h-1.5 rounded-full ${
+                    project.status === "live" ? "bg-green-500" : project.status === "development" ? "bg-yellow-500" : "bg-zinc-400"
+                  }`} />
+                  {project.status}
+                </span>
+              )}
             </div>
 
-            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 font-light leading-relaxed">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl leading-[0.95] font-medium tracking-[-0.04em] text-zinc-950 dark:text-white">
+              {project.title}
+            </h1>
+
+            <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed max-w-3xl">
               {project.teaser}
             </p>
 
-            {/* Meta Information */}
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
-              {project.year && (
-                <div className="flex items-center gap-2">
-                  <iconify-icon icon="ph:calendar" className="w-4 h-4" />
-                  <span>{project.year}</span>
-                </div>
-              )}
+            {/* Meta */}
+            <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-500 font-medium pt-2">
+              {project.year && <span>{project.year}</span>}
               {project.client && (
-                <div className="flex items-center gap-2">
-                  <iconify-icon icon="ph:user" className="w-4 h-4" />
+                <>
+                  <div className="w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-600"></div>
                   <span>{project.client}</span>
-                </div>
-              )}
-              {project.category && (
-                <div className="flex items-center gap-2">
-                  <iconify-icon icon="ph:tag" className="w-4 h-4" />
-                  <span className="capitalize">{project.category}</span>
-                </div>
-              )}
-              {project.status && (
-                <div
-                  className={`flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium ${
-                    project.status === "live"
-                      ? "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400"
-                      : project.status === "development"
-                      ? "bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400"
-                      : "bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400"
-                  }`}
-                >
-                  <div
-                    className={`w-2 h-2 rounded-full ${
-                      project.status === "live"
-                        ? "bg-green-500"
-                        : project.status === "development"
-                        ? "bg-yellow-500"
-                        : "bg-blue-500"
-                    }`}
-                  />
-                  <span className="capitalize">{project.status}</span>
-                </div>
+                </>
               )}
             </div>
           </div>
@@ -378,46 +351,51 @@ export default function ProjectDetailPage({ params }: PageProps) {
       </section>
 
       {/* Project Image */}
-      <section className="py-2">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="aspect-[16/10] rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-800 shadow-2xl">
-              <Image
-                src={project.cover}
-                alt={project.title}
-                width={1200}
-                height={750}
-                className="w-full h-full"
-                priority
-              />
-            </div>
+      <section className="py-12 md:py-16">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="overflow-hidden rounded-[2rem] bg-zinc-200 dark:bg-zinc-800 aspect-[16/10] relative">
+            <Image
+              src={project.cover}
+              alt={project.title}
+              width={1200}
+              height={750}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
         </div>
       </section>
 
       {/* Project Details */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto space-y-16">
-            {/* Description */}
-            {project.description && (
-              <div className="text-center">
-                <h2 className="text-2xl md:text-3xl font-light text-slate-900 dark:text-white mb-6">
+      <section className="py-24 md:py-32">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl space-y-24">
+
+          {/* Description */}
+          {project.description && (
+            <div className="grid md:grid-cols-12 gap-8 items-start border-t border-zinc-200 dark:border-zinc-800 pt-12">
+              <div className="md:col-span-4">
+                <h2 className="text-2xl font-medium text-zinc-950 dark:text-white leading-snug">
                   Projektbeschreibung
                 </h2>
-                <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+              </div>
+              <div className="md:col-span-8">
+                <p className="text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed font-light">
                   {project.description}
                 </p>
               </div>
-            )}
+            </div>
+          )}
 
-            {/* Technologies */}
-            {project.technologies && (
-              <div className="text-center space-y-6">
-                <h2 className="text-2xl md:text-3xl font-light text-slate-900 dark:text-white">
-                  Verwendete Technologien
+          {/* Technologies */}
+          {project.technologies && (
+            <div className="grid md:grid-cols-12 gap-8 items-start border-t border-zinc-200 dark:border-zinc-800 pt-12">
+              <div className="md:col-span-4">
+                <h2 className="text-2xl font-medium text-zinc-950 dark:text-white leading-snug">
+                  Technologien
                 </h2>
-                <div className="flex flex-wrap gap-3 justify-center">
+              </div>
+              <div className="md:col-span-8">
+                <div className="flex flex-wrap gap-3">
                   {project.technologies
                     .slice()
                     .sort((a: string, b: string) =>
@@ -432,144 +410,137 @@ export default function ProjectDetailPage({ params }: PageProps) {
                     ))}
                 </div>
               </div>
-            )}
+            </div>
+          )}
 
-            {/* Features & Results Grid */}
-            {(project.features || project.results) && (
-              <div className="grid md:grid-cols-2 gap-12">
-                {/* Features */}
-                {project.features && (
-                  <div className="space-y-6">
-                    <h2 className="text-2xl font-light text-slate-900 dark:text-white flex items-center gap-3">
-                      <iconify-icon
-                        icon="ph:list-checks"
-                        className="w-6 h-6 text-blue-600"
-                      />
-                      Key Features
-                    </h2>
-                    <ul className="space-y-4">
-                      {project.features.map((feature, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mt-2.5 flex-shrink-0" />
-                          <span className="text-slate-600 dark:text-slate-300">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+          {/* Features & Results */}
+          {(project.features || project.results) && (
+            <div className="grid md:grid-cols-12 gap-8 items-start border-t border-zinc-200 dark:border-zinc-800 pt-12">
+              {/* Features */}
+              {project.features && (
+                <div className={`${project.results ? 'md:col-span-6' : 'md:col-span-12'} space-y-6`}>
+                  <h2 className="text-2xl font-medium text-zinc-950 dark:text-white leading-snug">
+                    Key Features
+                  </h2>
+                  <ul className="space-y-4">
+                    {project.features.map((feature, index) => (
+                      <li key={index} className="flex items-start gap-4 text-zinc-600 dark:text-zinc-400 text-lg">
+                        <svg className="w-5 h-5 mt-1 shrink-0 text-zinc-950 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" /></svg>
+                        <span className="leading-snug font-light">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-                {/* Results */}
-                {project.results && (
-                  <div className="space-y-6">
-                    <h2 className="text-2xl font-light text-slate-900 dark:text-white flex items-center gap-3">
-                      <iconify-icon
-                        icon="ph:chart-line-up"
-                        className="w-6 h-6 text-green-600"
-                      />
-                      Erfolge & Resultate
-                    </h2>
-                    <ul className="space-y-4">
-                      {project.results.map((result, index) => (
-                        <li key={index} className="flex items-start gap-3">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mt-2.5 flex-shrink-0" />
-                          <span className="text-slate-600 dark:text-slate-300">
-                            {result}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+              {/* Results */}
+              {project.results && (
+                <div className={`${project.features ? 'md:col-span-6' : 'md:col-span-12'} space-y-6`}>
+                  <h2 className="text-2xl font-medium text-zinc-950 dark:text-white leading-snug">
+                    Erfolge & Resultate
+                  </h2>
+                  <ul className="space-y-4">
+                    {project.results.map((result, index) => (
+                      <li key={index} className="flex items-start gap-4 text-zinc-600 dark:text-zinc-400 text-lg">
+                        <svg className="w-5 h-5 mt-1 shrink-0 text-zinc-950 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" /></svg>
+                        <span className="leading-snug font-light">{result}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Live Demo Button */}
+          {project.liveUrl && (
+            <div className="grid md:grid-cols-12 gap-8 items-start border-t border-zinc-200 dark:border-zinc-800 pt-12">
+              <div className="md:col-span-4">
+                <h2 className="text-2xl font-medium text-zinc-950 dark:text-white leading-snug">
+                  Live ansehen
+                </h2>
               </div>
-            )}
-
-            {/* Live Demo Button */}
-            {project.liveUrl && (
-              <div className="text-center">
+              <div className="md:col-span-8">
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-medium text-lg transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                  className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 font-medium text-lg transition-all duration-300 hover:scale-105 active:scale-95"
                 >
-                  <Image
-                    src="/icons/iconoir--arrow-right.svg"
-                    alt="Arrow Right"
-                    width={20}
-                    height={20}
-                    className="w-5 h-5 bg-white border border-white rounded-full"
-                  />
                   <span>Live Demo ansehen</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                 </a>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
       {/* Related Projects */}
       {relatedProjects.length > 0 && (
-        <section className="py-24 bg-slate-50 dark:bg-slate-900/50">
-          <div className="container mx-auto px-6">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-light text-slate-900 dark:text-white mb-4">
-                  Ähnliche Projekte
-                </h2>
-                <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-              </div>
+        <section className="py-24 md:py-40 bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+            <div className="flex flex-col mb-16 md:mb-24">
+              <h2 className="text-xs font-semibold tracking-widest text-zinc-500 uppercase mb-4">
+                Ähnliche Projekte
+              </h2>
+              <h3 className="text-4xl md:text-6xl font-medium tracking-tight text-zinc-950 dark:text-white leading-[1.1]">
+                Weiter <span className="text-zinc-400 dark:text-zinc-600 font-serif italic">entdecken.</span>
+              </h3>
+            </div>
 
-              <div className=" grid md:grid-cols-2 gap-8">
-                {relatedProjects.map((relatedProject) => (
-                  <Link
-                    key={relatedProject.slug}
-                    href={`/projects/${relatedProject.slug}`}
-                    className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                  >
-                    <div className=" aspect-[16/10] bg-slate-100 dark:bg-slate-700">
-                      <Image
-                        src={relatedProject.cover}
-                        alt={relatedProject.title}
-                        width={1200}
-                        height={750}
-                        className="w-full h-full  group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-medium text-slate-900 dark:text-white mb-2">
-                        {relatedProject.title}
-                      </h3>
-                      <p className="text-slate-600 dark:text-slate-300 text-sm mb-4">
-                        {relatedProject.teaser}
-                      </p>
-                      <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-sm font-medium">
-                        <span>Mehr erfahren</span>
-                        <iconify-icon
-                          icon="ph:arrow-right"
-                          className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                        />
-                      </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+              {relatedProjects.map((relatedProject) => (
+                <Link
+                  key={relatedProject.slug}
+                  href={`/projects/${relatedProject.slug}`}
+                  className="group block"
+                >
+                  <div className="overflow-hidden rounded-[2rem] bg-zinc-200 dark:bg-zinc-800 aspect-[16/10] relative mb-6">
+                    <Image
+                      src={relatedProject.cover}
+                      alt={relatedProject.title}
+                      width={1200}
+                      height={750}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.2,1,0.3,1)]"
+                    />
+                    <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-700"></div>
+                  </div>
+                  <h4 className="text-2xl md:text-3xl font-medium text-zinc-950 dark:text-white mb-3 tracking-tight">
+                    {relatedProject.title}
+                  </h4>
+                  <p className="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed font-light mb-4">
+                    {relatedProject.teaser}
+                  </p>
+                  <div className="inline-flex items-center gap-2 text-zinc-950 dark:text-white font-medium group-hover:translate-x-2 transition-transform duration-300">
+                    <span>Fallstudie ansehen</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
       )}
 
-      {/* Back to Projects */}
-      <section className="py-16">
-        <div className="container mx-auto px-6 text-center">
-          <Link
-            href="/projects"
-            className="inline-flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
-          >
-            <iconify-icon icon="ph:arrow-left" className="w-5 h-5" />
-            <span>Zurück zu allen Projekten</span>
-          </Link>
+      {/* Back to Projects + CTA */}
+      <section className="border-t border-zinc-200 dark:border-zinc-800">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl py-16">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-3 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors group"
+            >
+              <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" /></svg>
+              <span className="font-medium">Alle Projekte</span>
+            </Link>
+            <Link
+              href="/contact"
+              className="px-8 py-3.5 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 font-medium text-sm tracking-wide hover:scale-105 active:scale-95 transition-transform duration-300"
+            >
+              Projekt starten
+            </Link>
+          </div>
         </div>
       </section>
     </main>

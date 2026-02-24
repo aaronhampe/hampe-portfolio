@@ -75,7 +75,7 @@ export default function ThemeSwitcher({ variant = 'dropdown', showLabel = false,
         onClick={toggleTheme}
         className={`relative w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group ${
           isTransparentHome 
-            ? "bg-white/50 backdrop-blur-md border border-zinc-900/20 text-zinc-800 hover:text-zinc-950 hover:bg-white/70"
+            ? "bg-white/15 backdrop-blur-md border border-white/25 text-white hover:text-white hover:bg-white/25"
             : "bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
         }`}
         aria-label="Theme wechseln"
