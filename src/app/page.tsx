@@ -43,7 +43,7 @@ export default function Home() {
               <span className="block mb-2 overflow-hidden">
                 <SplitText
                   text="Digitale"
-                  className="text-5xl md:text-6xl lg:text-7xl font-semibold text-center"
+                  className="text-5xl md:text-6xl lg:text-8xl font-semibold text-center"
                   delay={50}
                   duration={1.25}
                   ease="power3.out"
@@ -59,7 +59,7 @@ export default function Home() {
               <span className="block overflow-hidden">
                 <SplitText
                   text="Exzellenz."
-                  className="text-5xl md:text-6xl lg:text-7xlfont-semibold text-center"
+                  className="text-5xl md:text-6xl lg:text-8xl font-semibold text-center"
                   delay={100}
                   duration={1.25}
                   ease="power3.out"
