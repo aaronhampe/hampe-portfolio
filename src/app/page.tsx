@@ -42,7 +42,7 @@ export default function Home() {
             {/* Sub-headline */}
             <div className="max-w-2xl mx-auto mt-8 md:mt-12">
               <SplitText
-                text="Ihr Partner für erstklassige IT‑Lösungen: High‑End Websites, skalierbare Webshops und maßgeschneiderte Software. Von der Vision bis zum Launch – kompromisslos in Design und Technik."
+                text="Die digitale Welt muss funktionieren. Aber sie darf auch schön sein. Ich sorge dafür, dass beides zusammenkommt."
                 className="text-lg md:text-xl lg:text-2xl font-light text-zinc-600 dark:text-zinc-400 leading-relaxed md:leading-snug"
                 delay={10}
                 duration={0.3}

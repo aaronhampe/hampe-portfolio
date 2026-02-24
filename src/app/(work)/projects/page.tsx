@@ -188,41 +188,24 @@ function resolveTech(tech: string) {
 
 function TechBadge({ tech }: TechBadgeProps) {
   const conf = resolveTech(tech);
-  const [r, g, b] = conf.rgb;
-  const glass: React.CSSProperties = {
-    background: `linear-gradient(135deg, rgba(${r},${g},${b},0.14) 0%, rgba(${r},${g},${b},0.06) 100%)`,
-    border: `1px solid rgba(${r},${g},${b},0.35)`,
-    boxShadow: `inset 0 1px 0 rgba(255,255,255,0.12), 0 8px 18px rgba(${r},${g},${b},0.22)`,
-    WebkitBackdropFilter: "blur(8px) saturate(1.2)",
-    backdropFilter: "blur(8px) saturate(1.2)",
-  };
-  const iconStyle: React.CSSProperties = {
-    color: `rgb(${r},${g},${b})`,
-    filter: "drop-shadow(0 1px 1px rgba(0,0,0,0.25))",
-  };
-
   const isLocal = typeof conf.icon === "string" && conf.icon.startsWith("/");
 
   return (
     <span
-      className="relative inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm font-medium text-slate-800 dark:text-slate-100 transition-all duration-150 hover:-translate-y-0.5"
-      style={glass}
+      className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 transition-colors duration-300 hover:bg-zinc-200 dark:hover:bg-zinc-700"
     >
       {isLocal ? (
         <Image
           src={conf.icon}
           alt={conf.label ?? tech}
-          width={18}
-          height={18}
-          className="relative z-[1] w-[1.05em] h-[1.05em]"
-          // Note: coloring an external SVG via CSS only works if the SVG uses `currentColor`.
-          style={iconStyle}
+          width={14}
+          height={14}
+          className="relative z-[1] w-[1em] h-[1em]"
         />
       ) : (
         <iconify-icon
           icon={conf.icon}
-          className="relative z-[1] w-[1.05em] h-[1.05em]"
-          style={iconStyle}
+          className="relative z-[1] w-[1em] h-[1em]"
         />
       )}
       <span className="relative z-[1]">{conf.label ?? tech}</span>
@@ -246,27 +229,23 @@ function FilterButton({ name, count, active, onClick }: FilterButtonProps) {
       onClick={onClick}
       aria-pressed={active}
       className={[
-        "group relative px-8 py-4 rounded-full font-medium transition-all duration-500 focus:outline-none",
-        "hover:scale-105 focus-visible:ring-2 focus-visible:ring-blue-400/50 focus-visible:ring-offset-4",
+        "group relative px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none flex items-center border",
         active
-          ? "bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-2xl"
-          : "bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl border border-slate-200/50 dark:border-slate-700/50 text-slate-700 dark:text-slate-300 hover:bg-white/80 dark:hover:bg-slate-800/80 hover:border-slate-300/50 dark:hover:border-slate-600/50",
+          ? "bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 border-zinc-950 dark:border-white"
+          : "bg-transparent text-zinc-600 dark:text-zinc-400 border-zinc-300 dark:border-zinc-700 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-500",
       ].join(" ")}
     >
       <span className="relative z-10">{name}</span>
       <span
         className={[
-          "ml-3 px-3 py-1 rounded-full text-xs font-semibold transition-all duration-500",
+          "ml-2 flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold transition-all duration-300",
           active
-            ? "bg-white/20 text-white/90 dark:bg-slate-900/20 dark:text-slate-900/90"
-            : "bg-slate-100/80 dark:bg-slate-700/60 text-slate-600 dark:text-slate-400",
+            ? "bg-white/20 text-white dark:bg-zinc-950/20 dark:text-zinc-950"
+            : "bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700",
         ].join(" ")}
       >
         {count}
       </span>
-      {active && (
-        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600/10 to-purple-600/10 blur-xl"></div>
-      )}
     </button>
   );
 }
@@ -300,196 +279,145 @@ export default function ProjectsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100">
+    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 transition-colors duration-500">
       {/* Iconify loader for web component <iconify-icon> */}
       <Script
         src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"
         strategy="afterInteractive"
       />
 
-      {/* Hero */}
-      <section className="relative py-32 md:py-40 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 via-white to-blue-50/30 dark:from-slate-950 dark:via-slate-950 dark:to-slate-900"></div>
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-16 md:pt-48 md:pb-24 overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,#000_70%,transparent_100%)]"></div>
         
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center max-w-5xl mx-auto space-y-12">
-            <div className="space-y-8">
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-thin tracking-tighter text-slate-900 dark:text-white leading-none">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10 flex flex-col md:flex-row justify-between items-end gap-12">
+          <div className="space-y-6 max-w-3xl">
+            <h1 className="text-[10vw] md:text-[8vw] lg:text-[7vw] leading-[0.9] font-medium tracking-[-0.04em] text-zinc-950 dark:text-white uppercase uppercase">
+              Portfolio
+            </h1>
+            <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">
+              Ausgewählte Arbeiten, die <span className="font-serif italic">Standards setzen.</span>
+            </p>
+          </div>
+
+          {/* Minimalist Stats */}
+          <div className="flex gap-8 md:gap-12 pb-2">
+            <div>
+              <div className="text-4xl md:text-5xl font-medium text-zinc-950 dark:text-white mb-1">
+                {projects.length}
+              </div>
+              <div className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">
                 Projekte
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-light max-w-2xl mx-auto leading-relaxed">
-                Ausgewählte IT‑Projekte, die Geschichten erzählen
-              </p>
+              </div>
             </div>
-
-            {/* Stats - Minimalistisch wie Apple */}
-            <div className="flex justify-center items-center gap-4 sm:gap-8 md:gap-12 lg:gap-16 pt-8">
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin text-slate-900 dark:text-white mb-2">
-                  {projects.length}
-                </div>
-                <div className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
-                  Projekte
-                </div>
+            <div className="w-px bg-zinc-300 dark:bg-zinc-700"></div>
+            <div>
+              <div className="text-4xl md:text-5xl font-medium text-zinc-950 dark:text-white mb-1">
+                <CountUp from={0} to={20} separator="" direction="up" duration={2} />+
               </div>
-              <div className="w-px h-12 sm:h-14 md:h-16 bg-slate-200 dark:bg-slate-800"></div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin text-slate-900 dark:text-white mb-2">
-                  <CountUp
-                    from={0}
-                    to={20}
-                    separator=""
-                    direction="up"
-                    duration={2}
-                  />+
-                </div>
-                <div className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
-                  Kunden
-                </div>
+              <div className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">
+                Kunden
               </div>
-              <div className="w-px h-12 sm:h-14 md:h-16 bg-slate-200 dark:bg-slate-800"></div>
-              <div className="text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-thin text-slate-900 dark:text-white mb-2">
-                  <CountUp
-                    from={0}
-                    to={6}
-                    separator=""
-                    direction="up"
-                    duration={2}
-                  />+
-                </div>
-                <div className="text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
-                  Jahre
-                </div>
+            </div>
+            <div className="w-px hidden sm:block bg-zinc-300 dark:bg-zinc-700"></div>
+            <div className="hidden sm:block">
+              <div className="text-4xl md:text-5xl font-medium text-zinc-950 dark:text-white mb-1">
+                <CountUp from={0} to={6} separator="" direction="up" duration={2} />+
+              </div>
+              <div className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">
+                Jahre
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Filter - Apple-Style */}
-      <section className="py-20 relative">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-            {categories.map((c) => (
-              <FilterButton
-                key={c.id}
-                name={c.name}
-                count={counts[c.id]}
-                active={active === c.id}
-                onClick={() => setActive(c.id)}
-              />
-            ))}
-          </div>
-          <p className="sr-only" aria-live="polite">
-            {filtered.length} Projekte angezeigt.
-          </p>
-        </div>
-      </section>
+      {/* Filter Section */}
+      
 
-      {/* Projects Grid - Minimalistisch und elegant */}
-      <section className="pb-32">
-        <div className="container mx-auto px-6">
-          <div className="space-y-32 max-w-7xl mx-auto">
+      {/* Projects Feed - Brutalist/Editorial */}
+      <section className="py-24 md:py-40">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="space-y-32 md:space-y-48">
             {filtered.map((project, index) => (
               <div
                 key={project.slug}
-                className="group animate-fade-in-up opacity-0"
-                style={{ animationDelay: `${index * 150}ms` }}
+                className="group animate-[fadeIn_1s_ease_both]"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <Link
                   href={`/projects/${project.slug}`}
-                  className={`grid ${
-                    index % 2 === 1 ? "lg:grid-cols-[1fr,1.2fr]" : "lg:grid-cols-[1.2fr,1fr]"
-                  } gap-16 lg:gap-20 items-center transition-all duration-700 hover:-translate-y-4 group`}
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
                 >
-                  {/* Bild */}
-                  <div className={`relative ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <div className="p-4 aspect-[4/3] rounded-3xl overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-2xl group-hover:shadow-3xl transition-shadow duration-700">
-                      <Image
-                        src={project.cover}
-                        alt={project.title}
-                        width={800}
-                        height={600}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                    </div>
-
-                    {/* Subtiler Badge statt Nummer */}
-                    <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-full flex items-center justify-center shadow-xl border border-slate-200/50 dark:border-slate-700/50">
-                      <span className="text-sm font-medium text-slate-600 dark:text-slate-400">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                    </div>
+                  {/* Image Container */}
+                  <div className={`col-span-1 lg:col-span-8 overflow-hidden rounded-[2rem] bg-zinc-200 dark:bg-zinc-800 aspect-[4/3] md:aspect-[16/10] relative ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+                    <Image
+                      src={project.cover}
+                      alt={project.title}
+                      width={1200}
+                      height={900}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.5s] ease-[cubic-bezier(0.2,1,0.3,1)]"
+                    />
+                    <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors duration-700"></div>
                   </div>
 
-                  {/* Content - Apple-Style Clean */}
-                  <div className={`space-y-8 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                    <div className="space-y-6">
-                      <div className="inline-flex items-center px-4 py-2 rounded-full bg-slate-100/80 dark:bg-slate-800/60 backdrop-blur-sm">
-                        <span className="text-sm font-medium text-slate-600 dark:text-slate-400 uppercase tracking-wider">
-                          {project.category === "website" && "Website"}
-                          {project.category === "webshop" && "E-Commerce"}
-                          {project.category === "software" && "Software"}
-                        </span>
+                  {/* Text Container - Editorial */}
+                  <div className={`col-span-1 lg:col-span-4 flex flex-col ${index % 2 === 1 ? 'lg:order-first' : ''}`}>
+                    <div className="mb-8">
+                       <span className="text-6xl md:text-8xl font-light text-zinc-200 dark:text-zinc-800 font-serif italic block mb-4">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <div className="inline-flex items-center px-3 py-1 mb-6 rounded-full border border-zinc-300 dark:border-zinc-700 text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-widest">
+                        {project.category === "website" && "Website"}
+                        {project.category === "webshop" && "E-Commerce"}
+                        {project.category === "software" && "Software"}
                       </div>
-
-                      <h2 className="text-4xl md:text-5xl lg:text-6xl font-thin text-slate-900 dark:text-white tracking-tight leading-none">
+                      <h2 className="text-4xl md:text-5xl font-medium text-zinc-950 dark:text-white tracking-tight leading-[1.1] mb-6">
                         {project.title}
                       </h2>
-                      
-                      <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-light">
+                      <p className="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed font-light mb-8">
                         {project.teaser}
                       </p>
                     </div>
 
-                    {/* Tech Stack - Minimal */}
+                    {/* Minimal Tech Badges */}
                     {project.technologies && (
-                      <div className="space-y-4">
-                        <div className="flex flex-wrap gap-2">
-                          {project.technologies
-                            .slice(0, 4)
-                            .sort((a: string, b: string) =>
-                              (resolveTech(a).label ?? a).localeCompare(
-                                resolveTech(b).label ?? b,
-                                "de",
-                                { sensitivity: "base" }
-                              )
+                      <div className="flex flex-wrap gap-2 mb-8">
+                        {project.technologies
+                          .slice(0, 4)
+                          .sort((a: string, b: string) =>
+                            (resolveTech(a).label ?? a).localeCompare(
+                              resolveTech(b).label ?? b,
+                              "de",
+                              { sensitivity: "base" }
                             )
-                            .map((tech: string) => (
-                              <TechBadge key={tech} tech={tech} />
-                            ))}
-                          {project.technologies.length > 4 && (
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-slate-500 dark:text-slate-500 bg-slate-100/50 dark:bg-slate-800/50">
-                              +{project.technologies.length - 4}
-                            </span>
-                          )}
-                        </div>
+                          )
+                          .map((tech: string) => (
+                            <TechBadge key={tech} tech={tech} />
+                          ))}
+                        {project.technologies.length > 4 && (
+                          <span className="inline-flex items-center px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs font-medium text-zinc-500">
+                            +{project.technologies.length - 4}
+                          </span>
+                        )}
                       </div>
                     )}
 
-                    {/* Meta Information */}
-                    <div className="flex items-center gap-6 text-sm text-slate-500 dark:text-slate-500">
-                      {project.year && <span>{project.year}</span>}
-                      {project.client && (
-                        <>
-                          <div className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700"></div>
-                          <span>{project.client}</span>
-                        </>
-                      )}
-                    </div>
-
-                    {/* CTA - Apple Style */}
-                    <div className="pt-4">
-                      <div className="inline-flex items-center gap-3 text-blue-600 dark:text-blue-400 font-medium text-lg group-hover:gap-5 transition-all duration-500">
-                        <span>Ansehen</span>
-                        <div className="w-6 h-6 rounded-full border border-current flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white dark:group-hover:bg-blue-400 dark:group-hover:text-slate-900 transition-all duration-300">
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                          </svg>
-                        </div>
+                    <div className="flex items-center justify-between border-t border-zinc-200 dark:border-zinc-800 pt-6">
+                      <div className="flex items-center gap-4 text-sm text-zinc-500 font-medium">
+                        {project.year && <span>{project.year}</span>}
+                        {project.client && (
+                          <>
+                            <div className="w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-600"></div>
+                            <span>{project.client}</span>
+                          </>
+                        )}
+                      </div>
+                      <div className="w-12 h-12 rounded-full border border-zinc-300 dark:border-zinc-700 flex items-center justify-center group-hover:scale-110 group-hover:bg-zinc-950 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-zinc-950 transition-all duration-300">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                       </div>
                     </div>
+
                   </div>
                 </Link>
               </div>
@@ -498,35 +426,44 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* CTA Section - Apple Minimalism */}
-      <section className="py-32 bg-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-blue-950"></div>
-        
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <div className="max-w-4xl mx-auto space-y-12">
-            <h2 className="text-5xl md:text-7xl font-thin text-white tracking-tight leading-none">
-              Ein Projekt<br />im Kopf?
-            </h2>
-            <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
-              Verwandeln wir Ihre Vision in digitale Realität.
-            </p>
+      {/* FINAL CTA */}
+      <section className="py-32 md:py-48 bg-zinc-950 text-white relative overflow-hidden">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl text-center relative z-10">
+          <div className="flex flex-col items-center max-w-4xl mx-auto">
             
-            <div className="pt-8">
-              <Link
-                href="/contact"
-                className="group inline-flex items-center gap-4 px-12 py-6 bg-white text-slate-900 rounded-full font-medium text-lg hover:bg-slate-100 transition-all duration-300 hover:scale-105 shadow-2xl"
-              >
-                <span>Projekt starten</span>
-                <div className="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center group-hover:bg-blue-600 transition-colors duration-300">
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
-              </Link>
-            </div>
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter mb-8 leading-[1.0] w-full">
+              Ein Projekt <br />
+              <span className="text-zinc-500 font-serif italic">im Kopf?</span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl text-zinc-400 font-light mb-16 max-w-2xl">
+              Lassen Sie uns gemeinsam eine digitale Erfahrung schaffen, die Maßstäbe setzt und Ihr Business beschleunigt.
+            </p>
+
+            <Link
+              href="/contact"
+              className="px-10 py-5 rounded-full bg-white text-zinc-950 font-medium text-lg tracking-wide hover:scale-105 active:scale-95 transition-transform duration-300 flex justify-center items-center"
+            >
+              Projekt starten
+            </Link>
+
           </div>
         </div>
       </section>
+      
+      {/* Global Animation Styles */}
+      <style jsx global>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </main>
   );
 }
