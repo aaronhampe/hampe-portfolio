@@ -6,6 +6,7 @@ import { projects } from "@/data/projects";
 import SplitText from "src/blocks/TextAnimations/SplitText/SplitText";
 import TextType from "src/blocks/TextAnimations/TextType/TextType";
 import SplashCursor from "src/blocks/TextAnimations/SplashCursor/SplashCursor";
+import ServicesScrollStack from "@/components/ServicesScrollStack";
 
 
 const handleAnimationComplete = () => {
@@ -42,7 +43,7 @@ export default function Home() {
               <span className="block mb-2 overflow-hidden">
                 <SplitText
                   text="Digitale"
-                  className="text-7xl font-semibold text-center"
+                  className="text-5xl md:text-6xl lg:text-7xl font-semibold text-center"
                   delay={50}
                   duration={1.25}
                   ease="power3.out"
@@ -58,7 +59,7 @@ export default function Home() {
               <span className="block overflow-hidden">
                 <SplitText
                   text="Exzellenz."
-                  className="text-8xl font-semibold text-center"
+                  className="text-5xl md:text-6xl lg:text-7xlfont-semibold text-center"
                   delay={100}
                   duration={1.25}
                   ease="power3.out"
@@ -122,12 +123,13 @@ export default function Home() {
 
       {/* 
         ========================================
-        SERVICES SECTION (Bento Grid Style)
+        SERVICES SECTION (Stacking Scroll Cards)
         ========================================
       */}
-      <section className="py-24 md:py-40 bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
-        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-          <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+      <section className="bg-white dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800">
+        {/* Section header — sits above the sticky card stack */}
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl py-24 md:py-32">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-zinc-950 dark:text-white max-w-2xl leading-[1.1]">
               Was ich für Sie{" "}
               <span className="text-zinc-400 dark:text-zinc-600 italic font-serif">
@@ -139,124 +141,11 @@ export default function Home() {
               Lösungen, die konvertieren und begeistern.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {/* Service 1: Websites */}
-            <div className="group relative bg-zinc-50 dark:bg-zinc-900/50 rounded-3xl p-8 md:p-12 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors duration-500 overflow-hidden min-h-[400px] flex flex-col justify-between">
-              <div>
-                <h3 className="text-3xl font-medium text-zinc-950 dark:text-white mb-4 tracking-tight">
-                  Websites
-                </h3>
-                <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed text-lg">
-                  Unternehmensauftritte, die Ihre Marke schärfen. Ultraschnell,
-                  responsive und visuell überragend.
-                </p>
-              </div>
-              <div className="flex justify-between items-end mt-12 w-full">
-                <Link
-                  href="/projects"
-                  className="font-medium text-zinc-950 dark:text-white group-hover:underline underline-offset-4 decoration-zinc-300 transition-all"
-                >
-                  Entdecken
-                </Link>
-                {/* Minimal Icon */}
-                <div className="w-12 h-12 rounded-full border border-zinc-300 dark:border-zinc-700 flex items-center justify-center group-hover:scale-110 group-hover:bg-zinc-950 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-zinc-950 transition-all duration-300">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            {/* Service 2: Webshops */}
-            <div className="group relative bg-zinc-50 dark:bg-zinc-900/50 rounded-3xl p-8 md:p-12 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors duration-500 overflow-hidden min-h-[400px] flex flex-col justify-between">
-              <div>
-                <h3 className="text-3xl font-medium text-zinc-950 dark:text-white mb-4 tracking-tight">
-                  Webshops
-                </h3>
-                <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed text-lg">
-                  Reibungslose E-Commerce Erlebnisse, optimiert für Konversionen
-                  und skalierbares Wachstum.
-                </p>
-              </div>
-              <div className="flex justify-between items-end mt-12 w-full">
-                <Link
-                  href="/projects"
-                  className="font-medium text-zinc-950 dark:text-white group-hover:underline underline-offset-4 decoration-zinc-300 transition-all"
-                >
-                  Erfahren
-                </Link>
-                <div className="w-12 h-12 rounded-full border border-zinc-300 dark:border-zinc-700 flex items-center justify-center group-hover:scale-110 group-hover:bg-zinc-950 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-zinc-950 transition-all duration-300">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            {/* Service 3: Software */}
-            <div className="group relative bg-zinc-950 dark:bg-zinc-100 rounded-3xl p-8 md:p-12 border border-zinc-900 dark:border-zinc-200 hover:scale-[1.02] transition-transform duration-500 overflow-hidden min-h-[400px] flex flex-col justify-between shadow-2xl shadow-zinc-900/10">
-              <div>
-                <h3 className="text-3xl font-medium text-white dark:text-zinc-950 mb-4 tracking-tight">
-                  Software & Tools
-                </h3>
-                <p className="text-zinc-400 dark:text-zinc-600 leading-relaxed text-lg">
-                  Komplexe Datensysteme, SaaS-Anwendungen und maßgeschneiderte
-                  Dashboards für smarte Workflows.
-                </p>
-              </div>
-              <div className="flex justify-between items-end mt-12 w-full">
-                <Link
-                  href="/projects"
-                  className="font-medium text-white dark:text-zinc-950 opacity-80 group-hover:opacity-100 transition-opacity"
-                >
-                  Kennenlernen
-                </Link>
-                <div className="w-12 h-12 rounded-full border border-zinc-800 dark:border-zinc-300 flex items-center justify-center group-hover:bg-white group-hover:text-zinc-950 dark:group-hover:bg-zinc-950 dark:group-hover:text-white transition-colors duration-300 text-white dark:text-zinc-900">
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
+
+        {/* Stacking scroll cards */}
+        <ServicesScrollStack />
+
       </section>
 
 
