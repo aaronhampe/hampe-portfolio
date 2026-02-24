@@ -7,7 +7,7 @@ export default async function BlogIndex({
 }: {
   searchParams?: Promise<{ k?: string }>;
 }) {
-  const { k } = (await searchParams) ?? {};   // ⬅ Promise auflösen
+  const { k } = (await searchParams) ?? {};
   const selectedRaw = (k ?? '') as Category | '';
 
   const categoriesAll = Object.keys(CATEGORY_LABELS) as Category[];
@@ -22,102 +22,134 @@ export default async function BlogIndex({
     return acc;
   }, {} as Record<Category, number>);
 
-  const badgeBase =
-    'inline-flex items-center gap-2 rounded-full border px-3 py-1 text-sm transition';
-  const badgeInactive =
-    'text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800';
-  const badgeActive = 'bg-blue-600 text-white border-blue-600';
-
   return (
-    <section className="max-w-5xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-2">Tech-Blog</h1>
-      <p className="mb-6 text-lg text-gray-700 dark:text-gray-300">
-        Aktuelle Neuigkeiten und Insights rund um KI, Webentwicklung, JavaScript und moderne Technologien.
-      </p>
+    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-50 transition-colors duration-500">
+      
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-16 md:pt-48 md:pb-24 overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
-      {/* Filter-Leiste */}
-      <div className="flex flex-wrap items-center gap-2 mb-8">
-        <Link
-          href="/blog"
-          className={`${badgeBase} ${!selected ? badgeActive : badgeInactive}`}
-        >
-          Alle
-          <span className="text-xs opacity-75">({blogPosts.length})</span>
-        </Link>
-
-        {categoriesAll.map((cat) => (
-          <Link
-            key={cat}
-            href={`/blog?k=${cat}`}
-            className={`${badgeBase} ${
-              selected === cat ? badgeActive : badgeInactive
-            }`}
-            prefetch={false}
-          >
-            {CATEGORY_LABELS[cat]}
-            <span className="text-xs opacity-75">({counts[cat]})</span>
-          </Link>
-        ))}
-      </div>
-
-      {/* Liste */}
-      <div className="grid gap-8 md:grid-cols-2">
-        {visiblePosts.map((post) => (
-          <article
-            key={post.slug}
-            className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-lg transition-shadow"
-          >
-            <h2 className="text-2xl font-semibold mb-2">
-              <Link href={`/blog/${post.slug}`} className="hover:underline">
-                {post.title}
-              </Link>
-            </h2>
-
-            <time
-              dateTime={post.date}
-              className="block text-sm text-gray-500 dark:text-gray-400 mb-3"
-            >
-              {new Date(post.date).toLocaleDateString('de-DE', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </time>
-
-            {/* kleine Post-Badges */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              {post.categories?.map((c) => (
-                <Link
-                  key={c}
-                  href={`/blog?k=${c}`}
-                  className="rounded-full border border-gray-200 dark:border-gray-700 px-2 py-0.5 text-xs text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
-                  prefetch={false}
-                >
-                  {CATEGORY_LABELS[c]}
-                </Link>
-              ))}
-            </div>
-
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              {post.summary}
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10 flex flex-col md:flex-row justify-between items-end gap-12">
+          <div className="space-y-6 max-w-3xl">
+            <h1 className="text-[10vw] md:text-[8vw] lg:text-[7vw] leading-[0.9] font-medium tracking-[-0.04em] text-zinc-950 dark:text-white uppercase uppercase">
+              Tech-Blog
+            </h1>
+            <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">
+              Insights, Gedanken und Neuigkeiten rund um <span className="font-serif italic text-zinc-800 dark:text-zinc-200">moderne Softwarearchitektur.</span>
             </p>
+          </div>
+        </div>
+      </section>
 
+      {/* Filter Section - Matching the stark Projects filter style */}
+      <section className="py-8 border-b border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md sticky top-0 z-30 transition-colors duration-500">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="flex flex-wrap gap-3">
             <Link
-              href={`/blog/${post.slug}`}
-              className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+              href="/blog"
+              className={`group relative px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none flex items-center border ${
+                !selected
+                  ? "bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 border-zinc-950 dark:border-white"
+                  : "bg-transparent text-zinc-600 dark:text-zinc-400 border-zinc-300 dark:border-zinc-700 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-500"
+              }`}
             >
-              Weiterlesen →
+              <span className="relative z-10">Alle</span>
+              <span className={`ml-2 flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold transition-all duration-300 ${
+                !selected ? "bg-white/20 text-white dark:bg-zinc-950/20 dark:text-zinc-950" : "bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700"
+              }`}>
+                {blogPosts.length}
+              </span>
             </Link>
-          </article>
-        ))}
-      </div>
 
-      {/* Empty State */}
-      {visiblePosts.length === 0 && (
-        <p className="mt-8 text-gray-600 dark:text-gray-300">
-          Keine Beiträge in dieser Kategorie.
-        </p>
-      )}
-    </section>
+            {categoriesAll.map((cat) => (
+              <Link
+                key={cat}
+                href={`/blog?k=${cat}`}
+                prefetch={false}
+                className={`group relative px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none flex items-center border ${
+                  selected === cat
+                    ? "bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 border-zinc-950 dark:border-white"
+                    : "bg-transparent text-zinc-600 dark:text-zinc-400 border-zinc-300 dark:border-zinc-700 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-500"
+                }`}
+              >
+                <span className="relative z-10">{CATEGORY_LABELS[cat]}</span>
+                <span className={`ml-2 flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold transition-all duration-300 ${
+                  selected === cat ? "bg-white/20 text-white dark:bg-zinc-950/20 dark:text-zinc-950" : "bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700"
+                }`}>
+                  {counts[cat]}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Listing - Brutalist/Editorial Feed */}
+      <section className="py-24 md:py-40">
+        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-12 md:gap-y-32">
+            
+            {visiblePosts.map((post) => (
+              <article
+                key={post.slug}
+                className="group flex flex-col items-start"
+              >
+                {/* Visual Category Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {post.categories?.map((c) => (
+                    <span
+                      key={c}
+                      className="inline-flex items-center px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 text-xs font-semibold uppercase tracking-widest text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900"
+                    >
+                      {CATEGORY_LABELS[c]}
+                    </span>
+                  ))}
+                </div>
+
+                <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-zinc-950 dark:text-white leading-[1.2] mb-4 group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors duration-300">
+                  <Link href={`/blog/${post.slug}`}>
+                    {post.title}
+                  </Link>
+                </h2>
+
+                <time
+                  dateTime={post.date}
+                  className="font-serif italic text-lg text-zinc-400 dark:text-zinc-500 mb-6"
+                >
+                  {new Date(post.date).toLocaleDateString('de-DE', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+
+                <p className="text-lg text-zinc-600 dark:text-zinc-400 font-light leading-relaxed mb-8">
+                  {post.summary}
+                </p>
+
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="mt-auto inline-flex items-center gap-2 font-medium hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors uppercase tracking-widest text-sm"
+                >
+                  Weiterlesen
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </Link>
+              </article>
+            ))}
+
+          </div>
+
+          {/* Empty State */}
+          {visiblePosts.length === 0 && (
+            <div className="py-24 text-center">
+              <p className="text-2xl font-light text-zinc-500 dark:text-zinc-400">
+                Keine Beiträge in dieser Kategorie gefunden.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+
+    </main>
   );
 }
