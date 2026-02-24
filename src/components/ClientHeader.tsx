@@ -37,6 +37,8 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  const isTransparentHome = pathname === "/" && !isScrolled;
+
   return (
     <>
       <header
@@ -55,7 +57,7 @@ export default function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center transition-opacity hover:opacity-70 dark:invert-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 rounded-lg dark:focus-visible:ring-white"
+            className="flex items-center transition-opacity hover:opacity-70 dark:focus-visible:ring-white focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 rounded-lg"
             aria-label="Zur Startseite"
           >
             <div className="relative">
@@ -64,7 +66,7 @@ export default function Header() {
                 alt="HAMPE"
                 width={100}
                 height={30}
-                className="h-6 w-auto dark:hidden"
+                className={`h-6 w-auto ${isTransparentHome ? "block" : "dark:hidden"}`}
                 priority
               />
               <Image
@@ -72,7 +74,7 @@ export default function Header() {
                 alt="HAMPE"
                 width={100}
                 height={30}
-                className="hidden h-6 w-auto dark:block"
+                className={`h-6 w-auto ${isTransparentHome ? "hidden" : "hidden dark:block"}`}
                 priority
               />
             </div>
@@ -82,14 +84,20 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-1 absolute left-1/2 -translate-x-1/2">
             {navigation.map((item) => {
               const isActive = pathname === item.href || (pathname.startsWith(item.href) && item.href !== "/");
+              
+              const activeClass = isTransparentHome 
+                 ? "text-zinc-950 bg-white/50 backdrop-blur-md" 
+                 : "text-zinc-900 dark:text-white bg-zinc-100 dark:bg-zinc-800/80";
+              const inactiveClass = isTransparentHome
+                 ? "text-zinc-800 hover:text-zinc-950 hover:bg-white/30 backdrop-blur-sm"
+                 : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-800/50";
+
               return (
                 <Link
                   key={item.name}
                   href={item.href}
                   className={`relative px-5 py-2 rounded-full text-sm font-medium tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-50 ${
-                    isActive
-                      ? "text-zinc-900 dark:text-white bg-zinc-100 dark:bg-zinc-800/80"
-                      : "text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-800/50"
+                    isActive ? activeClass : inactiveClass
                   }`}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -101,11 +109,15 @@ export default function Header() {
 
           {/* Right actions: Theme + Contact + Mobile Menu */}
           <div className="flex items-center gap-3">
-            <ThemeSwitcher variant="button" />
+            <ThemeSwitcher variant="button" isTransparentHome={isTransparentHome} />
 
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 bg-zinc-900 text-white hover:bg-zinc-800 hover:scale-[1.02] active:scale-95 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-50 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-900"
+              className={`hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-50 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-900 hover:scale-[1.02] active:scale-95 ${
+                isTransparentHome 
+                  ? "bg-zinc-950 text-white hover:bg-zinc-800"
+                  : "bg-zinc-900 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-100"
+              }`}
             >
               Kontakt
             </Link>
@@ -114,21 +126,31 @@ export default function Header() {
             <button
               onClick={() => setIsMobileMenuOpen((v) => !v)}
               aria-label="Menü öffnen"
-              className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors focus:outline-none"
+              className={`md:hidden relative w-10 h-10 flex items-center justify-center rounded-full transition-colors focus:outline-none ${
+                isTransparentHome
+                  ? "bg-white/50 backdrop-blur-md hover:bg-white/70"
+                  : "bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700"
+              }`}
             >
               <div className="w-4 h-3.5 flex flex-col justify-between">
                 <span
-                  className={`w-full h-[2px] rounded-full bg-zinc-900 dark:bg-zinc-100 transition-all duration-300 origin-left ${
+                  className={`w-full h-[2px] rounded-full transition-all duration-300 origin-left ${
+                    isTransparentHome ? "bg-zinc-900" : "bg-zinc-900 dark:bg-zinc-100"
+                  } ${
                     isMobileMenuOpen ? "rotate-45 w-[16px] translate-y-[-1px]" : ""
                   }`}
                 />
                 <span
-                  className={`w-full h-[2px] rounded-full bg-zinc-900 dark:bg-zinc-100 transition-all duration-300 ${
+                  className={`w-full h-[2px] rounded-full transition-all duration-300 ${
+                    isTransparentHome ? "bg-zinc-900" : "bg-zinc-900 dark:bg-zinc-100"
+                  } ${
                     isMobileMenuOpen ? "opacity-0" : ""
                   }`}
                 />
                 <span
-                  className={`w-full h-[2px] rounded-full bg-zinc-900 dark:bg-zinc-100 transition-all duration-300 origin-left ${
+                  className={`w-full h-[2px] rounded-full transition-all duration-300 origin-left ${
+                    isTransparentHome ? "bg-zinc-900" : "bg-zinc-900 dark:bg-zinc-100"
+                  } ${
                     isMobileMenuOpen ? "-rotate-45 w-[16px] translate-y-[2px]" : ""
                   }`}
                 />

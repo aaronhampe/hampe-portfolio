@@ -33,12 +33,13 @@ const themes = [
   },
 ];
 
-interface ThemeSwitcherProps {
+export interface ThemeSwitcherProps {
   variant?: 'button' | 'dropdown';
   showLabel?: boolean;
+  isTransparentHome?: boolean;
 }
 
-export default function ThemeSwitcher({ variant = 'dropdown', showLabel = false }: ThemeSwitcherProps) {
+export default function ThemeSwitcher({ variant = 'dropdown', showLabel = false, isTransparentHome = false }: ThemeSwitcherProps) {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -72,7 +73,11 @@ export default function ThemeSwitcher({ variant = 'dropdown', showLabel = false 
     return (
       <button
         onClick={toggleTheme}
-        className="relative w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 group"
+        className={`relative w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group ${
+          isTransparentHome 
+            ? "bg-white/50 backdrop-blur-md border border-zinc-900/20 text-zinc-800 hover:text-zinc-950 hover:bg-white/70"
+            : "bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-700"
+        }`}
         aria-label="Theme wechseln"
       >
         <div className="relative">
