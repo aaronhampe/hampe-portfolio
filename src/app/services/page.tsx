@@ -8,7 +8,7 @@ export const metadata = {
    deinen echten Google Calendar Appointment
    Scheduling Link.
    ─────────────────────────────────────────────── */
-const BOOKING_URL = 'https://calendar.google.com/calendar/appointments/TODO_REPLACE_WITH_YOUR_LINK';
+const BOOKING_URL = 'https://cal.com/aaron-hampe-vmzuaa/15min';
 
 /**
  * Leistungen – Übersichtsseite. Erklärt die Kernleistungen

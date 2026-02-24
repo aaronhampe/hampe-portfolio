@@ -41,48 +41,7 @@ export default async function BlogIndex({
         </div>
       </section>
 
-      {/* Filter Section - Matching the stark Projects filter style */}
-      <section className="py-8 border-b border-zinc-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/50 backdrop-blur-md sticky top-0 z-30 transition-colors duration-500">
-        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-          <div className="flex flex-wrap gap-3">
-            <Link
-              href="/blog"
-              className={`group relative px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none flex items-center border ${
-                !selected
-                  ? "bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 border-zinc-950 dark:border-white"
-                  : "bg-transparent text-zinc-600 dark:text-zinc-400 border-zinc-300 dark:border-zinc-700 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-500"
-              }`}
-            >
-              <span className="relative z-10">Alle</span>
-              <span className={`ml-2 flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold transition-all duration-300 ${
-                !selected ? "bg-white/20 text-white dark:bg-zinc-950/20 dark:text-zinc-950" : "bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700"
-              }`}>
-                {blogPosts.length}
-              </span>
-            </Link>
-
-            {categoriesAll.map((cat) => (
-              <Link
-                key={cat}
-                href={`/blog?k=${cat}`}
-                prefetch={false}
-                className={`group relative px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none flex items-center border ${
-                  selected === cat
-                    ? "bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 border-zinc-950 dark:border-white"
-                    : "bg-transparent text-zinc-600 dark:text-zinc-400 border-zinc-300 dark:border-zinc-700 hover:text-zinc-950 dark:hover:text-white hover:border-zinc-500"
-                }`}
-              >
-                <span className="relative z-10">{CATEGORY_LABELS[cat]}</span>
-                <span className={`ml-2 flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-bold transition-all duration-300 ${
-                  selected === cat ? "bg-white/20 text-white dark:bg-zinc-950/20 dark:text-zinc-950" : "bg-zinc-100 dark:bg-zinc-800 text-zinc-500 dark:text-zinc-400 group-hover:bg-zinc-200 dark:group-hover:bg-zinc-700"
-                }`}>
-                  {counts[cat]}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Blog Listing - Brutalist/Editorial Feed */}
       <section className="py-24 md:py-40">

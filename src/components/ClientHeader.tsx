@@ -37,7 +37,7 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  const isTransparentHome = pathname === "/" && !isScrolled;
+  const isTransparentHome = pathname === "/" && !isScrolled && !isMobileMenuOpen;
 
   return (
     <>
