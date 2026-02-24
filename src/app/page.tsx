@@ -18,32 +18,42 @@ export default function Home() {
         HERO SECTION
         ========================================
       */}
-      <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-24 pb-12">
-        {/* Subtle, sharp grid background instead of soft blobs */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      <section className="relative min-h-screen flex flex-col justify-end overflow-hidden pb-16 md:pb-32 pt-32">
+        {/* Bright Video Background */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          src="/videos/hampe-blurred-background.webm"
+        />
+        
+        {/* Subtle overlay to ensure the menu works, but keeping it mostly bright */}
+        <div className="absolute inset-0 bg-white/20 z-0 pointer-events-none"></div>
 
-        <div className="container relative z-10 px-4 md:px-8 max-w-7xl mx-auto flex flex-col items-center text-center">
+        <div className="container relative z-10 px-4 md:px-8 max-w-7xl mx-auto flex flex-col items-start text-left">
           
-          <div className="space-y-6 md:space-y-10 w-full">
-            {/* Massive Heading */}
-            <h1 className="text-[12vw] sm:text-[10vw] md:text-[8vw] lg:text-[7vw] leading-[0.9] font-medium tracking-[-0.04em] text-zinc-950 dark:text-white uppercase">
+          <div className="space-y-6 md:space-y-8 w-full max-w-3xl">
+            {/* Smaller, stark left-aligned heading */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] font-medium tracking-tight text-zinc-950 uppercase">
               <span className="block mb-2 overflow-hidden">
                 <span className="block animate-[slideUp_1s_cubic-bezier(0.16,1,0.3,1)_forwards] translate-y-full">
                   Digitale
                 </span>
               </span>
               <span className="block overflow-hidden">
-                <span className="block animate-[slideUp_1s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards] translate-y-full text-zinc-400 dark:text-zinc-500">
+                <span className="block animate-[slideUp_1s_cubic-bezier(0.16,1,0.3,1)_0.1s_forwards] translate-y-full text-zinc-800">
                   Exzellenz.
                 </span>
               </span>
             </h1>
 
             {/* Sub-headline */}
-            <div className="max-w-2xl mx-auto mt-8 md:mt-12">
+            <div className="max-w-xl">
               <SplitText
                 text="Die digitale Welt muss funktionieren. Aber sie darf auch schön sein. Ich sorge dafür, dass beides zusammenkommt."
-                className="text-lg md:text-xl lg:text-2xl font-light text-zinc-600 dark:text-zinc-400 leading-relaxed md:leading-snug"
+                className="text-base md:text-lg lg:text-xl font-medium text-zinc-900 drop-shadow-sm leading-relaxed"
                 delay={10}
                 duration={0.3}
                 ease="power3.out"
@@ -52,36 +62,36 @@ export default function Home() {
                 to={{ opacity: 1, y: 0 }}
                 threshold={0.1}
                 rootMargin="-50px"
-                textAlign="center"
+                textAlign="left"
                 onLetterAnimationComplete={handleAnimationComplete}
               />
             </div>
 
-            {/* Service Tags (Pill shaped, minimalist) */}
-            <div className="flex flex-wrap justify-center gap-3 pt-6 animate-[fadeIn_1.5s_ease_1s_both]">
-              <span className="px-5 py-2 rounded-full text-xs md:text-sm font-medium tracking-wide uppercase bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+            {/* Service Tags (Pill shaped, minimalist, left aligned) */}
+            <div className="flex flex-wrap justify-start gap-3 pt-4 animate-[fadeIn_1.5s_ease_1s_both]">
+              <span className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-zinc-900/20 bg-white/50 text-zinc-900 backdrop-blur-md">
                 Next.js / React
               </span>
-              <span className="px-5 py-2 rounded-full text-xs md:text-sm font-medium tracking-wide uppercase bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+              <span className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-zinc-900/20 bg-white/50 text-zinc-900 backdrop-blur-md">
                 E‑Commerce
               </span>
-              <span className="px-5 py-2 rounded-full text-xs md:text-sm font-medium tracking-wide uppercase bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+              <span className="px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase border border-zinc-900/20 bg-white/50 text-zinc-900 backdrop-blur-md">
                 SaaS & Tools
               </span>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 md:pt-16 w-full animate-[fadeIn_1.5s_ease_1.2s_both]">
+            <div className="flex flex-col sm:flex-row gap-4 justify-start items-center pt-6 md:pt-8 w-full animate-[fadeIn_1.5s_ease_1.2s_both]">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 font-medium text-lg tracking-wide hover:scale-105 active:scale-95 transition-transform duration-300 shadow-[0_0_40px_rgba(0,0,0,0.1)] dark:shadow-[0_0_40px_rgba(255,255,255,0.1)] flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-zinc-950 text-white font-medium text-sm md:text-base tracking-wide hover:scale-105 active:scale-95 transition-transform duration-300 shadow-[0_0_40px_rgba(0,0,0,0.1)] flex items-center justify-center gap-2"
               >
                 <span>Projekt starten</span>
-                <span className="text-xl leading-none">&rarr;</span>
+                <span className="text-lg leading-none">&rarr;</span>
               </Link>
               <Link
                 href="/projects"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-transparent text-zinc-950 dark:text-white border border-zinc-300 dark:border-zinc-700 font-medium text-lg tracking-wide hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors duration-300 flex items-center justify-center"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/60 backdrop-blur-md text-zinc-950 border border-zinc-900/20 font-medium text-sm md:text-base tracking-wide hover:bg-white transition-colors duration-300 flex items-center justify-center"
               >
                 Portfolio ansehen
               </Link>
