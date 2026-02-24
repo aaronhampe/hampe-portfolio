@@ -4,14 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
-
-const ThemeSwitcher = dynamic(() => import("./ThemeSwitcher"), {
-  ssr: false,
-  loading: () => (
-    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-zinc-200 dark:bg-zinc-800 animate-pulse"></div>
-  ),
-});
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -107,9 +99,8 @@ export default function Header() {
             })}
           </div>
 
-          {/* Right actions: Theme + Contact + Mobile Menu */}
+          {/* Right actions: Contact + Mobile Menu */}
           <div className="flex items-center gap-3">
-            <ThemeSwitcher variant="button" isTransparentHome={isTransparentHome} />
 
             <Link
               href="/contact"
