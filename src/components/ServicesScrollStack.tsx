@@ -23,12 +23,7 @@ const services = [
     titleColor: "text-zinc-950 dark:text-white",
     descColor: "text-zinc-500 dark:text-zinc-400",
     tagBg: "bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
+    video: "/videos/website-hampe-animation-one.mp4",
   },
   {
     number: "02",
@@ -45,12 +40,7 @@ const services = [
     titleColor: "text-white dark:text-zinc-950",
     descColor: "text-zinc-400 dark:text-zinc-600",
     tagBg: "bg-zinc-800 dark:bg-zinc-200 text-zinc-300 dark:text-zinc-700",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-      </svg>
-    ),
+    video: "/videos/website-hampe-animation-second.mp4",
   },
   {
     number: "03",
@@ -67,13 +57,7 @@ const services = [
     titleColor: "text-white dark:text-zinc-950",
     descColor: "text-zinc-400 dark:text-zinc-600",
     tagBg: "bg-zinc-700 dark:bg-zinc-300 text-zinc-200 dark:text-zinc-800",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-          d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-      </svg>
-    ),
+    video: "/videos/website-hampe-animation-three.mp4",
   },
 ];
 
@@ -137,7 +121,7 @@ export default function ServicesScrollStack() {
             transition: "transform 0.15s ease-out",
             minHeight: `calc(100vh - ${HEADER_OFFSET + i * PEEK_HEIGHT}px)`,
           }}
-          className={`w-full rounded-t-[2.5rem] ${i === 0 ? "rounded-b-[2.5rem]" : ""} border ${service.border} ${service.bg} overflow-hidden`}
+          className={`w-full rounded-t-[2.5rem] ${i === 0 ? "rounded-b-[2.5rem]" : ""} border ${service.border} ${service.bg} overflow-hidden relative`}
         >
           <div className="max-w-7xl mx-auto px-8 md:px-16 py-16 md:py-24 h-full flex flex-col justify-between" style={{ minHeight: `calc(100vh - ${HEADER_OFFSET + i * PEEK_HEIGHT}px)` }}>
             {/* Top row: number + icon */}
@@ -146,9 +130,23 @@ export default function ServicesScrollStack() {
                 {service.number}
               </span>
               <div className={`w-14 h-14 rounded-full border flex items-center justify-center mt-4 ${service.border} ${service.titleColor}`}>
-                {service.icon}
+                
               </div>
             </div>
+
+            {/* Animation Video */}
+            {service.video && (
+              <div className="absolute top-8 right-8 md:top-12 md:right-16 w-32 h-32 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-2xl overflow-hidden opacity-80">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                  src={service.video}
+                />
+              </div>
+            )}
 
             {/* Content */}
             <div className="flex flex-col md:flex-row items-end justify-between gap-12">
