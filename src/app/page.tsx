@@ -158,12 +158,12 @@ export default function Home() {
         <div className="container mx-auto px-4 md:px-8 max-w-7xl">
           <div className="flex flex-col mb-16 md:mb-24">
             <h2 className="text-sm font-semibold tracking-widest text-zinc-500 uppercase mb-4">
-              Ausgewählte Arbeiten
+              Ein Einblick in meine Arbeit
             </h2>
             <h3 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-zinc-950 dark:text-white leading-[1.1] max-w-3xl">
-              Projekte, die Standards{" "}
+              Projekte, die ich betreue  {" "}
               <span className="text-zinc-400 dark:text-zinc-500 font-serif italic">
-                neu definieren.
+                ...und entwickle.
               </span>
             </h3>
           </div>

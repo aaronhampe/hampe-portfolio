@@ -28,7 +28,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "nextjs-15-release",
     title: "Next.js 15: Neue Features und Verbesserungen",
-    date: "2024-10-21",
+    date: "2024-10-24",
     summary:
       "Die finale Version von Next.js 15 bringt ein verbessertes Upgrade‑CLI, asynchrone API‑Änderungen, React 19‑Unterstützung und optimierte Caching‑Mechanismen.",
     categories: ["web"],

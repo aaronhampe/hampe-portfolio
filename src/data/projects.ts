@@ -53,28 +53,28 @@ export const projects: Project[] = [
     status: "live",
   },
   {
-    slug: "stempeluhren-shop",
-    title: "Stempeluhren Shop",
+    slug: "lelia",
+    title: "Klavierunterricht Lelia Hernández",
     teaser:
-      "Ein moderner Online-Shop für Stempeluhren mit umfangreichen Funktionen in Shopify.",
-    cover: "/images/stempeluhren-shop-site.svg",
-    category: "webshop",
-    technologies: ["Shopify", "Liquid", "GoogleAnalytics"],
-    year: "2024",
-    client: "secutimetec GmbH",
+      "Klavierunterricht in Hannover List bei Lelia Hernández.",
+    cover: "/images/lelia.jpeg",
+    category: "website",
+    technologies: ["Tailwind", "Nextjs", "React", "Cloudflare"],
+    year: "2026",
+    client: "Lelia Hernández",
     description:
-      "Ein moderner Online-Shop für Stempeluhren mit umfangreichen Funktionen in Shopify.",
+      "Ich kannte Lelia schon lange, da sie mir Klavierunterricht gegeben hat. Als ich ihr erzählt habe, dass ich mich als Web-Entwickler selbstständig gemacht habe, ist sie auf mich zugekommen. Ihre neue Website ist schneller, moderner und für zukunftige Hobby-Pianisten angenehmer zu lesen und einfacher zu finden.",
     features: [
-      "Responsive Design für alle Endgeräte",
-      "Individuelle Liquid-Templates",
+      "Künstlerisches und einzigartiges Web-Design",
+      "Einfache Kontaktaufnahme",
       "SEO-optimiert für bessere Sichtbarkeit",
+      "Gute Geschwindigkeit"
     ],
     results: [
-      "50% bessere Core Web Vitals",
-      "Erhöhte Streaming-Zahlen",
       "Professionelle Online-Präsenz",
+      "Deutlich gesteigerte Klick-Zahlen"
     ],
-    liveUrl: "https://stempeluhren-shop.de",
+    liveUrl: "https://lelias-klavier-hannover.de",
     status: "live",
   },
   {
