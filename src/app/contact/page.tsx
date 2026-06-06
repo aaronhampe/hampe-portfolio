@@ -76,7 +76,7 @@ export default function Contact() {
               Kontakt
             </h1>
             <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">
-              Haben Sie ein Projekt im Kopf? <span className="font-serif italic text-zinc-800 dark:text-zinc-200">Lass uns sprechen.</span>
+              Haben Sie ein Projekt im Kopf? <span className="font-serif italic text-zinc-800 dark:text-zinc-200">Lassen Sie uns sprechen.</span>
             </p>
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function Contact() {
               <div className="mb-12">
                 <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-4 text-zinc-950 dark:text-white">Projekt anfragen</h2>
                 <p className="text-lg text-zinc-500 dark:text-zinc-400 font-light">
-                  Füllen Sie dieses Formular aus. Ich antworte innerhalb von 24 Stunden.
+                  Ich antworte innerhalb von 24 Stunden.
                 </p>
               </div>
 

@@ -93,7 +93,7 @@ export default function Footer() {
             </Link>
 
             <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs text-sm">
-              I am a digital partner focusing on fast-loading, state-of-the-art tech and beautiful web design that pushes the boundaries of standard execution.
+              Studio Hampe. Ihr Ansprechpartner für Digitales.
             </p>
 
             <div className="flex gap-4">

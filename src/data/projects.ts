@@ -58,14 +58,14 @@ export const projects: Project[] = [
     slug: "chirurgie-garbsen-langenhagen",
     title: "Chirurgische Garbsen & Langenhagen",
     teaser:
-      "Homepage für die chirurgische und orthopädische Gemeinschaftspraxis mit zwei Standorten.",
-    cover: "/images/aaronthommy-music-site.svg",
+      "Die neue Homepage für die chirurgische und orthopädische Gemeinschaftspraxis in Garbsen und Langenhagen wird erneuert und geht bald live.",
+    cover: "/images/chirurgische-homepage-abstract-full.webp",
     category: "website",
-    technologies: ["React", "Canva", "NextJS", "Tailwind", "TypeScript", "Figma", "Google Analytics,"],
-    year: "2024",
-    client: "Chirurgische & Orthopädische Gemeinschaftspraxis",
+    technologies: ["React", "NextJS", "Tailwind", "TypeScript", "Figma", "Google Analytics"],
+    year: "2026",
+    client: "Chirurgische & Orthpädische",
     description:
-      "Eine moderne, performante Portfolio-Website für das Musikprojekt mit Fokus auf User Experience und schnelle Ladezeiten. Außerdem ist ein Gitarren-Tabulatur Generator enthalten + Mehrsprachigkeit.",
+      "Eine neue Website mit modernem Design, leicht erreichbarer Termin-Buchung und intelligenter SEO-Positionierung für die chirurgische und orthopädische Gemeinschaftspraxis in Garbsen und Langenhangen. Die Zusammenarbeit mit dem Ärzteteam verlief äußerst angenehm und geduldig. Zusammen arbeiten wir ",
     features: [
       "Responsive Design für alle Endgeräte",
       "Audio-Player Integration",
@@ -85,7 +85,7 @@ export const projects: Project[] = [
     title: "Klavierunterricht Lelia Hernández",
     teaser:
       "Klavierunterricht in Hannover List bei Lelia Hernández.",
-    cover: "/images/lelia.jpeg",
+    cover: "/images/lelia-laptop-homepage-full.webp",
     category: "website",
     technologies: ["Tailwind", "Nextjs", "React", "Cloudflare"],
     year: "2026",
