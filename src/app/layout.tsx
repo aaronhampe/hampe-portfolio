@@ -14,11 +14,11 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'HAMPE – IT‑ & AI‑gestützte Webentwicklung',
+    default: 'Studio HAMPE - Webentwicklung & Software Lösungen',
     template: '%s – HAMPE',
   },
   description:
-    'IT‑getriebene Webentwicklung: Websites, Webshops und Software für KMU – KI‑gestützt, DSGVO‑konform, in einer Woche live. Maßgeschneiderte IT‑Lösungen aus Hildesheim/Hannover.',
+    'Moderne Webentwicklung: Websites, Webshops und Software für KMU – KI‑gestützt, DSGVO‑konform, in einer Woche live. Maßgeschneiderte IT‑Lösungen aus Hildesheim/Hannover.',
   keywords: [
     'IT',
     'IT Dienstleistungen',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'HAMPE – IT‑ & AI‑gestützte Webentwicklung',
     description:
-      'IT‑ und KI‑gestützte Websites, Webshops und Software für kleine und mittelständische Unternehmen – schnell live, DSGVO‑konform, messbar mehr Leads.',
+      'KI‑gestützte Websites, Webshops und Software für kleine und mittelständische Unternehmen – schnell live, DSGVO‑konform, messbar mehr Leads.',
     type: 'website',
     locale: 'de_DE',
     siteName: 'HAMPE Webentwicklung & IT‑Services',

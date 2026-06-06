@@ -43,7 +43,11 @@ const TECH_MAP: Record<
   { icon: string; rgb: [number, number, number]; label?: string }
 > = {
   /* Frameworks */
-  nextjs: { icon: "simple-icons:nextdotjs", rgb: [0, 0, 0], label: "Next.js" },
+  nextjs: {
+    icon: "/icons/nextjs-icon-svgrepo-com.svg",
+    rgb: [0, 0, 0],
+    label: "Next.js",
+  },
   nuxt: {
     icon: "/icons/material-icon-theme--nuxt.svg",
     rgb: [0, 220, 130],
@@ -149,6 +153,11 @@ const TECH_MAP: Record<
     icon: "simple-icons:supabase",
     rgb: [16, 185, 129],
     label: "Supabase",
+  },
+  cloudflare: {
+    icon: "/icons/cloudflare-svgrepo-com.svg",
+    rgb: [244, 128, 36],
+    label: "Cloudflare",
   },
   docker: { icon: "simple-icons:docker", rgb: [36, 150, 237], label: "Docker" },
 

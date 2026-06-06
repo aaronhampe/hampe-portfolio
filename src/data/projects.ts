@@ -31,6 +31,8 @@ export const projects: Project[] = [
       "Vue",
       "JavaScript",
       "CSS",
+      "Sass",
+      "Google Analytics",
     ],
     year: "2023 - heute",
     client: "secutimetec GmbH",
@@ -50,6 +52,32 @@ export const projects: Project[] = [
       "6-Stellige Shopumsätze",
     ],
     liveUrl: "https://stt-shop.de",
+    status: "live",
+  },
+  {
+    slug: "chirurgie-garbsen-langenhagen",
+    title: "Chirurgische Garbsen & Langenhagen",
+    teaser:
+      "Homepage für die chirurgische und orthopädische Gemeinschaftspraxis mit zwei Standorten.",
+    cover: "/images/aaronthommy-music-site.svg",
+    category: "website",
+    technologies: ["React", "Canva", "NextJS", "Tailwind", "TypeScript", "Figma", "Google Analytics,"],
+    year: "2024",
+    client: "Chirurgische & Orthopädische Gemeinschaftspraxis",
+    description:
+      "Eine moderne, performante Portfolio-Website für das Musikprojekt mit Fokus auf User Experience und schnelle Ladezeiten. Außerdem ist ein Gitarren-Tabulatur Generator enthalten + Mehrsprachigkeit.",
+    features: [
+      "Responsive Design für alle Endgeräte",
+      "Audio-Player Integration",
+      "Gitarren-Tabulatur Generator",
+      "Mehrsprachigkeit",
+    ],
+    results: [
+      "50% bessere Core Web Vitals",
+      "Erhöhte Streaming-Zahlen",
+      "Professionelle Online-Präsenz",
+    ],
+    liveUrl: "https://aaronthommy.com",
     status: "live",
   },
   {
@@ -75,32 +103,6 @@ export const projects: Project[] = [
       "Deutlich gesteigerte Klick-Zahlen"
     ],
     liveUrl: "https://lelias-klavier-hannover.de",
-    status: "live",
-  },
-  {
-    slug: "nuxt-musician-site",
-    title: "Music Site",
-    teaser:
-      "Eine schlanke Portfolio-Site für das Musikprojekt aaronthommy – gebaut mit Nuxt 4 und Tailwind.",
-    cover: "/images/aaronthommy-music-site.svg",
-    category: "website",
-    technologies: ["Nuxt", "Vue", "Tailwind", "TypeScript", "Figma"],
-    year: "2024",
-    client: "Künstlerprojekt",
-    description:
-      "Eine moderne, performante Portfolio-Website für das Musikprojekt mit Fokus auf User Experience und schnelle Ladezeiten. Außerdem ist ein Gitarren-Tabulatur Generator enthalten + Mehrsprachigkeit.",
-    features: [
-      "Responsive Design für alle Endgeräte",
-      "Audio-Player Integration",
-      "Gitarren-Tabulatur Generator",
-      "Mehrsprachigkeit",
-    ],
-    results: [
-      "50% bessere Core Web Vitals",
-      "Erhöhte Streaming-Zahlen",
-      "Professionelle Online-Präsenz",
-    ],
-    liveUrl: "https://aaronthommy.com",
     status: "live",
   },
   {

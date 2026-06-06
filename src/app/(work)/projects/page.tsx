@@ -47,6 +47,7 @@ const ALIASES: Record<string, string> = {
   shopifyliquid: "shopify",
   shopifycli: "shopify",
   muxvideo: "mux",
+  canva: "canva",
 };
 
 const TECH_MAP: Record<
@@ -54,7 +55,11 @@ const TECH_MAP: Record<
   { icon: string; rgb: [number, number, number]; label?: string }
 > = {
   /* Frameworks */
-  nextjs: { icon: "simple-icons:nextdotjs", rgb: [0, 0, 0], label: "Next.js" },
+  nextjs: {
+    icon: "/icons/nextjs-icon-svgrepo-com.svg",
+    rgb: [0, 0, 0],
+    label: "Next.js",
+  },
   nuxt: { icon: "/icons/material-icon-theme--nuxt.svg", rgb: [0, 220, 130], label: "Nuxt" },
   react: { icon: "/icons/logos--react.svg", rgb: [97, 218, 251], label: "React" },
   vue: { icon: "/icons/logos--vue.svg", rgb: [65, 184, 131], label: "Vue" },
@@ -65,6 +70,7 @@ const TECH_MAP: Record<
     rgb: [0, 0, 0],
     label: "Three.js",
   },
+  canva: { icon: "/icons/canva-icon.svg",rgb: [97, 218, 251], label: "Canva" },
   astro: { icon: "simple-icons:astro", rgb: [255, 93, 1], label: "Astro" },
   wix: { icon: "/icons/logos--wix.svg", rgb: [0, 0, 0], label: "Wix" },
   vite: { icon: "simple-icons:vite", rgb: [100, 108, 255], label: "Vite" },
@@ -132,6 +138,11 @@ const TECH_MAP: Record<
     icon: "simple-icons:supabase",
     rgb: [16, 185, 129],
     label: "Supabase",
+  },
+  cloudflare: {
+    icon: "/icons/cloudflare-svgrepo-com.svg",
+    rgb: [244, 128, 36],
+    label: "Cloudflare",
   },
   docker: { icon: "simple-icons:docker", rgb: [36, 150, 237], label: "Docker" },
 
