@@ -60,12 +60,24 @@ const TECH_MAP: Record<
     rgb: [0, 0, 0],
     label: "Next.js",
   },
-  nuxt: { icon: "/icons/material-icon-theme--nuxt.svg", rgb: [0, 220, 130], label: "Nuxt" },
+  nuxt: {
+    icon: "/icons/material-icon-theme--nuxt.svg",
+    rgb: [0, 220, 130],
+    label: "Nuxt",
+  },
   canva: { icon: "/icons/canva-icon.svg", rgb: [97, 218, 251], label: "Canva" },
-  react: { icon: "/icons/logos--react.svg", rgb: [97, 218, 251], label: "React" },
+  react: {
+    icon: "/icons/logos--react.svg",
+    rgb: [97, 218, 251],
+    label: "React",
+  },
   vue: { icon: "/icons/logos--vue.svg", rgb: [65, 184, 131], label: "Vue" },
   php: { icon: "/icons/file-icons--php.svg", rgb: [0, 43, 123], label: "PHP" },
-  elementor: { icon: "/icons/simple-icons--elementor.svg", rgb: [187, 105, 215], label: "Elementor" },
+  elementor: {
+    icon: "/icons/simple-icons--elementor.svg",
+    rgb: [187, 105, 215],
+    label: "Elementor",
+  },
   threejs: {
     icon: "simple-icons:threedotjs",
     rgb: [0, 0, 0],
@@ -74,8 +86,16 @@ const TECH_MAP: Record<
   astro: { icon: "simple-icons:astro", rgb: [255, 93, 1], label: "Astro" },
   wix: { icon: "/icons/logos--wix.svg", rgb: [0, 0, 0], label: "Wix" },
   vite: { icon: "simple-icons:vite", rgb: [100, 108, 255], label: "Vite" },
-  googleanalytics: { icon: "/icons/logos--google-analytics.svg", rgb: [227, 115, 0], label: "Google Analytics" },
-  liquid: { icon: "/icons/catppuccin--liquid.svg", rgb: [138, 173, 244], label: "Liquid" },
+  googleanalytics: {
+    icon: "/icons/logos--google-analytics.svg",
+    rgb: [227, 115, 0],
+    label: "Google Analytics",
+  },
+  liquid: {
+    icon: "/icons/catppuccin--liquid.svg",
+    rgb: [138, 173, 244],
+    label: "Liquid",
+  },
   /* Web Core */
   typescript: {
     icon: "/icons/devicon--typescript.svg",
@@ -88,13 +108,21 @@ const TECH_MAP: Record<
     label: "JavaScript",
   },
   html5: { icon: "simple-icons:html5", rgb: [227, 79, 38], label: "HTML5" },
-  css: { icon: "/icons/skill-icons--css.svg", rgb: [38, 77, 228], label: "CSS" },
+  css: {
+    icon: "/icons/skill-icons--css.svg",
+    rgb: [38, 77, 228],
+    label: "CSS",
+  },
   tailwind: {
     icon: "/icons/devicon--tailwindcss.svg",
     rgb: [56, 189, 248],
     label: "Tailwind CSS",
   },
-  sass: { icon: "/icons/vscode-icons--file-type-scss2.svg", rgb: [204, 102, 153], label: "Sass" },
+  sass: {
+    icon: "/icons/vscode-icons--file-type-scss2.svg",
+    rgb: [204, 102, 153],
+    label: "Sass",
+  },
 
   /* Backend / Runtime */
   node: {
@@ -170,8 +198,16 @@ const TECH_MAP: Record<
   },
 
   /* Design & Others */
-  figma: { icon: "/icons/devicon--figma.svg", rgb: [10, 207, 131], label: "Figma" },
-  python: { icon: "/icons/logos--python.svg", rgb: [55, 118, 171], label: "Python" },
+  figma: {
+    icon: "/icons/devicon--figma.svg",
+    rgb: [10, 207, 131],
+    label: "Figma",
+  },
+  python: {
+    icon: "/icons/logos--python.svg",
+    rgb: [55, 118, 171],
+    label: "Python",
+  },
 };
 
 const norm = (s: string) =>
@@ -202,9 +238,7 @@ function TechBadge({ tech }: TechBadgeProps) {
   const isLocal = typeof conf.icon === "string" && conf.icon.startsWith("/");
 
   return (
-    <span
-      className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 transition-colors duration-300 hover:bg-zinc-200 dark:hover:bg-zinc-700"
-    >
+    <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 border border-zinc-200 dark:border-zinc-700 transition-colors duration-300 hover:bg-zinc-200 dark:hover:bg-zinc-700">
       {isLocal ? (
         <Image
           src={conf.icon}
@@ -286,7 +320,7 @@ export default function ProjectsPage() {
       active === "all"
         ? projects
         : projects.filter((p) => p.category === active),
-    [active]
+    [active],
   );
 
   return (
@@ -300,15 +334,38 @@ export default function ProjectsPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-16 md:pt-48 md:pb-24 overflow-hidden border-b border-zinc-200 dark:border-zinc-800">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-        
+
         <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10 flex flex-col md:flex-row justify-between items-end gap-12">
           <div className="space-y-6 max-w-3xl">
-            <h1 className="text-[10vw] md:text-[8vw] lg:text-[7vw] leading-[0.9] font-medium tracking-[-0.04em] text-zinc-950 dark:text-white uppercase uppercase">
+            <h1 className="text-[7vw] md:text-[7vw] lg:text-[5vw] leading-[0.9] font-medium tracking-[-0.04em] text-zinc-950 dark:text-white uppercase uppercase">
               Portfolio
             </h1>
             <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed">
-              Ausgewählte Arbeiten, die <span className="font-serif italic">Standards setzen.</span>
+              Ein Einblick in{" "}
+              <span className="font-serif italic">
+                meine Projekte und Arbeit.
+              </span>
             </p>
+            <Link
+              href="https://github.com/aaronhampe"
+              className={
+                "hidden md:inline-flex items-center justify-center px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 dark:focus-visible:ring-zinc-950 focus-visible:ring-zinc-50 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-zinc-900 hover:scale-[1.02] active:scale-95"
+              }
+            >
+              Zu meinem Github&nbsp;
+              <svg
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </Link>
           </div>
 
           {/* Minimalist Stats */}
@@ -324,7 +381,14 @@ export default function ProjectsPage() {
             <div className="w-px bg-zinc-300 dark:bg-zinc-700"></div>
             <div>
               <div className="text-4xl md:text-5xl font-medium text-zinc-950 dark:text-white mb-1">
-                <CountUp from={0} to={20} separator="" direction="up" duration={2} />+
+                <CountUp
+                  from={0}
+                  to={17}
+                  separator=""
+                  direction="up"
+                  duration={2}
+                />
+                +
               </div>
               <div className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">
                 Kunden
@@ -333,7 +397,14 @@ export default function ProjectsPage() {
             <div className="w-px hidden sm:block bg-zinc-300 dark:bg-zinc-700"></div>
             <div className="hidden sm:block">
               <div className="text-4xl md:text-5xl font-medium text-zinc-950 dark:text-white mb-1">
-                <CountUp from={0} to={6} separator="" direction="up" duration={2} />+
+                <CountUp
+                  from={0}
+                  to={6}
+                  separator=""
+                  direction="up"
+                  duration={2}
+                />
+                +
               </div>
               <div className="text-xs font-semibold text-zinc-500 uppercase tracking-widest">
                 Jahre
@@ -342,9 +413,6 @@ export default function ProjectsPage() {
           </div>
         </div>
       </section>
-
-      {/* Filter Section */}
-      
 
       {/* Projects Feed - Brutalist/Editorial */}
       <section className="py-24 md:py-40">
@@ -361,7 +429,9 @@ export default function ProjectsPage() {
                   className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
                 >
                   {/* Image Container */}
-                  <div className={`col-span-1 lg:col-span-8 overflow-hidden rounded-[2rem] bg-zinc-200 dark:bg-zinc-800 aspect-[4/3] md:aspect-[16/10] relative ${index % 2 === 1 ? 'lg:order-last' : ''}`}>
+                  <div
+                    className={`col-span-1 lg:col-span-8 overflow-hidden rounded-[2rem] bg-zinc-200 dark:bg-zinc-800 aspect-[4/3] md:aspect-[16/10] relative ${index % 2 === 1 ? "lg:order-last" : ""}`}
+                  >
                     <Image
                       src={project.cover}
                       alt={project.title}
@@ -373,9 +443,11 @@ export default function ProjectsPage() {
                   </div>
 
                   {/* Text Container - Editorial */}
-                  <div className={`col-span-1 lg:col-span-4 flex flex-col ${index % 2 === 1 ? 'lg:order-first' : ''}`}>
+                  <div
+                    className={`col-span-1 lg:col-span-4 flex flex-col ${index % 2 === 1 ? "lg:order-first" : ""}`}
+                  >
                     <div className="mb-8">
-                       <span className="text-6xl md:text-8xl font-light text-zinc-200 dark:text-zinc-800 font-serif italic block mb-4">
+                      <span className="text-6xl md:text-8xl font-light text-zinc-200 dark:text-zinc-800 font-serif italic block mb-4">
                         {String(index + 1).padStart(2, "0")}
                       </span>
                       <div className="inline-flex items-center px-3 py-1 mb-6 rounded-full border border-zinc-300 dark:border-zinc-700 text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-widest">
@@ -400,8 +472,8 @@ export default function ProjectsPage() {
                             (resolveTech(a).label ?? a).localeCompare(
                               resolveTech(b).label ?? b,
                               "de",
-                              { sensitivity: "base" }
-                            )
+                              { sensitivity: "base" },
+                            ),
                           )
                           .map((tech: string) => (
                             <TechBadge key={tech} tech={tech} />
@@ -425,10 +497,21 @@ export default function ProjectsPage() {
                         )}
                       </div>
                       <div className="w-12 h-12 rounded-full border border-zinc-300 dark:border-zinc-700 flex items-center justify-center group-hover:scale-110 group-hover:bg-zinc-950 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-zinc-950 transition-all duration-300">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={1.5}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </svg>
                       </div>
                     </div>
-
                   </div>
                 </Link>
               </div>
@@ -441,14 +524,14 @@ export default function ProjectsPage() {
       <section className="py-32 md:py-48 bg-zinc-950 text-white relative overflow-hidden">
         <div className="container mx-auto px-4 md:px-8 max-w-7xl text-center relative z-10">
           <div className="flex flex-col items-center max-w-4xl mx-auto">
-            
             <h2 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter mb-8 leading-[1.0] w-full">
               Ein Projekt <br />
               <span className="text-zinc-500 font-serif italic">im Kopf?</span>
             </h2>
-            
+
             <p className="text-xl md:text-2xl text-zinc-400 font-light mb-16 max-w-2xl">
-              Lassen Sie uns gemeinsam eine digitale Erfahrung schaffen, die Maßstäbe setzt und Ihr Business beschleunigt.
+              Lassen Sie uns gemeinsam eine digitale Erfahrung schaffen, die
+              Maßstäbe setzt und Ihr Business beschleunigt.
             </p>
 
             <Link
@@ -457,11 +540,10 @@ export default function ProjectsPage() {
             >
               Projekt starten
             </Link>
-
           </div>
         </div>
       </section>
-      
+
       {/* Global Animation Styles */}
       <style jsx global>{`
         @keyframes fadeIn {

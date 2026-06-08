@@ -16,7 +16,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-end">
             <div className="lg:col-span-8 space-y-6">
-              <h1 className="text-[10vw] md:text-[8vw] lg:text-[7vw] leading-[0.9] font-medium tracking-[-0.04em] text-zinc-950 dark:text-white uppercase">
+              <h1 className="text-[8vw] md:text-[6vw] lg:text-[6vw] leading-[0.9] font-medium tracking-[-0.04em] text-zinc-950 dark:text-white uppercase">
                 Über mich
               </h1>
               <p className="text-xl md:text-3xl text-zinc-600 dark:text-zinc-400 font-light leading-relaxed max-w-3xl">
