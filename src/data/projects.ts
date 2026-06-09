@@ -122,6 +122,7 @@ export const projects: Project[] = [
       "Responsives Webdesign",
       "Kontaktformular"
     ],
+    liveUrl: "https://chirurgie-barsinghausen.de/",
     status: "live",
   },
   {
