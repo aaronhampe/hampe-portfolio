@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               telephone: '+49 151 29574884',
               email: 'info@aaronhampe.de',
               description:
-                'KI‑getriebene Webentwicklung und Beratung: Websites, Webshops, Software, IT‑Integration und Support für KMU.',
+                'Webentwicklung und Beratung: Websites, Webshops, Software, IT‑Integration und Support für KMU.',
               serviceType: ['IT‑Beratung', 'Webentwicklung', 'E‑Commerce', 'Softwareentwicklung', 'IT‑Support'],
               keywords: 'IT, IT Dienstleistungen,KI-Entwicklung, AI, KI, IT Beratung, IT Service, Webentwicklung, Hannover, Hildesheim',
             }),
