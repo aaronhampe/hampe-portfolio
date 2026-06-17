@@ -5,10 +5,8 @@ import "vanilla-cookieconsent/dist/cookieconsent.css";
 // NOTE: Falls du die CSS global customizen willst: überschreibe die Klassen in globals.css nach dem Import.
 // Minimaler Setup mit Kategorien (necessary, functional, analytics, marketing)
 
-// Kleine Erweiterung des Window-Typs für unsere Consent-Bridge (top-level)
 declare global {
   interface Window {
-    updateAnalyticsConsent?: (granted: boolean) => void;
     // Exponiere die CookieConsent API (Namespace) global, damit Buttons sie nutzen können
     cc?: CookieConsentAPI;
   }
@@ -38,6 +36,21 @@ type CookieConsentAPI = {
 
 export default function CookieConsent() {
   useEffect(() => {
+    const loadPlausible = () => {
+      const existing = document.querySelector('script[data-plausible]');
+      if (existing) {
+        return;
+      }
+
+      const s = document.createElement('script');
+      s.setAttribute('data-domain', 'TODO-DOMAIN'); // TODO: Domain eintragen
+      s.setAttribute('data-api', '/api/event'); // optional für Proxy
+      s.defer = true;
+      (s as HTMLScriptElement).dataset.plausible = 'true';
+      s.src = 'https://plausible.io/js/script.js'; // oder eigenes self-hosted Script
+      document.head.appendChild(s);
+    };
+
     // Lazy import to avoid SSR issues; unterstütze sowohl ESM als auch UMD Formate
       type ModuleShape = { default?: CookieConsentAPI; run?: CookieConsentAPI['run'] };
       interface UMDGlobal { CookieConsent?: CookieConsentAPI }
@@ -132,29 +145,14 @@ export default function CookieConsent() {
         },
         onConsent: (ctx: CookieConsentCtx) => {
           const granted = Array.isArray(ctx.cookie.categories) && ctx.cookie.categories.includes("analytics");
-          // GA Consent Bridge
-          if (typeof window.updateAnalyticsConsent === 'function') {
-            window.updateAnalyticsConsent(granted);
-          }
           if (granted) {
-            // Dynamisches Laden von Plausible erst nach Einwilligung
-            const existing = document.querySelector('script[data-plausible]');
-            if (!existing) {
-              const s = document.createElement('script');
-              s.setAttribute('data-domain', 'TODO-DOMAIN'); // TODO: Domain eintragen
-              s.setAttribute('data-api', '/api/event'); // optional für Proxy
-              s.defer = true;
-                (s as HTMLScriptElement).dataset.plausible = 'true';
-              s.src = 'https://plausible.io/js/script.js'; // oder eigenes self-hosted Script
-              document.head.appendChild(s);
-            }
+            loadPlausible();
           }
         },
         onChange: (ctx: CookieConsentCtx & { changedCategories?: string[] }) => {
-          // Änderungen der Auswahl → Consent für GA aktualisieren
           const granted = Array.isArray(ctx.cookie.categories) && ctx.cookie.categories.includes('analytics');
-          if (typeof window.updateAnalyticsConsent === 'function') {
-            window.updateAnalyticsConsent(granted);
+          if (granted) {
+            loadPlausible();
           }
         },
       };
