@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/next-script-for-ga */
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import ClientHeader from '@/components/ClientHeader';
@@ -6,11 +8,9 @@ import { ThemeProvider } from '@/components/ThemeProvider';
 import PlausibleProvider from 'next-plausible';
 import CookieConsent from '@/components/CookieConsent';
 import { CookieSettingsButton } from '@/components/CookieSettingsButton';
-import ClientAnalytics from '../components/ClientAnalytics';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
-const GA_TRACKING_ID = 'G-2L6Y8KV74Y';
 
 export const metadata: Metadata = {
   title: {
@@ -60,48 +60,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" className={inter.className}>
       <head>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2L6Y8KV74Y" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              window.gtag = window.gtag || gtag;
-              window.gaConsentGranted = false;
 
               gtag('js', new Date());
-              gtag('consent', 'default', {
-                analytics_storage: 'denied',
-                ad_storage: 'denied',
-                functionality_storage: 'granted',
-                security_storage: 'granted'
-              });
-              gtag('config', '${GA_TRACKING_ID}', {
-                send_page_view: false
-              });
-
-              window.updateAnalyticsConsent = function(granted) {
-                var wasGranted = window.gaConsentGranted === true;
-                var status = granted ? 'granted' : 'denied';
-
-                window.gaConsentGranted = granted === true;
-                gtag('consent', 'update', { analytics_storage: status });
-
-                if (granted && !wasGranted) {
-                  window.dispatchEvent(new Event('analytics-consent-granted'));
-                }
-
-                try {
-                  localStorage.setItem('analytics_consent', status);
-                } catch (error) {}
-              };
-
-              try {
-                if (localStorage.getItem('analytics_consent') === 'granted') {
-                  window.gaConsentGranted = true;
-                  gtag('consent', 'update', { analytics_storage: 'granted' });
-                }
-              } catch (error) {}
+              gtag('config', 'G-2L6Y8KV74Y');
             `,
           }}
         />
@@ -121,8 +88,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </ThemeProvider>
         </PlausibleProvider>
-        {/* Schlankes Client-Island für page_view Ereignisse auf Route-Change */}
-        <ClientAnalytics />
         {/* JSON-LD: ProfessionalService mit IT‑Fokus */}
         <script
           type="application/ld+json"
