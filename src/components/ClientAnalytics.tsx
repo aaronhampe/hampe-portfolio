@@ -18,11 +18,22 @@ export default function ClientAnalytics() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (!window.gaConsentGranted || !window.gtag) return;
-    // Send page_view on route change (after consent was granted)
-    window.gtag("config", "G-2L6Y8KV74Y", {
-      page_path: pathname,
-    });
+
+    const trackPageView = () => {
+      if (!window.gaConsentGranted || !window.gtag) return;
+
+      window.gtag("config", "G-2L6Y8KV74Y", {
+        anonymize_ip: true,
+        page_path: pathname,
+      });
+    };
+
+    trackPageView();
+    window.addEventListener("analytics-consent-granted", trackPageView);
+
+    return () => {
+      window.removeEventListener("analytics-consent-granted", trackPageView);
+    };
   }, [pathname]);
 
   return null;
