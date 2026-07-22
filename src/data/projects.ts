@@ -93,15 +93,10 @@ export const projects: Project[] = [
     description:
       "Eine neue Website mit modernem Design, leicht erreichbarer Termin-Buchung und intelligenter SEO-Positionierung für die chirurgische und orthopädische Gemeinschaftspraxis in Garbsen und Langenhangen. Die Zusammenarbeit mit dem Ärzteteam verläuft äußerst angenehm. Gemeinmsam gestalten wir der neuen Web-Präsenz der beiden Praxen.",
     features: [
-      "Responsive Design für alle Endgeräte",
-      "Audio-Player Integration",
-      "Gitarren-Tabulatur Generator",
-      "Mehrsprachigkeit",
+      "In Bearbeitung..."
     ],
     results: [
-      "Deutlich schnellere Ladezeiten und bessere CWV",
-      "Bessere Orientierung für den Patienten",
-      "Professionelle Online-Präsenz",
+      "In Bearbeitung..."
     ],
     liveUrl: "",
     status: "development",
